@@ -123,7 +123,7 @@
 	content: "\e620";
 }
 .ti-mobile:before {
-	content: "\e621";
+	/* content: "\e621"; */
 }
 .ti-minus:before {
 	content: "\e622";
@@ -510,7 +510,7 @@
 	content: "\e6a1";
 }
 .ti-filter:before {
-	content: "\e6a2";
+	/* content: "\e6a2"; */
 }
 .ti-files:before {
 	content: "\e6a3";
@@ -648,7 +648,8 @@
 	content: "\e6cf";
 }
 .ti-vector:before {
-	content: "\e6d0";
+	/* background-image: url("https://www.flaticon.com/free-icons/embedded"); */
+	/* content: url("https://www.flaticon.com/free-icons/embedded"); */
 }
 .ti-themify-logo:before {
 	content: "\e6d1";
