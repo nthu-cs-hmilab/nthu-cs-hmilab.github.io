@@ -5279,9 +5279,9 @@ input[type="button"].btn-block {
 
 @media (min-width: 576px) {
   .card-columns {
-    -webkit-column-count: 3;
-       -moz-column-count: 3;
-            column-count: 3;
+    -webkit-column-count: 5;
+       -moz-column-count: 5;
+            column-count: 5;
     -webkit-column-gap: 1.25rem;
        -moz-column-gap: 1.25rem;
             column-gap: 1.25rem;
@@ -11912,7 +11912,7 @@ section.has-bg-img.bg-img-1:after {
 }
 
 section.has-bg-img.bg-img-2:after {
-  background-image: url(../imgs/header.jpg);
+  background-image: url(../imgs/header.png);
 }
 
 section .section-subtitle {
