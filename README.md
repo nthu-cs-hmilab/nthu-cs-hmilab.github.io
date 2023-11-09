@@ -7,5 +7,5 @@
 3. Copy the repeated pattern, and change it with new content 
 4. If new content contains photo, remember to upload photo in "assets/imgs folder"
 5. Cropped photos before upload them might help keeping the format
-6. Remember to git add ./ git commit -m ""/ git push origin
+6. Remember to git add ./ git commit -m ""/ git config --local credential.helper ""/ git push origin
 7. After few minutes, you can see website's changes from Settings/Pages, or you may need to clear Chrome's cache
