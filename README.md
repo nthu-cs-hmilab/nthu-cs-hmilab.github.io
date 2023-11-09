@@ -1,7 +1,7 @@
 # Website of HMILab
 
 ## How to add contents
-0. You will need PR to git push, if you do not login as administrator
+0. You will need PR to git push, if you do not login as administrator. You will need gmail and github account of hmilab to login as administrator.
 1. Search for target section name in "index.html"
 2. Copy the repeated pattern, and change it with new content 
 3. If new content contains photo, remember to upload photo in "assets/imgs folder"
