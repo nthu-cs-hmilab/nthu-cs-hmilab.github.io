@@ -248,11 +248,25 @@
     <!-- End of research Section -->
 
     <!-- Album section -->
-    <section id="portfolio">
-      <div class="container text-center">
-        <h6 class="section-subtitle">Precious Memories</h6>
-        <h6 class="section-title mb-5">HMILAB Album</h6>
-        <div class="row">
+<section id="portfolio">
+  <div class="container text-center">
+    <h6 class="section-subtitle">Precious Memories</h6>
+
+    <!-- Dropdown Trigger -->
+    <h6 class="section-title mb-5">
+      <span data-bs-toggle="collapse" data-bs-target="#albumList" role="button" 
+            aria-expanded="false" aria-controls="albumList"
+            style="cursor:pointer; text-decoration: underline;">
+        HMILAB Album <span id="albumArrow" style="font-size:0.8em;">▼</span>
+      </span>
+    </h6>
+
+    <!-- Collapsible Content -->
+    <div class="collapse" id="albumList" 
+         onshow="document.getElementById('albumArrow').innerText='▲';" 
+         onhide="document.getElementById('albumArrow').innerText='▼';">
+
+      <div class="row">
           <!-- 2025 Events -->
           <div class="col-sm-4">
             <div class="img-wrapper">
