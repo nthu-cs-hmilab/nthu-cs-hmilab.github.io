@@ -12515,43 +12515,134 @@ section .section-title {
 ========================= */
 
 .team-section {
-  padding: 80px 0;
+  padding: 96px 0;
+  background: #f8fafc;
 }
 
 .team-section .container {
   max-width: 1360px;
 }
 
+.team-section .section-header {
+  margin-bottom: 56px;
+  text-align: center;
+}
+
+.team-section .section-subtitle {
+  display: block;
+  margin: 0 0 10px;
+  text-align: center;
+}
+
+.team-section .section-title {
+  margin: 0;
+  text-align: center;
+}
+
+/* shared group width */
 .team-group {
-  margin-bottom: 64px;
+  max-width: 920px;
+  margin: 0 auto 22px;
+}
+
+.team-group-pi {
+  margin-bottom: 36px;
+}
+
+.team-group-head {
+  margin-bottom: 22px;
+  text-align: center;
 }
 
 .team-role {
-  margin-bottom: 24px;
-  text-align: center;
-  font-size: 1.05rem;
-  font-weight: 600;
-  letter-spacing: 0.02em;
+  margin: 0;
+  font-size: 1.02rem;
+  font-weight: 700;
+  line-height: 1.4;
+  color: #374151;
+}
+
+/* collapsible headers */
+.team-toggle-wrap {
+  display: flex;
+  justify-content: center;
+}
+
+.team-toggle {
+  width: 100%;
+  max-width: 920px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px 24px;
+  border: 1px solid #e5e7eb;
+  border-radius: 18px;
+  background: #ffffff;
+  color: #111827;
+  text-align: left;
+  box-shadow: 0 4px 18px rgba(15, 23, 42, 0.05);
+  transition: border-color 0.22s ease, box-shadow 0.22s ease, transform 0.22s ease;
+}
+
+.team-toggle:hover {
+  border-color: #d1d5db;
+  box-shadow: 0 10px 26px rgba(15, 23, 42, 0.08);
+  transform: translateY(-1px);
+}
+
+.team-toggle:focus {
+  outline: none;
+  border-color: #cbd5e1;
+  box-shadow: 0 0 0 4px rgba(148, 163, 184, 0.12);
+}
+
+.team-toggle-text {
+  display: flex;
+  align-items: center;
+  min-width: 0;
+}
+
+.team-toggle-title {
+  font-size: 1.02rem;
+  font-weight: 700;
+  line-height: 1.4;
+  color: #1f2937;
+}
+
+.team-toggle-arrow {
+  flex-shrink: 0;
+  font-size: 1rem;
   color: #6b7280;
+  transition: transform 0.22s ease, color 0.22s ease;
 }
 
+.team-toggle[aria-expanded="true"] .team-toggle-arrow {
+  transform: rotate(180deg);
+  color: #111827;
+}
+
+/* member grid */
 .team-grid {
-  row-gap: 2rem;
+  row-gap: 1.8rem;
+  padding-top: 6px;
 }
 
+/* card */
 .team-card {
-  max-width: 180px;
+  max-width: 140px;
   margin: 0 auto;
   text-align: center;
 }
 
 .team-photo-wrapper {
-  width: 100%;
-  aspect-ratio: 1 / 1;
+  width: 140px;
+  height: 140px;
+  margin: 0 auto;
   overflow: hidden;
   border-radius: 16px;
   background: #eef1f4;
-  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.08);
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.07);
 }
 
 .team-photo {
@@ -12559,7 +12650,7 @@ section .section-title {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 25%;
+  object-position: center 20%;
 }
 
 .team-card-body {
@@ -12568,77 +12659,72 @@ section .section-title {
 
 .team-name-en {
   margin: 0 0 4px;
-  font-size: 0.96rem;
+  font-size: 0.9rem;
   font-weight: 600;
   line-height: 1.4;
-  color: #1f2937;
+  color: #111827;
   word-break: break-word;
 }
 
 .team-name-zh {
   margin: 0;
-  font-size: 0.84rem;
+  font-size: 0.8rem;
   line-height: 1.35;
   color: #6b7280;
 }
 
-.team-toggle-wrap {
-  text-align: center;
+/* spacing after collapse content */
+.collapse .team-grid {
+  margin-top: 0.5rem;
 }
 
-.team-toggle {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 0;
-  border: none;
-  background: transparent;
-  color: #4b5563;
-  font-size: 1rem;
-  font-weight: 600;
-  cursor: pointer;
-}
-
-.team-toggle-label {
-  border-bottom: 1px solid rgba(75, 85, 99, 0.35);
-  padding-bottom: 2px;
-}
-
-.team-toggle-arrow {
-  font-size: 0.78em;
-  transition: transform 0.22s ease;
-}
-
-.team-toggle[aria-expanded="true"] .team-toggle-arrow {
-  transform: rotate(180deg);
-}
-
-#alumnusList {
-  margin-top: 24px;
-}
-
+/* responsive */
 @media (max-width: 768px) {
   .team-section {
-    padding: 64px 0;
+    padding: 72px 0;
   }
 
   .team-group {
-    margin-bottom: 52px;
+    max-width: 100%;
+    margin-bottom: 18px;
+  }
+
+  .team-group-pi {
+    margin-bottom: 28px;
+  }
+
+  .team-group-head {
+    margin-bottom: 18px;
+  }
+
+  .team-toggle {
+    padding: 16px 18px;
+    border-radius: 16px;
+  }
+
+  .team-role,
+  .team-toggle-title {
+    font-size: 0.96rem;
   }
 
   .team-card {
-    max-width: 160px;
+    max-width: 128px;
+  }
+
+  .team-photo-wrapper {
+    width: 128px;
+    height: 128px;
+    border-radius: 14px;
   }
 
   .team-name-en {
-    font-size: 0.9rem;
+    font-size: 0.86rem;
   }
 
   .team-name-zh {
-    font-size: 0.8rem;
+    font-size: 0.78rem;
   }
 }
-
 /* =========================
    Shared Section
 ========================= */
