@@ -26,7 +26,7 @@
   </head>
 
   <body data-spy="scroll" data-target=".navbar" data-offset="40" id="home">
-    <!-- Navigation -->
+    <!-- Page Navigation -->
     <nav
       class="navbar custom-navbar navbar-expand-lg navbar-dark"
       data-spy="affix"
@@ -51,45 +51,60 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav ml-auto align-items-lg-center">
-            <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
-            <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-            <li class="nav-item"><a class="nav-link" href="#service">Research</a></li>
-            <li class="nav-item"><a class="nav-link" href="#portfolio">Album</a></li>
-            <li class="nav-item"><a class="nav-link" href="#team">Team</a></li>
-            <li class="nav-item"><a class="nav-link" href="#testimonial">Collaborators</a></li>
-            <li class="nav-item"><a class="nav-link" href="#blog">News</a></li>
-            <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+            <li class="nav-item">
+              <a class="nav-link" href="#home">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#about">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#service">Research</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#portfolio">Album</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#team">Team</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#testimonial">Collaborators</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#blog">News</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contact">Contact</a>
+            </li>
           </ul>
         </div>
       </div>
     </nav>
-    <!-- End Navigation -->
+    <!-- End Of Page Navigation -->
 
-    <!-- Header -->
-    <header class="header hero-section">
+    <!-- Page Header -->
+    <header class="header hero-section" id="home">
       <div class="overlay">
-        <div class="container text-center">
+        <div class="container text-center hero-content">
           <p class="hero-kicker">National Tsing Hua University</p>
           <h1 class="title">HMI Lab</h1>
-          <p class="subtitle">
-            Human-Centered Machine Intelligence Lab
-          </p>
+          <p class="subtitle">Human-Centered Machine Intelligence Lab</p>
           <p class="hero-description mx-auto">
-            We study human intelligence and build trustworthy AI systems for healthcare,
-            neuroscience, and human-centered computing.
+            We study human intelligence and develop trustworthy AI systems for
+            healthcare, neuroscience, and human-centered computing.
           </p>
+
           <div class="buttons text-center">
-            <a href="#service" class="btn btn-primary rounded w-lg btn-lg my-1">
+            <a href="#service" class="btn btn-primary rounded btn-lg hero-btn-primary">
               Explore Research
             </a>
-            <a href="#contact" class="btn btn-outline-light rounded w-lg btn-lg my-1">
-              Contact Us
+            <a href="#contact" class="btn btn-outline-light rounded btn-lg hero-btn-secondary">
+              Contact
             </a>
           </div>
         </div>
       </div>
     </header>
-    <!-- End Header -->
+    <!-- End Of Page Header -->
 
     <!-- Highlight Box -->
     <section class="lab-highlights">
@@ -862,62 +877,70 @@
   </div>
 </section>
 <!-- End News Section -->
- 
+
 <!-- Contact Section -->
-<section id="contact" class="contact-section">
+<section class="has-bg-img py-0" id="contact">
   <div class="container">
     <div class="footer">
-      <div class="footer-grid">
-        <div class="footer-col">
-          <h6 class="footer-title">About the Lab</h6>
-          <a href="#home" class="footer-logo">
-            <img src="assets/imgs/logo.png" alt="HMI Lab logo" />
-            <span>HMI Lab</span>
-          </a>
-          <p>
-            Department of Computer Science<br />
-            National Tsing Hua University<br />
-            Human-Centered Machine Intelligence Lab
-          </p>
-        </div>
-
-        <div class="footer-col">
-          <h6 class="footer-title">Useful Links</h6>
-          <p>
-            <a
-              href="https://sites.google.com/site/bfantasykuo/Home"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Professor's Site
+      <div class="footer-lists">
+        <ul class="list">
+          <li class="list-head">
+            <h6 class="font-weight-bold">ABOUT THE LAB</h6>
+          </li>
+          <li class="list-body">
+            <a href="#home" class="logo">
+              <img src="assets/imgs/logo.png" alt="HMI Lab logo" />
+              <h6>HMI Lab</h6>
             </a>
-          </p>
-          <p><a href="#about">About</a></p>
-          <p><a href="#service">Research</a></p>
-          <p><a href="#team">Team</a></p>
-          <p><a href="#blog">News</a></p>
-        </div>
+            <p>Human-Centered Machine Intelligence Lab</p>
+            <p>Department of Computer Science</p>
+            <p>National Tsing Hua University</p>
+          </li>
+        </ul>
 
-        <div class="footer-col">
-          <h6 class="footer-title">Contact</h6>
-          <div class="footer-info">
-            <i class="ti-location-pin"></i>
-            <span>
-              Delta Building, Department of EECS<br />
-              No. 101, Sec. 2, Kuang-Fu Road<br />
+        <ul class="list">
+          <li class="list-head">
+            <h6 class="font-weight-bold">LINKS</h6>
+          </li>
+          <li class="list-body">
+            <div class="row">
+              <div class="col">
+                <a href="#about">About</a>
+                <a href="#service">Research</a>
+                <a href="#team">Team</a>
+                <a href="#blog">News</a>
+                <a
+                  href="https://sites.google.com/site/bfantasykuo/Home"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Professor's Site
+                </a>
+              </div>
+            </div>
+          </li>
+        </ul>
+
+        <ul class="list">
+          <li class="list-head">
+            <h6 class="font-weight-bold">CONTACT</h6>
+          </li>
+          <li class="list-body">
+            <p>
+              <i class="ti-location-pin"></i>
+              Delta Building, Department of EECS, No. 101, Sec. 2, Kuang-Fu Road,
               Hsinchu City 30013, Taiwan
-            </span>
-          </div>
-          <div class="footer-info">
-            <i class="ti-email"></i>
-            <a href="mailto:kuopc@mit.edu">kuopc@mit.edu</a>
-          </div>
-        </div>
+            </p>
+            <p>
+              <i class="ti-email"></i>
+              <a href="mailto:kuopc@mit.edu">kuopc@mit.edu</a>
+            </p>
+          </li>
+        </ul>
       </div>
     </div>
   </div>
 </section>
-<!-- End Contact Section -->
 
     <!-- core  -->
     <script src="assets/vendors/jquery/jquery-3.4.1.js"></script>
