@@ -276,27 +276,34 @@
   </body>
 </html>
 
-<!-- Album section -->
+<!-- Gallery Section -->
 <section id="portfolio" class="album-section">
   <div class="container text-center">
-    <h6 class="section-subtitle">Precious Memories</h6>
 
-    <div class="album-toggle-wrap mb-4">
-      <button
-        class="album-toggle collapsed"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#albumList"
-        aria-expanded="false"
-        aria-controls="albumList"
-      >
-        <span class="album-toggle-label">HMILAB Album</span>
-        <span class="album-toggle-icon">▼</span>
-      </button>
-    </div>
+    <h6 class="section-subtitle">Gallery</h6>
 
-    <div class="collapse" id="albumList">
-      <div class="row g-4 justify-content-center">
+    <div class="team-group">
+
+      <div class="team-toggle-wrap">
+        <button
+          class="team-toggle collapsed"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#albumList"
+          aria-expanded="false"
+          aria-controls="albumList"
+        >
+          <span class="team-toggle-text">
+            <span class="team-toggle-title">HMI Lab Album</span>
+          </span>
+          <span class="team-toggle-arrow">⌄</span>
+        </button>
+      </div>
+
+      <div class="collapse" id="albumList">
+        <div class="row justify-content-center g-4 mt-4">
+
+          <!-- album items here -->
 
         <div class="col-xl-4 col-md-6">
           <figure class="album-card">
@@ -528,37 +535,102 @@
 </section>
 
 <!-- Team Section -->
-  <section id="team" class="team-section">
-    <div class="container">
-      <div class="section-header text-center">
-        <h6 class="section-subtitle">Meet With</h6>
-        <h2 class="section-title">Our Team</h2>
+<section id="team" class="team-section">
+  <div class="container">
+    <div class="section-header text-center">
+      <h6 class="section-subtitle">People</h6>
+      <h2 class="section-title">Our Team</h2>
+    </div>
+
+  <div class="team-group team-group-pi">
+    <div class="team-group-head">
+      <h5 class="team-role">Principal Investigator</h5>
+    </div>
+    <div id="pi-list" class="row justify-content-center g-4 team-grid"></div>
+  </div>
+
+    <div class="team-group">
+      <div class="team-toggle-wrap">
+        <button
+          class="team-toggle collapsed"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#phdCollapse"
+          aria-expanded="false"
+          aria-controls="phdCollapse"
+        >
+          <span class="team-toggle-text">
+            <span class="team-toggle-title">PhD Student</span>
+          </span>
+          <span class="team-toggle-arrow">⌄</span>
+        </button>
       </div>
-
-      <div class="team-group">
-        <h5 class="team-role">Principal Investigator</h5>
-        <div id="pi-list" class="row justify-content-center g-4 team-grid"></div>
+      <div class="collapse" id="phdCollapse">
+        <div id="phd-list" class="row justify-content-center g-4 team-grid mt-4"></div>
       </div>
     </div>
 
     <div class="team-group">
-      <h5 class="team-role">PhD Student</h5>
-      <div id="phd-list" class="row justify-content-center g-4 team-grid"></div>
+      <div class="team-toggle-wrap">
+        <button
+          class="team-toggle collapsed"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#graduateCollapse"
+          aria-expanded="false"
+          aria-controls="graduateCollapse"
+        >
+          <span class="team-toggle-text">
+            <span class="team-toggle-title">Graduate Student</span>
+          </span>
+          <span class="team-toggle-arrow">⌄</span>
+        </button>
+      </div>
+      <div class="collapse" id="graduateCollapse">
+        <div id="graduate-list" class="row justify-content-center g-4 team-grid mt-4"></div>
+      </div>
     </div>
 
     <div class="team-group">
-      <h5 class="team-role">Graduate Student</h5>
-      <div id="graduate-list" class="row justify-content-center g-4 team-grid"></div>
+      <div class="team-toggle-wrap">
+        <button
+          class="team-toggle collapsed"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#undergraduateCollapse"
+          aria-expanded="false"
+          aria-controls="undergraduateCollapse"
+        >
+          <span class="team-toggle-text">
+            <span class="team-toggle-title">Undergraduate Student</span>
+          </span>
+          <span class="team-toggle-arrow">⌄</span>
+        </button>
+      </div>
+      <div class="collapse" id="undergraduateCollapse">
+        <div id="undergraduate-list" class="row justify-content-center g-4 team-grid mt-4"></div>
+      </div>
     </div>
 
     <div class="team-group">
-      <h5 class="team-role">Undergraduate Student</h5>
-      <div id="undergraduate-list" class="row justify-content-center g-4 team-grid"></div>
-    </div>
-
-    <div class="team-group">
-      <h5 class="team-role">Research Assistant</h5>
-      <div id="ra-list" class="row justify-content-center g-4 team-grid"></div>
+      <div class="team-toggle-wrap">
+        <button
+          class="team-toggle collapsed"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#raCollapse"
+          aria-expanded="false"
+          aria-controls="raCollapse"
+        >
+          <span class="team-toggle-text">
+            <span class="team-toggle-title">Research Assistant</span>
+          </span>
+          <span class="team-toggle-arrow">⌄</span>
+        </button>
+      </div>
+      <div class="collapse" id="raCollapse">
+        <div id="ra-list" class="row justify-content-center g-4 team-grid mt-4"></div>
+      </div>
     </div>
 
     <div class="team-group mb-0">
@@ -567,29 +639,29 @@
           class="team-toggle collapsed"
           type="button"
           data-bs-toggle="collapse"
-          data-bs-target="#alumnusList"
+          data-bs-target="#alumniCollapse"
           aria-expanded="false"
-          aria-controls="alumnusList"
+          aria-controls="alumniCollapse"
         >
-          <span class="team-toggle-label">Alumni</span>
-          <span class="team-toggle-arrow">▼</span>
+          <span class="team-toggle-text">
+            <span class="team-toggle-title">Alumni</span>
+          </span>
+          <span class="team-toggle-arrow">⌄</span>
         </button>
       </div>
-
-      <div class="collapse" id="alumnusList">
+      <div class="collapse" id="alumniCollapse">
         <div id="alumni-list" class="row justify-content-center g-4 team-grid mt-4"></div>
       </div>
     </div>
   </div>
 </section>
 
-
 <!-- Collaborator Section -->
 <section id="testimonial">
   <div class="container">
     <div class="section-header text-center">
-    <h6 class="section-subtitle">Meet With</h6>
-    <h6 class="section-title text-center mb-6">Our Collaborators</h6>
+    <h6 class="section-subtitle">Collaborators</h6>
+    <h6 class="section-title text-center mb-6">Research Partners</h6>
 
     <div class="row text-center justify-content-center">
 
