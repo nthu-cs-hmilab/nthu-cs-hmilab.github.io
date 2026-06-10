@@ -10438,9 +10438,7 @@ pre .code {
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: #ff214f;
   margin-bottom: 16px;
-  opacity: 1;
 }
 
 .header .title {
@@ -10950,11 +10948,24 @@ body {
 }
 
 .hero-kicker {
-  color: rgba(255, 255, 255, 0.68);
-  font-size: 0.76rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 0.72rem;
   font-weight: 600;
-  letter-spacing: 0.14em;
-  margin-bottom: 18px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+.hero-kicker::before {
+  content: "";
+  display: inline-block;
+  width: 20px;
+  height: 1.5px;
+  background: #ff214f;
+  border-radius: 1px;
+  flex-shrink: 0;
 }
 
 .header .title {
@@ -11166,6 +11177,47 @@ body {
 .custom-navbar.affix .nav-cta:focus {
   background: transparent !important;
   border: none !important;
+}
+
+/* Hero — height, overlay, content width, white hierarchy */
+.header {
+  min-height: 520px;
+}
+@media (max-width: 767.98px) {
+  .header {
+    min-height: 540px;
+  }
+}
+
+.header .overlay {
+  background: linear-gradient(
+    90deg,
+    rgba(5, 6, 16, 0.92) 0%,
+    rgba(8, 9, 24, 0.78) 46%,
+    rgba(8, 9, 24, 0.60) 100%
+  );
+}
+@media (max-width: 767.98px) {
+  .header .overlay {
+    background: linear-gradient(
+      180deg,
+      rgba(5, 6, 16, 0.90),
+      rgba(6, 8, 20, 0.78)
+    );
+  }
+}
+
+.hero-content {
+  max-width: 600px;
+}
+
+.header .subtitle {
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.80);
+}
+
+.hero-description {
+  color: rgba(255, 255, 255, 0.62);
 }
 
 /*# sourceMappingURL=creative-studio.css.map */
