@@ -11355,4 +11355,41 @@ body {
   margin-bottom: 0;
 }
 
+/* News — limit to 3, expand button, text clamp */
+.news-item-hidden {
+  display: none !important;
+}
+
+.news-expand-btn {
+  background: transparent;
+  border: 1px solid #e5e7eb;
+  border-radius: 999px;
+  padding: 8px 22px;
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: #6b7280;
+  cursor: pointer;
+  transition: border-color 0.15s ease, color 0.15s ease;
+  font-family: inherit;
+  -webkit-appearance: none;
+  appearance: none;
+}
+.news-expand-btn:hover {
+  border-color: #111827;
+  color: #111827;
+}
+
+.blog-text {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.blog-link {
+  margin-top: auto;
+  padding-top: 12px;
+  display: block;
+}
+
 /*# sourceMappingURL=creative-studio.css.map */

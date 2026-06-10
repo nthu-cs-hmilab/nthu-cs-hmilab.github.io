@@ -627,3 +627,28 @@ document.addEventListener("DOMContentLoaded", function () {
 
   updateArchive();
 }());
+
+/* =========================
+   News Expand
+========================= */
+(function () {
+  var newsItems = document.querySelectorAll('#blog .col-md-6.col-lg-4');
+  var expandBtn = document.querySelector('.news-expand-btn');
+  if (!newsItems.length || !expandBtn) return;
+
+  for (var i = 3; i < newsItems.length; i++) {
+    newsItems[i].classList.add('news-item-hidden');
+  }
+
+  if (newsItems.length <= 3) {
+    if (expandBtn.parentElement) expandBtn.parentElement.hidden = true;
+    return;
+  }
+
+  expandBtn.addEventListener('click', function () {
+    document.querySelectorAll('.news-item-hidden').forEach(function (el) {
+      el.classList.remove('news-item-hidden');
+    });
+    if (expandBtn.parentElement) expandBtn.parentElement.hidden = true;
+  });
+}());
