@@ -363,9 +363,8 @@ document.addEventListener("DOMContentLoaded", function () {
     ],
   };
 
-  function createMemberCard(member, role) {
+  function createMemberCard(member) {
     const zhHtml = member.zh ? `<p class="team-name-zh" lang="zh-TW">${member.zh}</p>` : "";
-    const roleHtml = role ? `<p class="team-role-label">${role}</p>` : "";
 
     return `
       <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-6">
@@ -383,26 +382,24 @@ document.addEventListener("DOMContentLoaded", function () {
           <div class="team-card-body">
             <h6 class="team-name-en">${member.en}</h6>
             ${zhHtml}
-            ${roleHtml}
           </div>
         </div>
       </div>
     `;
   }
 
-  function renderMembers(targetId, members, role) {
+  function renderMembers(targetId, members) {
     const container = document.getElementById(targetId);
     if (!container) return;
-    container.innerHTML = members.map(function (m) { return createMemberCard(m, role); }).join("");
+    container.innerHTML = members.map(createMemberCard).join("");
   }
 
-  renderMembers("pi-list", teamData.pi, "Principal Investigator");
-
-  renderMembers("phd-list", teamData.phd, "PhD Student");
-  renderMembers("graduate-list", teamData.graduate, "Graduate Student");
-  renderMembers("undergraduate-list", teamData.undergraduate, "Undergraduate Student");
-  renderMembers("ra-list", teamData.ra, "Research Assistant");
-  renderMembers("alumni-list", teamData.alumni, "Alumni");
+  renderMembers("pi-list", teamData.pi);
+  renderMembers("phd-list", teamData.phd);
+  renderMembers("graduate-list", teamData.graduate);
+  renderMembers("undergraduate-list", teamData.undergraduate);
+  renderMembers("ra-list", teamData.ra);
+  renderMembers("alumni-list", teamData.alumni);
 });
 
 /* =========================
