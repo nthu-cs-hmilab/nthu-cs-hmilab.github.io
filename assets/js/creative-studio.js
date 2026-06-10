@@ -105,6 +105,11 @@ document.addEventListener("DOMContentLoaded", function () {
         zh: "陳彥蓉",
         img: "assets/imgs/team/yan_rong.jpeg",
       },
+      {
+        en: "Liao Hsiao-Wei",
+        zh: "廖曉威",
+        img: "assets/imgs/team/liaohsiao.png",
+      },
     ],
 
     undergraduate: [
@@ -193,7 +198,56 @@ document.addEventListener("DOMContentLoaded", function () {
         zh: "任光謙",
         img: "assets/imgs/team/jenkuangchen.JPG",
       },
-      { en: "Hank Fang", zh: "馮亦翰", img: "assets/imgs/team/hankfang.jpeg" },
+      {
+        en: "Hank Fang",
+        zh: "馮亦翰",
+        img: "assets/imgs/team/hankfang.jpeg"
+      },
+      {
+        en: "Roger Fan",
+        zh: "范升維",
+        img: "assets/imgs/team/rogerfan.jpg",
+      },
+      {
+        en: "Arthur",
+        zh: "李騏維",
+        img: "assets/imgs/team/arthur.jpeg",
+      },
+      {
+        en: "Shun-Ting Chang",
+        zh: "張舜婷",
+        img: "assets/imgs/team/shunting.JPG",
+      },
+      {
+        en: "Yu-Min Wang",
+        zh: "王昱閔",
+        img: "assets/imgs/team/yumin.jpg",
+      },
+      {
+        en: "Yuchen Chiu",
+        zh: "邱宇晨",
+        img: "assets/imgs/team/yuchen.jpg",
+      },
+      {
+        en: "Yu-Hua Liao",
+        zh: "廖宇嬅",
+        img: "assets/imgs/team/yuhua.jpg",
+      },
+      {
+        en: "Yu-Chi Chiang",
+        zh: "姜語綺",
+        img: "assets/imgs/team/yuchi.jpeg",
+      },
+      {
+        en: "Yi-An Chen",
+        zh: "陳奕安",
+        img: "assets/imgs/team/yian.jpg",
+      },
+      {
+        en: "Yen-Ting Chen",
+        zh: "陳彥廷",
+        img: "assets/imgs/team/yentingchen.jpg",
+      },
     ],
 
     ra: [
@@ -341,9 +395,34 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   renderMembers("pi-list", teamData.pi);
+
   renderMembers("phd-list", teamData.phd);
   renderMembers("graduate-list", teamData.graduate);
   renderMembers("undergraduate-list", teamData.undergraduate);
   renderMembers("ra-list", teamData.ra);
   renderMembers("alumni-list", teamData.alumni);
 });
+
+/* =========================
+   Scroll Progress Bar
+========================= */
+(function () {
+  var bar = document.getElementById('scroll-progress');
+  if (!bar) return;
+
+  var ticking = false;
+  function updateBar() {
+    var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    var docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    var pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+    bar.style.width = pct + '%';
+    ticking = false;
+  }
+
+  window.addEventListener('scroll', function () {
+    if (!ticking) {
+      window.requestAnimationFrame(updateBar);
+      ticking = true;
+    }
+  }, { passive: true });
+}());
