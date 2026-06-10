@@ -364,7 +364,7 @@ document.addEventListener("DOMContentLoaded", function () {
   };
 
   function createMemberCard(member) {
-    const zhHtml = member.zh ? `<p class="team-name-zh">${member.zh}</p>` : "";
+    const zhHtml = member.zh ? `<p class="team-name-zh" lang="zh-TW">${member.zh}</p>` : "";
 
     return `
       <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-6">

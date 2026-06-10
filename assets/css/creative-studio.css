@@ -8958,6 +8958,15 @@ body {
   box-sizing: border-box;
 }
 
+:focus-visible {
+  outline: 2px solid #ff214f;
+  outline-offset: 3px;
+}
+
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
 p {
   font-size: calc(14px + 2 * (100vw - 320px) / 880);
   font-weight: 300;
