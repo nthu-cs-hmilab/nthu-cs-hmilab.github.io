@@ -10,3 +10,34 @@ p {
 		font-size: 16px;
 	}
 }
+
+// ── Unified Section Header Pattern ───────────────────────────
+.section-tag {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: $primary;
+  background: $primary-tint;
+  padding: 4px 14px;
+  border-radius: $radius-pill;
+  margin-bottom: 14px;
+}
+
+.section-title {
+  font-size: clamp(1.75rem, 3vw + 0.5rem, 2.25rem);
+  font-weight: 800;
+  color: $text-primary;
+  margin-bottom: 14px;
+  line-height: 1.2;
+}
+
+.section-desc {
+  font-size: 1rem;
+  color: $text-secondary;
+  max-width: 520px;
+  margin: 0 auto;
+  line-height: 1.65;
+}
+// ─────────────────────────────────────────────────────────────

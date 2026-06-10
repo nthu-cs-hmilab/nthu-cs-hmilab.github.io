@@ -48,23 +48,7 @@ section {
 
     }
 
-    .section-subtitle {
-        font-size: calc(17px + (23 - 17) * ((100vw - 320px) / (1200 - 320)));
-        font-weight: 300;
-        margin-bottom: 5px;
-        opacity: .6;
-        
-        @include media-breakpoint-up(lg) {
-            font-size: 23px;
-        }
-    }
-    .section-title {
-        font-size: calc(28px + (35 - 28) * ((100vw - 320px) / (1200 - 320)));
-
-        @include media-breakpoint-up(lg) {
-            font-size: 35px;
-        }
-    }
+    // .section-title defined in _typography.scss
 }
 
 /* about */
