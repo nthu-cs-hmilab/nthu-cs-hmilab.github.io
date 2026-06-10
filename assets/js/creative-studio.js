@@ -468,7 +468,6 @@ document.addEventListener("DOMContentLoaded", function () {
   ];
   var filterBtns = document.querySelectorAll('.album-filter-btn');
   var albumGrid = document.getElementById('albumGrid');
-  var summary = document.querySelector('.album-summary');
   var loadMoreBtn = document.querySelector('.album-load-more');
   var lightbox = document.querySelector('.album-lightbox');
   var lightboxImage = document.querySelector('.album-lightbox-image');
@@ -476,7 +475,7 @@ document.addEventListener("DOMContentLoaded", function () {
   var lightboxCount = document.querySelector('.album-lightbox-count');
   var prevBtn = document.querySelector('.album-lightbox-prev');
   var nextBtn = document.querySelector('.album-lightbox-next');
-  var activeYear = document.querySelector('.album-filter-btn.active') ? document.querySelector('.album-filter-btn.active').dataset.year : '2026';
+  var activeYear = '';
   var visibleLimit = pageSize;
   var currentItems = [];
   var currentIndex = 0;
@@ -530,11 +529,6 @@ document.addEventListener("DOMContentLoaded", function () {
       albumGrid.appendChild(column);
       bindAlbumItem(column, item);
     });
-
-    if (summary) {
-      var visibleCount = Math.min(visibleLimit, yearItems.length);
-      summary.textContent = activeYear + ' archive: showing ' + visibleCount + ' of ' + yearItems.length + ' photos';
-    }
 
     if (loadMoreBtn) {
       var hasMore = visibleLimit < yearItems.length;
@@ -606,5 +600,5 @@ document.addEventListener("DOMContentLoaded", function () {
     if (event.key === 'ArrowRight') showAdjacent(1);
   });
 
-  setActiveYear(activeYear);
+  updateArchive();
 }());

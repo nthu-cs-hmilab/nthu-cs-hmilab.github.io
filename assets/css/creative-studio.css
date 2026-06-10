@@ -9826,15 +9826,6 @@ figure.album-card {
   outline-offset: 2px;
 }
 
-.album-summary {
-  font-size: 0.78rem;
-  font-weight: 600;
-  color: #9ca3af;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  margin-bottom: 28px;
-}
-
 .album-load-more {
   display: inline-flex;
   align-items: center;
