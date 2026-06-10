@@ -9827,11 +9827,12 @@ pre .code {
 
 @keyframes affix {
   from {
-    top: -460px;
-    width: 100%;
+    top: -72px;
+    opacity: 0;
   }
   to {
     top: 0;
+    opacity: 1;
   }
 }
 .custom-navbar .nav-item.has-dropdown {
