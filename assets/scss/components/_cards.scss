@@ -425,3 +425,305 @@
     }
 }
 
+// ── Research Cards ────────────────────────────────────────────
+.research-card {
+    background: $white;
+    border: 1px solid $border-default;
+    border-radius: $radius-lg;
+    box-shadow: $shadow-md;
+    overflow: hidden;
+    transition: transform $transition-base, box-shadow $transition-base;
+
+    &:hover {
+        transform: translateY(-4px);
+        box-shadow: $shadow-hover;
+    }
+}
+
+.research-image-wrap {
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+}
+
+.research-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.research-card:hover .research-image {
+    transform: scale(1.03);
+}
+
+.research-body {
+    padding: 22px 22px 24px;
+}
+
+.research-question {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: $primary;
+    margin-bottom: 6px;
+    line-height: 1.4;
+}
+
+.research-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: $text-primary;
+    margin-bottom: 8px;
+}
+
+.research-text {
+    font-size: 0.92rem;
+    color: $text-secondary;
+    line-height: 1.65;
+    margin-bottom: 0;
+}
+// ─────────────────────────────────────────────────────────────
+
+// ── News / Blog Cards ─────────────────────────────────────────
+.blog-card {
+    background: $white;
+    border: 1px solid $border-default;
+    border-radius: $radius-lg;
+    box-shadow: $shadow-md;
+    transition: transform $transition-base, box-shadow $transition-base;
+    display: flex;
+    flex-direction: column;
+
+    &:hover {
+        transform: translateY(-4px);
+        box-shadow: $shadow-hover;
+    }
+}
+
+.blog-card-body {
+    padding: 22px 22px 24px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.blog-meta {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.78rem;
+    color: $text-muted;
+    background: $bg-subtle;
+    padding: 3px 10px;
+    border-radius: $radius-sm;
+    margin-bottom: 12px;
+    width: fit-content;
+
+    i { font-size: 0.72rem; }
+}
+
+.blog-title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: $text-primary;
+    margin-bottom: 8px;
+    line-height: 1.4;
+}
+
+.blog-text {
+    font-size: 0.9rem;
+    color: $text-secondary;
+    line-height: 1.65;
+    flex: 1;
+    margin-bottom: 0;
+}
+
+.blog-link {
+    display: inline-block;
+    margin-top: 14px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: $primary;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color $transition-base;
+
+    &:hover {
+        color: $primary-dark;
+        border-bottom-color: $primary-dark;
+    }
+
+    &::after {
+        content: ' →';
+    }
+}
+// ─────────────────────────────────────────────────────────────
+
+// ── Team Cards ────────────────────────────────────────────────
+.team-card {
+    text-align: center;
+    padding: 8px 4px 12px;
+}
+
+.team-photo-wrapper {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 12px;
+    border-radius: $radius-md;
+    overflow: hidden;
+    background: $bg-subtle;
+    box-shadow: $shadow-sm;
+}
+
+.team-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 20%;
+    display: block;
+    transition: transform 0.35s ease;
+}
+
+.team-card:hover .team-photo {
+    transform: scale(1.05);
+}
+
+.team-card-body {
+    padding: 0 4px;
+}
+
+.team-name-en {
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: $text-primary;
+    margin-bottom: 2px;
+}
+
+.team-name-zh {
+    font-size: 0.78rem;
+    color: $text-muted;
+    margin-bottom: 0;
+}
+
+@include media-breakpoint-down(sm) {
+    .team-photo-wrapper {
+        width: 100px;
+        height: 100px;
+    }
+}
+
+// ── Team group header ─────────────────────────────────────────
+.team-group {
+    margin-bottom: 32px;
+}
+
+.team-group-pi {
+    margin-bottom: 40px;
+}
+
+.team-group-head {
+    margin-bottom: 20px;
+}
+
+.team-role {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: $text-primary;
+    margin-bottom: 0;
+    padding-bottom: 12px;
+    border-bottom: 2px solid $border-default;
+}
+
+// ── Team/Album toggle button ──────────────────────────────────
+.team-toggle-wrap {
+    margin-bottom: 16px;
+}
+
+.team-toggle {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    background: $bg-alt;
+    border: 1px solid $border-default;
+    border-radius: $radius-md;
+    padding: 12px 20px;
+    cursor: pointer;
+    text-align: left;
+    transition: background $transition-base, border-color $transition-base;
+    appearance: none;
+    -webkit-appearance: none;
+
+    &:hover {
+        background: $primary-tint;
+        border-color: rgba($primary, 0.3);
+    }
+
+    &:focus-visible {
+        outline: 2px solid $primary;
+        outline-offset: 2px;
+    }
+}
+
+.team-toggle-text {
+    flex: 1;
+}
+
+.team-toggle-title {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: $text-primary;
+    display: block;
+}
+
+.team-toggle-arrow {
+    color: $primary;
+    font-size: 1rem;
+    line-height: 1;
+    display: inline-block;
+    transition: transform $transition-base;
+    margin-left: 12px;
+}
+
+.team-toggle:not(.collapsed) .team-toggle-arrow {
+    transform: rotate(180deg);
+}
+// ─────────────────────────────────────────────────────────────
+
+// ── Album / Gallery Cards ─────────────────────────────────────
+figure.album-card {
+    margin: 0 0 24px;
+}
+
+.album-card .album-img-wrap {
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    border-radius: $radius-md;
+    box-shadow: $shadow-sm;
+    transition: transform $transition-base, box-shadow $transition-base;
+
+    &:hover {
+        transform: translateY(-3px);
+        box-shadow: $shadow-md;
+    }
+}
+
+.album-card .album-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.album-card .album-img-wrap:hover img {
+    transform: scale(1.04);
+}
+
+.album-card figcaption {
+    font-size: 0.82rem;
+    color: $text-secondary;
+    margin-top: 8px;
+    line-height: 1.4;
+    min-height: 36px;
+}
+// ─────────────────────────────────────────────────────────────

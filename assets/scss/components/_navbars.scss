@@ -91,7 +91,7 @@
 
 
 		.nav-link {
-			color: $gray-700 !important;
+			color: $text-secondary !important;
 
 			&.active {
 				color: $primary !important;
@@ -110,3 +110,113 @@
 		top: 0;
 	}
 }
+
+// ── Dropdown Menus ────────────────────────────────────────────
+.custom-navbar .nav-item.has-dropdown {
+	position: relative;
+}
+
+.custom-navbar .nav-item.has-dropdown .dropdown-panel {
+	display: none;
+	position: absolute;
+	top: calc(100% + 8px);
+	left: 50%;
+	transform: translateX(-50%);
+	background: $white;
+	border: 1px solid $border-default;
+	border-radius: $radius-md;
+	box-shadow: $shadow-lg;
+	padding: 10px 0;
+	min-width: 210px;
+	z-index: 10000;
+	white-space: nowrap;
+}
+
+.custom-navbar .nav-item.has-dropdown:hover .dropdown-panel,
+.custom-navbar .nav-item.has-dropdown:focus-within .dropdown-panel {
+	display: block;
+	animation: fadeDropdown $transition-base;
+}
+
+@keyframes fadeDropdown {
+	from { opacity: 0; transform: translateX(-50%) translateY(-6px); }
+	to   { opacity: 1; transform: translateX(-50%) translateY(0); }
+}
+
+.custom-navbar .dropdown-panel-title {
+	font-size: 0.68rem;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 0.08em;
+	color: $text-muted;
+	padding: 6px 16px 8px;
+	border-bottom: 1px solid $border-light;
+	margin-bottom: 4px;
+}
+
+.custom-navbar .dropdown-panel a {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	padding: 7px 16px;
+	font-size: 0.88rem;
+	color: $text-secondary !important;
+	text-decoration: none;
+	font-weight: 400;
+	transition: color $transition-base, background $transition-base;
+
+	&::before {
+		content: '';
+		width: 5px;
+		height: 5px;
+		border-radius: 50%;
+		background: $border-default;
+		flex-shrink: 0;
+		transition: background $transition-base;
+	}
+
+	&:hover {
+		color: $primary !important;
+		background: $primary-tint;
+
+		&::before {
+			background: $primary;
+		}
+	}
+
+	&:focus-visible {
+		outline: 2px solid $primary;
+		outline-offset: -2px;
+	}
+}
+
+// ── Contact CTA button in nav ─────────────────────────────────
+.custom-navbar .nav-cta {
+	background: $primary !important;
+	color: $white !important;
+	border-radius: $radius-pill;
+	padding: 6px 18px !important;
+	font-weight: 600;
+	transition: background $transition-base;
+	margin-left: 6px;
+
+	&:hover {
+		background: $primary-dark !important;
+	}
+}
+
+// ── Dropdown caret indicator ──────────────────────────────────
+.custom-navbar .nav-link.has-caret::after {
+	content: '▾';
+	font-size: 0.65rem;
+	margin-left: 3px;
+	opacity: 0.6;
+}
+
+// ── Mobile: hide hover dropdowns in collapsed menu ────────────
+@include media-breakpoint-down(md) {
+	.custom-navbar .nav-item.has-dropdown .dropdown-panel {
+		display: none !important;
+	}
+}
+// ─────────────────────────────────────────────────────────────

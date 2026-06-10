@@ -19,6 +19,7 @@
     />
     <link rel="stylesheet" href="assets/css/creative-studio.css" />
     <link rel="icon" href="assets/imgs/icon.png" />
+    <link rel="preload" as="image" href="assets/imgs/header.png" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
@@ -57,15 +58,37 @@
             <li class="nav-item">
               <a class="nav-link" href="#about">About</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#service">Research</a>
+
+            <!-- Research dropdown -->
+            <li class="nav-item has-dropdown">
+              <a class="nav-link has-caret" href="#service" aria-haspopup="true" aria-expanded="false">Research</a>
+              <div class="dropdown-panel" role="menu">
+                <div class="dropdown-panel-title">Research Areas</div>
+                <a href="#service" role="menuitem">Trustworthy AI for Medicine</a>
+                <a href="#service" role="menuitem">Brain Encoding and Decoding</a>
+                <a href="#service" role="menuitem">Human-Machine Interaction</a>
+                <a href="#service" role="menuitem">Computational Neuroscience</a>
+              </div>
             </li>
+
             <li class="nav-item">
               <a class="nav-link" href="#portfolio">Album</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#team">Team</a>
+
+            <!-- Team dropdown -->
+            <li class="nav-item has-dropdown">
+              <a class="nav-link has-caret" href="#team" aria-haspopup="true" aria-expanded="false">Team</a>
+              <div class="dropdown-panel" role="menu">
+                <div class="dropdown-panel-title">Team Members</div>
+                <a href="#team-pi" role="menuitem">Principal Investigator</a>
+                <a href="#team-phd" role="menuitem">PhD Students</a>
+                <a href="#team-grad" role="menuitem">Graduate Students</a>
+                <a href="#team-undergrad" role="menuitem">Undergraduate Students</a>
+                <a href="#team-ra" role="menuitem">Research Assistants</a>
+                <a href="#team-alumni" role="menuitem">Alumni</a>
+              </div>
             </li>
+
             <li class="nav-item">
               <a class="nav-link" href="#testimonial">Collaborators</a>
             </li>
@@ -73,11 +96,14 @@
               <a class="nav-link" href="#blog">News</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#contact">Contact</a>
+              <a class="nav-cta nav-link" href="#contact">Contact</a>
             </li>
           </ul>
         </div>
       </div>
+
+      <!-- Scroll progress bar (width driven by creative-studio.js scroll handler) -->
+      <div id="scroll-progress" style="position:absolute;bottom:0;left:0;height:3px;width:0%;background:var(--primary,#ff214f);transition:width 0.1s linear;z-index:1;"></div>
     </nav>
     <!-- End Of Page Navigation -->
 
@@ -111,17 +137,17 @@
       <div class="container">
         <div class="box text-center">
           <div class="box-item">
-            <i class="ti-heart-broken"></i>
+            <i class="ti-heart-broken" aria-hidden="true"></i>
             <h6 class="box-title">Digital Health</h6>
             <p class="box-text">AI systems for clinically meaningful healthcare applications.</p>
           </div>
           <div class="box-item">
-            <i class="ti-pulse"></i>
+            <i class="ti-pulse" aria-hidden="true"></i>
             <h6 class="box-title">AI for Medicine</h6>
             <p class="box-text">Trustworthy learning from medical images, signals, and records.</p>
           </div>
           <div class="box-item">
-            <i class="ti-user"></i>
+            <i class="ti-user" aria-hidden="true"></i>
             <h6 class="box-title">Human-Machine Interaction</h6>
             <p class="box-text">Human-centered interfaces guided by cognition and neural feedback.</p>
           </div>
@@ -131,7 +157,7 @@
     <!-- End Highlight Box -->
 
     <!-- About Section -->
-    <section id="about" class="about-section">
+    <section id="about" class="about-section bg-alt">
       <div class="container">
         <div class="row align-items-center g-4">
           <div class="col-md-5 col-lg-4">
@@ -145,8 +171,8 @@
           </div>
 
           <div class="col-md-7 col-lg-8">
-            <p class="section-subtitle mb-2">About</p>
-            <h2 class="section-title mb-4">Human-Centered Machine Intelligence Lab</h2>
+            <div class="section-tag">About</div>
+            <h2 class="section-title mb-3">Human-Centered Machine Intelligence Lab</h2>
             <p class="about-text">
               The Human-Centered Machine Intelligence Lab was established on July 1, 2020
               in the Department of Computer Science at National Tsing Hua University, Taiwan.
@@ -170,9 +196,9 @@
     <section id="service" class="research-section">
       <div class="container">
         <div class="section-header text-center">
-          <p class="section-subtitle mb-2">Research</p>
+          <div class="section-tag">Research</div>
           <h2 class="section-title mb-3">Our Research Areas</h2>
-          <p class="section-description mx-auto">
+          <p class="section-desc mx-auto">
             We combine human-centered design, machine learning, and neuroscience
             to build reliable and impactful intelligent systems.
           </p>
@@ -186,6 +212,8 @@
                   class="research-image"
                   src="assets/imgs/CXRphoto.png"
                   alt="Trustworthy AI for medicine"
+                  loading="lazy"
+                  decoding="async"
                 />
               </div>
               <div class="research-body">
@@ -209,6 +237,8 @@
                   class="research-image"
                   src="assets/imgs/manifold.png"
                   alt="Brain encoding and decoding"
+                  loading="lazy"
+                  decoding="async"
                 />
               </div>
               <div class="research-body">
@@ -231,6 +261,8 @@
                   class="research-image"
                   src="assets/imgs/learn.png"
                   alt="Human-machine interaction"
+                  loading="lazy"
+                  decoding="async"
                 />
               </div>
               <div class="research-body">
@@ -253,6 +285,8 @@
                   class="research-image"
                   src="assets/imgs/trans.png"
                   alt="Computational neuroscience"
+                  loading="lazy"
+                  decoding="async"
                 />
               </div>
               <div class="research-body">
@@ -272,15 +306,11 @@
     </section>
     <!-- End Research Section -->
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-  </body>
-</html>
-
 <!-- Gallery Section -->
-<section id="portfolio" class="album-section">
+<section id="portfolio" class="album-section bg-alt">
   <div class="container text-center">
 
-    <h6 class="section-subtitle">Album</h6>
+    <div class="section-tag">Album</div>
       <h2 class="section-title">Lab Moments</h2>
 
     <div class="team-group">
@@ -297,7 +327,7 @@
           <span class="team-toggle-text">
             <span class="team-toggle-title">HMI Gallery</span>
           </span>
-          <span class="team-toggle-arrow">⌄</span>
+          <span class="team-toggle-arrow">▾</span>
         </button>
       </div>
 
@@ -308,224 +338,288 @@
 
         <div class="col-xl-4 col-md-6">
           <figure class="album-card">
-            <img src="assets/imgs/album/photo32.jpg" alt="2026 AAAI at Singapore" class="img-fluid">
+            <div class="album-img-wrap">
+              <img src="assets/imgs/album/photo32.jpg" alt="2026 AAAI at Singapore" loading="lazy" decoding="async">
+            </div>
             <figcaption>2026 AAAI @ Singapore</figcaption>
           </figure>
         </div>
 
         <div class="col-xl-4 col-md-6">
           <figure class="album-card">
-            <img src="assets/imgs/album/photo31.jpg" alt="2025 Hiking" class="img-fluid">
+            <div class="album-img-wrap">
+              <img src="assets/imgs/album/photo31.jpg" alt="2025 Hiking" loading="lazy" decoding="async">
+            </div>
             <figcaption>2025 Hiking</figcaption>
           </figure>
         </div>
 
         <div class="col-xl-4 col-md-6">
           <figure class="album-card">
-            <img src="assets/imgs/album/photo30.jpg" alt="2025 Banquet 2" class="img-fluid">
+            <div class="album-img-wrap">
+              <img src="assets/imgs/album/photo30.jpg" alt="2025 Banquet 2" loading="lazy" decoding="async">
+            </div>
             <figcaption>2025 Banquet 2</figcaption>
           </figure>
         </div>
 
         <div class="col-xl-4 col-md-6">
           <figure class="album-card">
-            <img src="assets/imgs/album/photo29.jpg" alt="2025 Teacher's Day" class="img-fluid">
+            <div class="album-img-wrap">
+              <img src="assets/imgs/album/photo29.jpg" alt="2025 Teacher's Day" loading="lazy" decoding="async">
+            </div>
             <figcaption>2025 Teacher's Day</figcaption>
           </figure>
         </div>
 
         <div class="col-xl-4 col-md-6">
           <figure class="album-card">
-            <img src="assets/imgs/album/photo28.jpg" alt="First Place at Health AI Datathon 2025 in Atlanta" class="img-fluid">
+            <div class="album-img-wrap">
+              <img src="assets/imgs/album/photo28.jpg" alt="First Place at Health AI Datathon 2025 in Atlanta" loading="lazy" decoding="async">
+            </div>
             <figcaption>First Place at Health AI DATATHON '25 @ Atlanta</figcaption>
           </figure>
         </div>
 
         <div class="col-xl-4 col-md-6">
           <figure class="album-card">
-            <img src="assets/imgs/album/photo27.jpg" alt="2025 Banquet 1" class="img-fluid">
+            <div class="album-img-wrap">
+              <img src="assets/imgs/album/photo27.jpg" alt="2025 Banquet 1" loading="lazy" decoding="async">
+            </div>
             <figcaption>2025 Banquet 1</figcaption>
           </figure>
         </div>
 
         <div class="col-xl-4 col-md-6">
           <figure class="album-card">
-            <img src="assets/imgs/album/photo26.jpg" alt="2025 Graduation" class="img-fluid">
+            <div class="album-img-wrap">
+              <img src="assets/imgs/album/photo26.jpg" alt="2025 Graduation" loading="lazy" decoding="async">
+            </div>
             <figcaption>2025 Graduation!</figcaption>
           </figure>
         </div>
 
         <div class="col-xl-4 col-md-6">
           <figure class="album-card">
-            <img src="assets/imgs/album/photo25.jpg" alt="2025 Graduation" class="img-fluid">
+            <div class="album-img-wrap">
+              <img src="assets/imgs/album/photo25.jpg" alt="2025 Graduation" loading="lazy" decoding="async">
+            </div>
             <figcaption>2025 Graduation!</figcaption>
           </figure>
         </div>
 
         <div class="col-xl-4 col-md-6">
           <figure class="album-card">
-            <img src="assets/imgs/album/photo24.jpg" alt="2025 Graduation" class="img-fluid">
+            <div class="album-img-wrap">
+              <img src="assets/imgs/album/photo24.jpg" alt="2025 Graduation" loading="lazy" decoding="async">
+            </div>
             <figcaption>2025 Graduation!</figcaption>
           </figure>
         </div>
 
         <div class="col-xl-4 col-md-6">
           <figure class="album-card">
-            <img src="assets/imgs/album/photo23.jpg" alt="TSECC Datathon First Place" class="img-fluid">
+            <div class="album-img-wrap">
+              <img src="assets/imgs/album/photo23.jpg" alt="TSECC Datathon First Place" loading="lazy" decoding="async">
+            </div>
             <figcaption>TSECC Datathon First Place</figcaption>
           </figure>
         </div>
 
         <div class="col-xl-4 col-md-6">
           <figure class="album-card">
-            <img src="assets/imgs/album/photo22.jpg" alt="TSECC Datathon Third Place" class="img-fluid">
+            <div class="album-img-wrap">
+              <img src="assets/imgs/album/photo22.jpg" alt="TSECC Datathon Third Place" loading="lazy" decoding="async">
+            </div>
             <figcaption>TSECC Datathon Third Place</figcaption>
           </figure>
         </div>
 
         <div class="col-xl-4 col-md-6">
           <figure class="album-card">
-            <img src="assets/imgs/album/photo21.jpg" alt="TSECC Datathon Best Team Award" class="img-fluid">
+            <div class="album-img-wrap">
+              <img src="assets/imgs/album/photo21.jpg" alt="TSECC Datathon Best Team Award" loading="lazy" decoding="async">
+            </div>
             <figcaption>TSECC Datathon Best Team Award</figcaption>
           </figure>
         </div>
 
         <div class="col-xl-4 col-md-6">
           <figure class="album-card">
-            <img src="assets/imgs/album/photo20.jpg" alt="TSECC Taiwan Datathon 2024" class="img-fluid">
+            <div class="album-img-wrap">
+              <img src="assets/imgs/album/photo20.jpg" alt="TSECC Taiwan Datathon 2024" loading="lazy" decoding="async">
+            </div>
             <figcaption>TSECC Taiwan Datathon 2024</figcaption>
           </figure>
         </div>
 
         <div class="col-xl-4 col-md-6">
           <figure class="album-card">
-            <img src="assets/imgs/album/photo19.jpg" alt="2024 Banquet 2" class="img-fluid">
+            <div class="album-img-wrap">
+              <img src="assets/imgs/album/photo19.jpg" alt="2024 Banquet 2" loading="lazy" decoding="async">
+            </div>
             <figcaption>2024 Banquet 2</figcaption>
           </figure>
         </div>
 
         <div class="col-xl-4 col-md-6">
           <figure class="album-card">
-            <img src="assets/imgs/album/photo18.jpg" alt="2024 EMBS in Orlando Florida" class="img-fluid">
+            <div class="album-img-wrap">
+              <img src="assets/imgs/album/photo18.jpg" alt="2024 EMBS in Orlando Florida" loading="lazy" decoding="async">
+            </div>
             <figcaption>2024 EMBS @ Orlando, Florida</figcaption>
           </figure>
         </div>
 
         <div class="col-xl-4 col-md-6">
           <figure class="album-card">
-            <img src="assets/imgs/album/photo17.JPG" alt="2024 Graduation" class="img-fluid">
+            <div class="album-img-wrap">
+              <img src="assets/imgs/album/photo17.JPG" alt="2024 Graduation" loading="lazy" decoding="async">
+            </div>
             <figcaption>2024 Graduation!</figcaption>
           </figure>
         </div>
 
         <div class="col-xl-4 col-md-6">
           <figure class="album-card">
-            <img src="assets/imgs/album/photo16.jpg" alt="2024 Graduation" class="img-fluid">
+            <div class="album-img-wrap">
+              <img src="assets/imgs/album/photo16.jpg" alt="2024 Graduation" loading="lazy" decoding="async">
+            </div>
             <figcaption>2024 Graduation!</figcaption>
           </figure>
         </div>
 
         <div class="col-xl-4 col-md-6">
           <figure class="album-card">
-            <img src="assets/imgs/album/photo15.jpg" alt="2024 Graduation" class="img-fluid">
+            <div class="album-img-wrap">
+              <img src="assets/imgs/album/photo15.jpg" alt="2024 Graduation" loading="lazy" decoding="async">
+            </div>
             <figcaption>2024 Graduation!</figcaption>
           </figure>
         </div>
 
         <div class="col-xl-4 col-md-6">
           <figure class="album-card">
-            <img src="assets/imgs/album/photo14.jpg" alt="2024 ICASSP in Korea" class="img-fluid">
+            <div class="album-img-wrap">
+              <img src="assets/imgs/album/photo14.jpg" alt="2024 ICASSP in Korea" loading="lazy" decoding="async">
+            </div>
             <figcaption>2024 ICASSP @ Korea</figcaption>
           </figure>
         </div>
 
         <div class="col-xl-4 col-md-6">
           <figure class="album-card">
-            <img src="assets/imgs/album/photo13.jpg" alt="2024 ICASSP in Korea" class="img-fluid">
+            <div class="album-img-wrap">
+              <img src="assets/imgs/album/photo13.jpg" alt="2024 ICASSP in Korea" loading="lazy" decoding="async">
+            </div>
             <figcaption>2024 ICASSP @ Korea</figcaption>
           </figure>
         </div>
 
         <div class="col-xl-4 col-md-6">
           <figure class="album-card">
-            <img src="assets/imgs/album/photo11.jpg" alt="2024 Birthday celebration" class="img-fluid">
+            <div class="album-img-wrap">
+              <img src="assets/imgs/album/photo11.jpg" alt="2024 Birthday celebration" loading="lazy" decoding="async">
+            </div>
             <figcaption>2024 Birthday Celebration!</figcaption>
           </figure>
         </div>
 
         <div class="col-xl-4 col-md-6">
           <figure class="album-card">
-            <img src="assets/imgs/album/photo10.jpg" alt="2024 Banquet 1" class="img-fluid">
+            <div class="album-img-wrap">
+              <img src="assets/imgs/album/photo10.jpg" alt="2024 Banquet 1" loading="lazy" decoding="async">
+            </div>
             <figcaption>2024 Banquet 1</figcaption>
           </figure>
         </div>
 
         <div class="col-xl-4 col-md-6">
           <figure class="album-card">
-            <img src="assets/imgs/album/photo9.jpg" alt="2023 Banquet 3" class="img-fluid">
+            <div class="album-img-wrap">
+              <img src="assets/imgs/album/photo9.jpg" alt="2023 Banquet 3" loading="lazy" decoding="async">
+            </div>
             <figcaption>2023 Banquet 3</figcaption>
           </figure>
         </div>
 
         <div class="col-xl-4 col-md-6">
           <figure class="album-card">
-            <img src="assets/imgs/album/photo6.JPG" alt="2023 Banquet 2" class="img-fluid">
+            <div class="album-img-wrap">
+              <img src="assets/imgs/album/photo6.JPG" alt="2023 Banquet 2" loading="lazy" decoding="async">
+            </div>
             <figcaption>2023 Banquet 2</figcaption>
           </figure>
         </div>
 
         <div class="col-xl-4 col-md-6">
           <figure class="album-card">
-            <img src="assets/imgs/album/photo7.JPG" alt="2023 Graduation" class="img-fluid">
+            <div class="album-img-wrap">
+              <img src="assets/imgs/album/photo7.JPG" alt="2023 Graduation" loading="lazy" decoding="async">
+            </div>
             <figcaption>2023 Graduation!</figcaption>
           </figure>
         </div>
 
         <div class="col-xl-4 col-md-6">
           <figure class="album-card">
-            <img src="assets/imgs/album/photo0.jpg" alt="2023 Banquet 1" class="img-fluid">
+            <div class="album-img-wrap">
+              <img src="assets/imgs/album/photo0.jpg" alt="2023 Banquet 1" loading="lazy" decoding="async">
+            </div>
             <figcaption>2023 Banquet 1</figcaption>
           </figure>
         </div>
 
         <div class="col-xl-4 col-md-6">
           <figure class="album-card">
-            <img src="assets/imgs/album/photo8.jpg" alt="2022 September Banquet" class="img-fluid">
+            <div class="album-img-wrap">
+              <img src="assets/imgs/album/photo8.jpg" alt="2022 September Banquet" loading="lazy" decoding="async">
+            </div>
             <figcaption>2022.09 Banquet</figcaption>
           </figure>
         </div>
 
         <div class="col-xl-4 col-md-6">
           <figure class="album-card">
-            <img src="assets/imgs/album/photo1.png" alt="2022 Summer NTHU HMIers at MIT LCP" class="img-fluid">
+            <div class="album-img-wrap">
+              <img src="assets/imgs/album/photo1.png" alt="2022 Summer NTHU HMIers at MIT LCP" loading="lazy" decoding="async">
+            </div>
             <figcaption>2022 Summer NTHU HMIers at MIT LCP</figcaption>
           </figure>
         </div>
 
         <div class="col-xl-4 col-md-6">
           <figure class="album-card">
-            <img src="assets/imgs/album/photo2.jpg" alt="2022 Graduation" class="img-fluid">
+            <div class="album-img-wrap">
+              <img src="assets/imgs/album/photo2.jpg" alt="2022 Graduation" loading="lazy" decoding="async">
+            </div>
             <figcaption>2022 Graduation!</figcaption>
           </figure>
         </div>
 
         <div class="col-xl-4 col-md-6">
           <figure class="album-card">
-            <img src="assets/imgs/album/photo3.jpg" alt="2022 January Year end banquet" class="img-fluid">
+            <div class="album-img-wrap">
+              <img src="assets/imgs/album/photo3.jpg" alt="2022 January Year end banquet" loading="lazy" decoding="async">
+            </div>
             <figcaption>2022.01 Year End Banquet</figcaption>
           </figure>
         </div>
 
         <div class="col-xl-4 col-md-6">
           <figure class="album-card">
-            <img src="assets/imgs/album/photo4.jpg" alt="2021 January Year end banquet" class="img-fluid">
+            <div class="album-img-wrap">
+              <img src="assets/imgs/album/photo4.jpg" alt="2021 January Year end banquet" loading="lazy" decoding="async">
+            </div>
             <figcaption>2021.01 Year End Banquet</figcaption>
           </figure>
         </div>
 
         <div class="col-xl-4 col-md-6">
           <figure class="album-card">
-            <img src="assets/imgs/album/photo5.jpg" alt="2020 September Teacher's Day" class="img-fluid">
+            <div class="album-img-wrap">
+              <img src="assets/imgs/album/photo5.jpg" alt="2020 September Teacher's Day" loading="lazy" decoding="async">
+            </div>
             <figcaption>2020.09 Teacher's Day</figcaption>
           </figure>
         </div>
@@ -539,18 +633,18 @@
 <section id="team" class="team-section">
   <div class="container">
     <div class="section-header text-center">
-      <h6 class="section-subtitle">People</h6>
+      <div class="section-tag">People</div>
       <h2 class="section-title">Our Team</h2>
     </div>
 
-  <div class="team-group team-group-pi">
+  <div class="team-group team-group-pi" id="team-pi">
     <div class="team-group-head">
       <h5 class="team-role">Principal Investigator</h5>
     </div>
     <div id="pi-list" class="row justify-content-center g-4 team-grid"></div>
   </div>
 
-    <div class="team-group">
+    <div class="team-group" id="team-phd">
       <div class="team-toggle-wrap">
         <button
           class="team-toggle collapsed"
@@ -563,7 +657,7 @@
           <span class="team-toggle-text">
             <span class="team-toggle-title">PhD Student</span>
           </span>
-          <span class="team-toggle-arrow">⌄</span>
+          <span class="team-toggle-arrow">▾</span>
         </button>
       </div>
       <div class="collapse" id="phdCollapse">
@@ -571,7 +665,7 @@
       </div>
     </div>
 
-    <div class="team-group">
+    <div class="team-group" id="team-grad">
       <div class="team-toggle-wrap">
         <button
           class="team-toggle collapsed"
@@ -584,7 +678,7 @@
           <span class="team-toggle-text">
             <span class="team-toggle-title">Graduate Student</span>
           </span>
-          <span class="team-toggle-arrow">⌄</span>
+          <span class="team-toggle-arrow">▾</span>
         </button>
       </div>
       <div class="collapse" id="graduateCollapse">
@@ -592,7 +686,7 @@
       </div>
     </div>
 
-    <div class="team-group">
+    <div class="team-group" id="team-undergrad">
       <div class="team-toggle-wrap">
         <button
           class="team-toggle collapsed"
@@ -605,7 +699,7 @@
           <span class="team-toggle-text">
             <span class="team-toggle-title">Undergraduate Student</span>
           </span>
-          <span class="team-toggle-arrow">⌄</span>
+          <span class="team-toggle-arrow">▾</span>
         </button>
       </div>
       <div class="collapse" id="undergraduateCollapse">
@@ -613,7 +707,7 @@
       </div>
     </div>
 
-    <div class="team-group">
+    <div class="team-group" id="team-ra">
       <div class="team-toggle-wrap">
         <button
           class="team-toggle collapsed"
@@ -626,7 +720,7 @@
           <span class="team-toggle-text">
             <span class="team-toggle-title">Research Assistant</span>
           </span>
-          <span class="team-toggle-arrow">⌄</span>
+          <span class="team-toggle-arrow">▾</span>
         </button>
       </div>
       <div class="collapse" id="raCollapse">
@@ -634,7 +728,7 @@
       </div>
     </div>
 
-    <div class="team-group mb-0">
+    <div class="team-group mb-0" id="team-alumni">
       <div class="team-toggle-wrap">
         <button
           class="team-toggle collapsed"
@@ -647,7 +741,7 @@
           <span class="team-toggle-text">
             <span class="team-toggle-title">Alumni</span>
           </span>
-          <span class="team-toggle-arrow">⌄</span>
+          <span class="team-toggle-arrow">▾</span>
         </button>
       </div>
       <div class="collapse" id="alumniCollapse">
@@ -658,86 +752,86 @@
 </section>
 
 <!-- Collaborator Section -->
-<section id="testimonial">
+<section id="testimonial" class="bg-alt">
   <div class="container">
     <div class="section-header text-center">
-    <h6 class="section-subtitle">Collaborators</h6>
-    <h6 class="section-title text-center mb-6">Research Partners</h6>
+    <div class="section-tag">Collaborators</div>
+    <h2 class="section-title mb-4">Research Partners</h2>
 
     <div class="row text-center justify-content-center">
 
       <div class="col-lg-2 col-md-4 col-6 mb-5">
-        <img src="assets/imgs/collaborator/tcvgh.png" class="img-fluid">
-        <figcaption class="small mt-3">
+        <img src="assets/imgs/collaborator/tcvgh.png" class="img-fluid" alt="Taichung Veterans General Hospital logo">
+<figcaption class="small mt-3">
           Taichung Veterans General Hospital, Taiwan
         </figcaption>
       </div>
 
       <div class="col-lg-2 col-md-4 col-6 mb-5">
-        <img src="assets/imgs/collaborator/hitilab.png" class="img-fluid">
+        <img src="assets/imgs/collaborator/hitilab.png" class="img-fluid" alt="Healthcare Innovation and Translational Informatics Lab, Emory University logo">
         <figcaption class="small mt-3">
           Healthcare Innovation and Translational Informatics Lab Emory University, USA
         </figcaption>
       </div>
 
       <div class="col-lg-2 col-md-4 col-6 mb-5">
-        <img src="assets/imgs/collaborator/icp.png" class="img-fluid">
+        <img src="assets/imgs/collaborator/icp.png" class="img-fluid" alt="Laboratory for Computational Physiology, MIT logo">
         <figcaption class="small mt-3">
           Laboratory for Computational Physiology MIT, USA
         </figcaption>
       </div>
 
       <div class="col-lg-2 col-md-4 col-6 mb-5">
-        <img src="assets/imgs/collaborator/sinica.png" class="img-fluid">
+        <img src="assets/imgs/collaborator/sinica.png" class="img-fluid" alt="Functional Neuroimaging Lab, Academia Sinica logo">
         <figcaption class="small mt-3">
           Functional Neuroimaging Lab Academia Sinica, Taiwan
         </figcaption>
       </div>
 
       <div class="col-lg-2 col-md-4 col-6 mb-5">
-        <img src="assets/imgs/collaborator/oja.jpg" class="img-fluid">
+        <img src="assets/imgs/collaborator/oja.jpg" class="img-fluid" alt="Research Centre Jülich logo">
         <figcaption class="small mt-3">
           Research Centre Jülich, Germany
         </figcaption>
       </div>
 
       <div class="col-lg-2 col-md-4 col-6 mb-5">
-        <img src="assets/imgs/collaborator/bml.png" class="img-fluid">
+        <img src="assets/imgs/collaborator/bml.png" class="img-fluid" alt="Brain Mapping Lab, NYMU logo">
         <figcaption class="small mt-3">
           Brain Mapping Lab NYMU, Taiwan
         </figcaption>
       </div>
 
       <div class="col-lg-2 col-md-4 col-6 mb-5">
-        <img src="assets/imgs/collaborator/tmu.jpg" class="img-fluid">
+        <img src="assets/imgs/collaborator/tmu.jpg" class="img-fluid" alt="Taipei Medical University logo">
         <figcaption class="small mt-3">
           Taipei Medical University, Taiwan
         </figcaption>
       </div>
 
       <div class="col-lg-2 col-md-4 col-6 mb-5">
-        <img src="assets/imgs/collaborator/sta.png" class="img-fluid">
+        <img src="assets/imgs/collaborator/sta.png" class="img-fluid" alt="Institute of Statistical Mathematics, Japan logo">
         <figcaption class="small mt-3">
           Institute of Statistical Mathematics, Japan
         </figcaption>
       </div>
 
       <div class="col-lg-2 col-md-4 col-6 mb-5">
-        <img src="assets/imgs/collaborator/swartz.jpg" class="img-fluid">
+        <img src="assets/imgs/collaborator/swartz.jpg" class="img-fluid" alt="UCSD Swartz Center for Computational Neuroscience logo">
         <figcaption class="small mt-3">
           UCSD Swartz Center for Computational Neuroscience
         </figcaption>
       </div>
 
       <div class="col-lg-2 col-md-4 col-6 mb-5">
-        <img src="assets/imgs/collaborator/info.jpg" class="img-fluid">
+        <img src="assets/imgs/collaborator/info.jpg" class="img-fluid" alt="Institute for Information Industry, Taiwan logo">
         <figcaption class="small mt-3">
           Institute for Information Industry, Taiwan
         </figcaption>
       </div>
 
       <div class="col-lg-2 col-md-4 col-6 mb-5">
-        <img src="assets/imgs/collaborator/ntuh.png" class="img-fluid">
+        <img src="assets/imgs/collaborator/ntuh.png" class="img-fluid" alt="NTU Hospital Hsinchu Branch logo">
         <figcaption class="small mt-3">
           NTU Hospital Hsinchu Branch, Taiwan
         </figcaption>
@@ -752,9 +846,9 @@
 <section id="blog" class="blog-section">
   <div class="container">
     <div class="section-header text-center">
-      <h6 class="section-subtitle">News Feed</h6>
+      <div class="section-tag">News</div>
       <h2 class="section-title">Latest News</h2>
-      <p class="section-description mx-auto">
+      <p class="section-desc mx-auto">
         Highlights from our lab, including awards, publications, recognitions, and research updates.
       </p>
     </div>
@@ -764,7 +858,7 @@
         <article class="blog-card w-100">
           <div class="blog-card-body">
             <span class="blog-meta">
-              <i class="fa fa-clock-o"></i> June 20, 2024
+              <i class="fa fa-clock-o" aria-hidden="true"></i> June 20, 2024
             </span>
             <h5 class="blog-title">Professor Promotion</h5>
             <p class="blog-text">
@@ -779,7 +873,7 @@
         <article class="blog-card w-100">
           <div class="blog-card-body">
             <span class="blog-meta">
-              <i class="fa fa-clock-o"></i> February 25, 2024
+              <i class="fa fa-clock-o" aria-hidden="true"></i> February 25, 2024
             </span>
             <h5 class="blog-title">Outstanding Student Paper Award</h5>
             <p class="blog-text">
@@ -795,7 +889,7 @@
         <article class="blog-card w-100">
           <div class="blog-card-body">
             <span class="blog-meta">
-              <i class="fa fa-clock-o"></i> February 25, 2024
+              <i class="fa fa-clock-o" aria-hidden="true"></i> February 25, 2024
             </span>
             <h5 class="blog-title">EECS Project Competition Silver Medal</h5>
             <p class="blog-text">
@@ -819,7 +913,7 @@
         <article class="blog-card w-100">
           <div class="blog-card-body">
             <span class="blog-meta">
-              <i class="fa fa-clock-o"></i> September 16, 2022
+              <i class="fa fa-clock-o" aria-hidden="true"></i> September 16, 2022
             </span>
             <h5 class="blog-title">Research Featured in NTHU News</h5>
             <p class="blog-text">
@@ -841,7 +935,7 @@
         <article class="blog-card w-100">
           <div class="blog-card-body">
             <span class="blog-meta">
-              <i class="fa fa-clock-o"></i> September 15, 2022
+              <i class="fa fa-clock-o" aria-hidden="true"></i> September 15, 2022
             </span>
             <h5 class="blog-title">Student Research Project Award</h5>
             <p class="blog-text">
@@ -855,7 +949,7 @@
         <article class="blog-card w-100">
           <div class="blog-card-body">
             <span class="blog-meta">
-              <i class="fa fa-clock-o"></i> September 15, 2022
+              <i class="fa fa-clock-o" aria-hidden="true"></i> September 15, 2022
             </span>
             <h5 class="blog-title">Singapore Healthcare AI Datathon 2021</h5>
             <p class="blog-text">
@@ -878,7 +972,7 @@
         <article class="blog-card w-100">
           <div class="blog-card-body">
             <span class="blog-meta">
-              <i class="fa fa-clock-o"></i> July 7, 2021
+              <i class="fa fa-clock-o" aria-hidden="true"></i> July 7, 2021
             </span>
             <h5 class="blog-title">Paper Accepted at ICHMS 2021</h5>
             <p class="blog-text">
@@ -894,7 +988,7 @@
         <article class="blog-card w-100">
           <div class="blog-card-body">
             <span class="blog-meta">
-              <i class="fa fa-clock-o"></i> July 4, 2021
+              <i class="fa fa-clock-o" aria-hidden="true"></i> July 4, 2021
             </span>
             <h5 class="blog-title">MOST Undergraduate Project</h5>
             <p class="blog-text">
@@ -908,7 +1002,7 @@
         <article class="blog-card w-100">
           <div class="blog-card-body">
             <span class="blog-meta">
-              <i class="fa fa-clock-o"></i> November 10, 2020
+              <i class="fa fa-clock-o" aria-hidden="true"></i> November 10, 2020
             </span>
             <h5 class="blog-title">TSECC Datathon Second Place</h5>
             <p class="blog-text">
@@ -922,7 +1016,7 @@
         <article class="blog-card w-100">
           <div class="blog-card-body">
             <span class="blog-meta">
-              <i class="fa fa-clock-o"></i> November 10, 2020
+              <i class="fa fa-clock-o" aria-hidden="true"></i> November 10, 2020
             </span>
             <h5 class="blog-title">TSECC Datathon First Place</h5>
             <p class="blog-text">
@@ -936,7 +1030,7 @@
         <article class="blog-card w-100">
           <div class="blog-card-body">
             <span class="blog-meta">
-              <i class="fa fa-clock-o"></i> October 17, 2020
+              <i class="fa fa-clock-o" aria-hidden="true"></i> October 17, 2020
             </span>
             <h5 class="blog-title">Honorable Mention at EDUTHON 2020</h5>
             <p class="blog-text">
@@ -1000,24 +1094,28 @@
           </li>
           <li class="list-body">
             <p>
-              <i class="ti-location-pin"></i>
+              <i class="ti-location-pin" aria-hidden="true"></i>
               Delta Building, Department of EECS, No. 101, Sec. 2, Kuang-Fu Road,
               Hsinchu City 30013, Taiwan
             </p>
             <p>
-              <i class="ti-email"></i>
+              <i class="ti-email" aria-hidden="true"></i>
               <a href="mailto:kuopc@mit.edu">kuopc@mit.edu</a>
             </p>
           </li>
         </ul>
+      </div><!-- .footer-lists -->
+      <div class="footer-copyright">
+        © 2026 HMI Lab, National Tsing Hua University. All rights reserved.
       </div>
-    </div>
-  </div>
+    </div><!-- .footer -->
+  </div><!-- .container -->
 </section>
 
     <!-- core  -->
     <script src="assets/vendors/jquery/jquery-3.4.1.js"></script>
     <script src="assets/vendors/bootstrap/bootstrap.bundle.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
     <!-- bootstrap affix -->
     <script src="assets/vendors/bootstrap/bootstrap.affix.js"></script>

@@ -4,10 +4,7 @@ html { height: 100% }
 
 section {
     padding: $section-padding-y $section-padding-x;
-
-    &:nth-child(odd) {
-        background-color: lighten($gray-100, 1%);
-    }
+    background-color: $white;
 
     &.py-sm,
     .py-sm {
@@ -48,23 +45,11 @@ section {
 
     }
 
-    .section-subtitle {
-        font-size: calc(17px + (23 - 17) * ((100vw - 320px) / (1200 - 320)));
-        font-weight: 300;
-        margin-bottom: 5px;
-        opacity: .6;
-        
-        @include media-breakpoint-up(lg) {
-            font-size: 23px;
-        }
-    }
-    .section-title {
-        font-size: calc(28px + (35 - 28) * ((100vw - 320px) / (1200 - 320)));
+    // .section-title defined in _typography.scss
+}
 
-        @include media-breakpoint-up(lg) {
-            font-size: 35px;
-        }
-    }
+.bg-alt {
+    background-color: $bg-alt !important;
 }
 
 /* about */
@@ -108,4 +93,68 @@ section {
             display: none;
         }
     }
-} 
+}
+
+// ── Lab Highlights ────────────────────────────────────────────
+.lab-highlights {
+    padding-top: 0;
+    padding-bottom: 40px;
+    background-color: $white;
+}
+
+.lab-highlights .box {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: -60px;
+    position: relative;
+    z-index: 10;
+
+    @include media-breakpoint-down(md) {
+        grid-template-columns: 1fr;
+        margin-top: -20px;
+    }
+}
+
+.lab-highlights .box-item {
+    background: $white;
+    border: 1px solid $border-default;
+    border-radius: $radius-lg;
+    box-shadow: $shadow-md;
+    padding: 28px 24px;
+    text-align: center;
+    transition: transform $transition-base, box-shadow $transition-base;
+
+    &:hover {
+        transform: translateY(-4px);
+        box-shadow: $shadow-hover;
+    }
+}
+
+.lab-highlights .box-item i {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 52px;
+    height: 52px;
+    background: $primary-tint;
+    border-radius: $radius-md;
+    margin: 0 auto 16px;
+    font-size: 22px;
+    color: $primary;
+}
+
+.box-title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: $text-primary;
+    margin-bottom: 8px;
+}
+
+.box-text {
+    font-size: 0.9rem;
+    color: $text-secondary;
+    line-height: 1.6;
+    margin-bottom: 0;
+}
+// ─────────────────────────────────────────────────────────────
