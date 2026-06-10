@@ -11573,7 +11573,7 @@ body {
   line-height: 1;
   display: inline-block;
   flex-shrink: 0;
-  transition: transform 0.2s ease, color 0.15s;
+  transition: transform 0.2s ease, color 0.15s ease;
 }
 .archive-row.open .archive-chevron {
   transform: rotate(180deg);
