@@ -11220,4 +11220,70 @@ body {
   color: rgba(255, 255, 255, 0.62);
 }
 
+/* Typography scale */
+.header .title {
+  font-size: clamp(4.5rem, 6vw, 5rem);
+  font-weight: 600;
+}
+
+.section-title {
+  font-size: clamp(3rem, 4.5vw, 3.5rem);
+  font-weight: 600;
+}
+
+.research-title,
+.blog-title {
+  font-size: clamp(1.5rem, 2vw, 1.75rem);
+  font-weight: 600;
+}
+
+.box-title {
+  font-weight: 600;
+}
+
+body {
+  font-size: 1.0625rem;
+}
+
+/* Body text width limit — 65 characters max for readability */
+.about-text,
+.research-text,
+.blog-text,
+.section-desc {
+  max-width: 65ch;
+}
+
+/* Section rhythm — standardized vertical padding */
+.research-section,
+.team-section,
+.blog-section,
+.about-section {
+  padding-top: 96px;
+  padding-bottom: 96px;
+}
+
+@media (max-width: 991.98px) {
+  .research-section,
+  .team-section,
+  .blog-section,
+  .about-section {
+    padding-top: 72px;
+    padding-bottom: 72px;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .research-section,
+  .team-section,
+  .blog-section,
+  .about-section {
+    padding-top: 56px;
+    padding-bottom: 56px;
+  }
+}
+
+.section-header {
+  margin-bottom: 48px;
+}
+
 /*# sourceMappingURL=creative-studio.css.map */
