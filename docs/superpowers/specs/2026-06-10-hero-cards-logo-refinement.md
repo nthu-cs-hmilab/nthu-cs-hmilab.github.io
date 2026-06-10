@@ -1,8 +1,8 @@
 # HMI Lab — Hero, Research Cards & Logo Refinement Spec
 
-**Date:** 2026-06-10  
-**Scope:** Approach A — targeted CSS + HTML patches, no new sections, no restructuring  
-**Files touched:** `index.html`, `assets/css/creative-studio.css`  
+**Date:** 2026-06-10
+**Scope:** Approach A — targeted CSS + HTML patches, no new sections, no restructuring
+**Files touched:** `index.html`, `assets/css/creative-studio.css`
 **Aesthetic target:** MIT CSAIL / Stanford HAI / Berkeley BAIR — premium academic research lab
 
 ---
@@ -10,11 +10,13 @@
 ## 1. Logo Fix
 
 ### Problem
+
 Two conflicting CSS rules exist for `.custom-navbar .navbar-brand img` (width 50px at line 10158, width 42px at line 10824). No `height: auto` or `display: block` is set.
 
 ### Changes — `assets/css/creative-studio.css`
 
 Remove the earlier duplicate rule at line 10158:
+
 ```css
 /* DELETE this rule */
 .custom-navbar .navbar-brand img {
@@ -23,6 +25,7 @@ Remove the earlier duplicate rule at line 10158:
 ```
 
 Update the surviving rule at line 10824 to:
+
 ```css
 .custom-navbar .navbar-brand img {
   width: 42px;
@@ -32,6 +35,7 @@ Update the surviving rule at line 10824 to:
 ```
 
 ### No HTML changes needed
+
 The path `assets/imgs/logo2.png` is correct, case-matches the file, and GitHub Pages will serve it correctly.
 
 ---
@@ -39,18 +43,19 @@ The path `assets/imgs/logo2.png` is correct, case-matches the file, and GitHub P
 ## 2. Research Cards — Remove Question, Add Area Label
 
 ### Decision
+
 **Option B** (chosen): Remove `<p class="research-question">` prose from all four cards. Replace with `<p class="research-area-tag">` — a short uppercase category label with a pink leading rule, consistent with the `blog-meta` pattern.
 
 ### HTML changes — `index.html`
 
 Replace each `<p class="research-question">…</p>` with `<p class="research-area-tag">LABEL</p>`.
 
-| Card title | Old question text (removed) | New label |
-|---|---|---|
-| Trustworthy AI for Medicine | "Can we capture a photo…" | `Medical AI` |
-| Brain Encoding and Decoding | "How does the human brain represent…" | `Neuroscience` |
-| Human-Machine Interaction | "Can intelligent systems help people…" | `HCI` |
-| Computational Neuroscience | "How can computational methods reveal…" | `Comp. Neuro` |
+| Card title                  | Old question text (removed)             | New label      |
+| --------------------------- | --------------------------------------- | -------------- |
+| Trustworthy AI for Medicine | "Can we capture a photo…"               | `Medical AI`   |
+| Brain Encoding and Decoding | "How does the human brain represent…"   | `Neuroscience` |
+| Human-Machine Interaction   | "Can intelligent systems help people…"  | `HCI`          |
+| Computational Neuroscience  | "How can computational methods reveal…" | `Comp. Neuro`  |
 
 Remove `h-100` Bootstrap class from all four `.research-card` divs (flex layout replaces it).
 
@@ -109,6 +114,7 @@ This ensures all four cards have identical visual structure: area-tag → title 
 ## 3. Hero Typography
 
 ### Title
+
 No change. `color: #fff` is already set and correct. Do not add pink, gradient, or any color treatment.
 
 ### Kicker — replace with pink-rule style (Option C)
@@ -120,6 +126,7 @@ The block at lines 10439–10447 sets `color: #ff214f` (pink) on the kicker. The
 ```
 
 Full replacement for the block at lines 10953–10958:
+
 ```css
 .hero-kicker {
   display: inline-flex;
@@ -150,13 +157,13 @@ Three tiers of white — title at full white, subtitle slightly dimmed, descript
 ```css
 /* subtitle: soften weight and opacity */
 .header .subtitle {
-  font-weight: 400;          /* was 500 */
-  color: rgba(255, 255, 255, 0.80);   /* was 0.90 */
+  font-weight: 400; /* was 500 */
+  color: rgba(255, 255, 255, 0.8); /* was 0.90 */
 }
 
 /* description: push back further */
 .hero-description {
-  color: rgba(255, 255, 255, 0.62);   /* was 0.78 */
+  color: rgba(255, 255, 255, 0.62); /* was 0.78 */
 }
 ```
 

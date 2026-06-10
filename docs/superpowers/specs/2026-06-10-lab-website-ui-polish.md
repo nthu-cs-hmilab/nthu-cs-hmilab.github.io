@@ -230,43 +230,6 @@ Replace filled-card style with a minimal divider style:
 
 No background on hover — only the title text shifts to primary color.
 
-### Count badges — injected via JS
-After each `renderMembers()` call in `creative-studio.js`, inject a count badge into the corresponding toggle button:
-
-```js
-function injectCount(toggleSelector, count) {
-  var toggle = document.querySelector(toggleSelector);
-  if (!toggle || count === 0) return;
-  var badge = document.createElement('span');
-  badge.className = 'team-count-badge';
-  badge.textContent = count;
-  toggle.querySelector('.team-toggle-text').after(badge);
-}
-// call after renderMembers:
-injectCount('#team-phd    .team-toggle', teamData.phd.length);
-injectCount('#team-grad   .team-toggle', teamData.graduate.length);
-injectCount('#team-undergrad .team-toggle', teamData.undergraduate.length);
-injectCount('#team-ra     .team-toggle', teamData.ra.length);
-injectCount('#team-alumni .team-toggle', teamData.alumni.length);
-```
-
-Badge CSS (restrained — no strong color, just a number):
-```css
-.team-count-badge {
-  font-size: 0.7rem;
-  font-weight: 500;
-  color: #9ca3af;
-  background: #f3f4f6;
-  padding: 2px 8px;
-  border-radius: 999px;
-  flex-shrink: 0;
-}
-.team-toggle:hover .team-count-badge {
-  background: var(--primary-50);
-  color: #ff214f;
-}
-```
-
 ### Arrow indicator
 Change from `color: #ff214f` to `color: #9ca3af`. Rotation on open stays.
 
