@@ -486,11 +486,382 @@ The footer logo change is in §1b. Two additional refinements:
 
 ---
 
+---
+
+## Part 2: Additional Refinements
+
+Addendum 2026-06-10 — extends Part 1
+
+---
+
+## 11. Hero — Height and Overlay
+
+**Height:** Reduce `min-height` from 600px → 520px (≈13% reduction). On mobile reduce from 620px → 540px.
+
+```css
+/* Update existing .header rule */
+.header {
+  min-height: 520px;
+}
+@media (max-width: 767.98px) {
+  .header {
+    min-height: 540px;
+  }
+}
+```
+
+**Overlay:** Darken to reduce image dominance. Update the `.header .overlay` background in the latest refinement block (~line 10940):
+
+```css
+.header .overlay {
+  background:
+    linear-gradient(90deg, rgba(5, 6, 16, 0.92) 0%, rgba(8, 9, 24, 0.78) 46%, rgba(8, 9, 24, 0.60) 100%);
+}
+@media (max-width: 767.98px) {
+  .header .overlay {
+    background: linear-gradient(180deg, rgba(5, 6, 16, 0.90), rgba(6, 8, 20, 0.78));
+  }
+}
+```
+
+**Content width:** Reduce `.hero-content` max-width from 720px → 600px for tighter line lengths.
+
+```css
+.hero-content {
+  max-width: 600px;
+}
+```
+
+---
+
+## 12. Typography System
+
+Target scale:
+
+| Element | Target | CSS value |
+| --- | --- | --- |
+| Hero title | 72–80px | `clamp(4.5rem, 6vw, 5rem)` |
+| Section title | 48–56px | `clamp(3rem, 4.5vw, 3.5rem)` |
+| Card title | 24–28px | `clamp(1.5rem, 2vw, 1.75rem)` |
+| Body text | 17–18px | `1.0625rem` |
+
+Append at end of file:
+
+```css
+/* Typography scale */
+.header .title {
+  font-size: clamp(4.5rem, 6vw, 5rem);
+  font-weight: 600;
+}
+
+.section-title {
+  font-size: clamp(3rem, 4.5vw, 3.5rem);
+  font-weight: 600;
+}
+
+.research-title,
+.blog-title {
+  font-size: clamp(1.5rem, 2vw, 1.75rem);
+  font-weight: 600;
+}
+
+body {
+  font-size: 1.0625rem;
+}
+```
+
+**Reduce excessive bold:** `.section-title` weight already set to 600 above. Also update `.box-title`:
+
+```css
+.box-title {
+  font-weight: 600;
+}
+```
+
+**Body text width limit:** Prevent overly long lines in `.about-text`, `.research-text`, `.blog-text`, and `.section-desc`:
+
+```css
+.about-text,
+.research-text,
+.blog-text,
+.section-desc {
+  max-width: 65ch;
+}
+```
+
+---
+
+## 13. Section Rhythm
+
+Standardize all section vertical padding and section header bottom margin. Append:
+
+```css
+/* Section spacing normalization */
+.research-section,
+.team-section,
+.blog-section,
+.lab-highlights + section,
+.about-section {
+  padding-top: 96px;
+  padding-bottom: 96px;
+}
+
+@media (max-width: 991.98px) {
+  .research-section,
+  .team-section,
+  .blog-section,
+  .about-section {
+    padding-top: 72px;
+    padding-bottom: 72px;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .research-section,
+  .team-section,
+  .blog-section,
+  .about-section {
+    padding-top: 56px;
+    padding-bottom: 56px;
+  }
+}
+
+.section-header {
+  margin-bottom: 48px;
+}
+```
+
+---
+
+## 14. Research Descriptions — Shorten to One Sentence
+
+HTML change in `index.html`. Replace the three-sentence descriptions in each `.research-text` paragraph with single sentences:
+
+| Card | New one-sentence description |
+| --- | --- |
+| Trustworthy AI for Medicine | "We develop human-centered AI for clinical decision support using medical images, physiological signals, and electronic health records." |
+| Brain Encoding and Decoding | "We investigate how the brain encodes information and apply machine learning to decode neural activity from neuroimaging data." |
+| Human-Machine Interaction | "We design adaptive interfaces that improve user experience, learning efficiency, and decision-making through neural feedback." |
+| Computational Neuroscience | "We develop statistical and computational approaches for brain modeling, representation analysis, and neurobiologically informed machine learning." |
+
+---
+
+## 15. Team — Photo Crop and Role Label
+
+### 15a. Photo crop standardization
+
+All team photos use varying aspect ratios. Force a 1:1 square crop in CSS:
+
+```css
+/* Append at end of file */
+.team-photo-wrapper {
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.team-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+```
+
+### 15b. Role label in cards
+
+Update `createMemberCard(member, role)` in `creative-studio.js` to accept a second `role` argument and render it:
+
+```js
+function createMemberCard(member, role) {
+  const zhHtml = member.zh ? `<p class="team-name-zh" lang="zh-TW">${member.zh}</p>` : "";
+  const roleHtml = role ? `<p class="team-role-label">${role}</p>` : "";
+  return `
+    <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-6">
+      <div class="team-card">
+        <div class="team-photo-wrapper">
+          <img class="team-photo" src="${member.img}" alt="${member.en}"
+               loading="lazy" decoding="async"
+               onerror="this.onerror=null;this.src='assets/imgs/team/nophoto.png';">
+        </div>
+        <div class="team-card-body">
+          <h6 class="team-name-en">${member.en}</h6>
+          ${zhHtml}
+          ${roleHtml}
+        </div>
+      </div>
+    </div>
+  `;
+}
+```
+
+Pass the role string at each call site:
+
+- `pi`: `"Principal Investigator"`
+- `phd`: `"PhD Student"`
+- `graduate`: `"Graduate Student"`
+- `undergraduate`: `"Undergraduate Student"`
+- `ra`: `"Research Assistant"`
+- `alumni`: `"Alumni"`
+
+CSS for the role label:
+
+```css
+.team-role-label {
+  font-size: 0.72rem;
+  color: #9ca3af;
+  font-weight: 400;
+  margin-top: 2px;
+  margin-bottom: 0;
+}
+```
+
+---
+
+## 16. Collaborators — Already Minimal
+
+Current markup already shows: logo + institution name (`.collab-name`) + country/affiliation (`.collab-meta`). No HTML changes needed.
+
+Improve logo optical alignment by centering the frame content with consistent padding:
+
+```css
+/* Append at end of file */
+.collab-logo-frame {
+  padding: 14px 18px;
+}
+```
+
+---
+
+## 17. News — Limit to 3, Add "View All"
+
+### 17a. HTML change — `index.html`
+
+After the last news card closing `</div>` (before the closing `</div></section>`), add:
+
+```html
+<div class="news-view-all text-center mt-4">
+  <button class="news-expand-btn" type="button">View All News</button>
+</div>
+```
+
+### 17b. JS change — `creative-studio.js`
+
+On `DOMContentLoaded` (or inline at end of `<body>`), add:
+
+```js
+(function () {
+  var newsItems = document.querySelectorAll('#blog .col-md-6.col-lg-4');
+  var expandBtn = document.querySelector('.news-expand-btn');
+  if (!newsItems.length || !expandBtn) return;
+
+  // Hide items beyond the first 3
+  for (var i = 3; i < newsItems.length; i++) {
+    newsItems[i].classList.add('news-item-hidden');
+  }
+  if (newsItems.length <= 3) {
+    expandBtn.parentElement.hidden = true;
+    return;
+  }
+
+  expandBtn.addEventListener('click', function () {
+    document.querySelectorAll('.news-item-hidden').forEach(function (el) {
+      el.classList.remove('news-item-hidden');
+    });
+    expandBtn.parentElement.hidden = true;
+  });
+}());
+```
+
+### 17c. CSS
+
+```css
+/* Append at end of file */
+.news-item-hidden {
+  display: none !important;
+}
+
+.news-expand-btn {
+  background: transparent;
+  border: 1px solid #e5e7eb;
+  border-radius: 999px;
+  padding: 8px 22px;
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: #6b7280;
+  cursor: pointer;
+  transition: border-color 0.15s ease, color 0.15s ease;
+  font-family: inherit;
+}
+.news-expand-btn:hover {
+  border-color: #111827;
+  color: #111827;
+}
+```
+
+**Text truncation:** Add CSS line-clamp to `.blog-text` so summaries are consistently 3 lines max:
+
+```css
+.blog-text {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+```
+
+---
+
+## 18. Visual Cleanup
+
+Remove card borders and rely on whitespace + background contrast for separation. Append:
+
+```css
+/* Visual cleanup — remove card borders */
+.research-card,
+.blog-card {
+  border: none;
+  box-shadow: none;
+}
+
+.lab-highlights .box-item {
+  border: none;
+  box-shadow: none;
+  background: #f9fafb;
+}
+
+.lab-highlights .box-item:hover {
+  background: #f3f4f6;
+  box-shadow: none;
+  transform: none;
+}
+
+.research-card:hover,
+.blog-card:hover {
+  box-shadow: none;
+  transform: translateY(-2px);
+}
+```
+
+Remove the `.collab-logo-frame` border hover effect, keep only the subtle border at rest:
+
+```css
+.collab-logo-frame {
+  border-color: #f0f0f4;
+}
+.collab-logo-frame:hover {
+  border-color: #e5e7eb;
+  background: #fff;
+}
+```
+
+---
+
 ## Out of Scope
 
 - No changes to image assets
-- No changes to team section, about section, or contact form
-- No new sections added
+- No new standalone pages (all news on same page)
 - No publications section
-- No changes to lightbox logic
-- No changes to scroll progress bar, navbar dropdown, or team accordions
+- No changes to lightbox logic or scroll progress bar
+- No changes to the about section or contact form
+- No team member profile pages (role label is added, detailed bios are future work)
