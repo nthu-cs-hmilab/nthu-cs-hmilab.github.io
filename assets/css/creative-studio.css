@@ -10095,11 +10095,6 @@ pre .code {
   margin-bottom: 12px;
   text-decoration: none !important;
 }
-.footer .logo img {
-  width: 32px;
-  height: 32px;
-  border-radius: 8px;
-}
 .footer .logo h6 {
   font-size: 1rem;
   font-weight: 700;
@@ -10109,11 +10104,20 @@ pre .code {
 
 .footer-copyright {
   margin-top: 48px;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
   padding: 16px 0;
   text-align: center;
   font-size: 0.8rem;
   color: rgba(255, 255, 255, 0.35);
+}
+
+.footer-logo-icon {
+  width: 30px;
+  height: 30px;
+  background: #ff214f;
+  border-radius: 8px;
+  opacity: 0.9;
+  flex-shrink: 0;
 }
 
 @media (max-width: 767.98px) {
@@ -10232,7 +10236,7 @@ section .py-md {
   padding: 60px 0 !important;
 }
 section.has-bg-img {
-  background: rgba(33, 37, 41, 0.95);
+  background: #0f0f1a;
   position: relative;
   color: #fff;
 }
