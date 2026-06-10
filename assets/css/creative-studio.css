@@ -9767,6 +9767,46 @@ figure.album-card {
   min-height: 36px;
 }
 
+.album-filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+  margin: 20px 0 32px;
+}
+
+.album-filter-btn {
+  padding: 5px 16px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: #fff;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #6b7280;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+  -webkit-appearance: none;
+  appearance: none;
+  font-family: inherit;
+}
+.album-filter-btn:hover {
+  background: var(--primary-50);
+  color: #ff214f;
+  border-color: rgba(255, 33, 79, 0.2);
+}
+
+.album-filter-btn.active {
+  background: #ff214f;
+  color: #fff;
+  border-color: #ff214f;
+  box-shadow: 0 2px 8px rgba(255, 33, 79, 0.25);
+}
+
+.album-filter-btn:focus-visible {
+  outline: 2px solid #ff214f;
+  outline-offset: 2px;
+}
+
 .collab-col {
   margin-bottom: 32px;
 }

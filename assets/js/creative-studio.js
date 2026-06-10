@@ -426,3 +426,22 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }, { passive: true });
 }());
+
+/* =========================
+   Album Year Filter
+========================= */
+(function () {
+  var filterBtns = document.querySelectorAll('.album-filter-btn');
+  var albumItems = document.querySelectorAll('#albumGrid [data-year]');
+
+  filterBtns.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var year = this.dataset.year;
+      filterBtns.forEach(function (button) { button.classList.remove('active'); });
+      this.classList.add('active');
+      albumItems.forEach(function (item) {
+        item.style.display = (year === 'all' || item.dataset.year === year) ? '' : 'none';
+      });
+    });
+  });
+}());
