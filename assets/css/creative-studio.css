@@ -11566,4 +11566,21 @@ body {
   display: none;
 }
 
+/* Album archive — rotating chevron replaces dot */
+.archive-chevron {
+  color: #9ca3af;
+  font-size: 0.8rem;
+  line-height: 1;
+  display: inline-block;
+  flex-shrink: 0;
+  transition: transform 0.2s ease, color 0.15s;
+}
+.archive-row.open .archive-chevron {
+  transform: rotate(180deg);
+  color: #6b7280;
+}
+.archive-btn:hover {
+  background: #fafafa;
+}
+
 /*# sourceMappingURL=creative-studio.css.map */

@@ -502,7 +502,7 @@ document.addEventListener("DOMContentLoaded", function () {
       '<button class="archive-btn" type="button"',
       ' aria-expanded="false" aria-controls="arcpanel-' + year + '">',
       '<span class="archive-year">' + year + '</span>',
-      '<span class="archive-dot" aria-hidden="true"></span>',
+      '<span class="archive-chevron" aria-hidden="true">▾</span>',
       '</button>',
       '<div class="archive-panel" id="arcpanel-' + year + '" hidden>',
       '<div class="row justify-content-center g-3 archive-grid"></div>',
