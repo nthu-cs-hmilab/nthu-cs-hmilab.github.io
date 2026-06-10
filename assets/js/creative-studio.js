@@ -468,8 +468,8 @@ document.addEventListener("DOMContentLoaded", function () {
     { year: '2021', src: 'assets/imgs/album/photo4.jpg', alt: '2021 January Year end banquet', caption: '2021.01 Year End Banquet' },
     { year: '2020', src: 'assets/imgs/album/photo5.jpg', alt: "2020 September Teacher's Day", caption: "2020.09 Teacher's Day" }
   ];
-  var filterBtns = document.querySelectorAll('.album-filter-btn');
-  var albumGrid = document.getElementById('albumGrid');
+
+  var accordion = document.getElementById('albumAccordion');
   var loadMoreBtn = document.querySelector('.album-load-more');
   var lightbox = document.querySelector('.album-lightbox');
   var lightboxImage = document.querySelector('.album-lightbox-image');
@@ -477,98 +477,126 @@ document.addEventListener("DOMContentLoaded", function () {
   var lightboxCount = document.querySelector('.album-lightbox-count');
   var prevBtn = document.querySelector('.album-lightbox-prev');
   var nextBtn = document.querySelector('.album-lightbox-next');
-  var activeYear = '';
+
+  if (!accordion) return;
+
+  var activeYear = null;
+  var activePanel = null;
   var visibleLimit = pageSize;
   var currentItems = [];
   var currentIndex = 0;
 
-  if (!filterBtns.length || !albumGrid) return;
+  // Derive years in order from albumData
+  var years = [];
+  var seen = {};
+  albumData.forEach(function (item) {
+    if (!seen[item.year]) { seen[item.year] = true; years.push(item.year); }
+  });
 
-  function createAlbumItem(item, index) {
-    var column = document.createElement('div');
-    column.className = 'col-xl-4 col-md-6';
-    column.dataset.year = item.year;
-    column.dataset.index = index;
-    column.innerHTML = [
-      '<figure class="album-card" role="button" tabindex="0" aria-label="Open ' + item.caption.replace(/"/g, '&quot;') + '">',
+  // Build accordion rows
+  years.forEach(function (year) {
+    var row = document.createElement('div');
+    row.className = 'album-acc-row';
+    row.dataset.year = year;
+    row.id = 'acc-' + year;
+    row.innerHTML = [
+      '<button class="album-acc-btn" type="button"',
+      ' aria-expanded="false" aria-controls="panel-' + year + '">',
+      '<span class="album-acc-year">' + year + '</span>',
+      '<span class="album-acc-chevron" aria-hidden="true">&#8250;</span>',
+      '</button>',
+      '<div class="album-acc-panel" id="panel-' + year + '" hidden>',
+      '<div class="row justify-content-center g-3 album-acc-grid"></div>',
+      '</div>'
+    ].join('');
+    accordion.appendChild(row);
+
+    row.querySelector('.album-acc-btn').addEventListener('click', function () {
+      if (activeYear === year) {
+        closeYear();
+      } else {
+        closeYear();
+        openYear(year, row);
+      }
+    });
+  });
+
+  function createPhotoItem(item) {
+    var col = document.createElement('div');
+    col.className = 'col-xl-4 col-md-6';
+    col.dataset.year = item.year;
+    col.innerHTML = [
+      '<figure class="album-card" role="button" tabindex="0"',
+      ' aria-label="Open ' + item.caption.replace(/"/g, '&quot;') + '">',
       '<div class="album-img-wrap">',
-      '<img src="' + item.src + '" alt="' + item.alt.replace(/"/g, '&quot;') + '" loading="lazy" decoding="async">',
+      '<img src="' + item.src + '" alt="' + item.alt.replace(/"/g, '&quot;') + '"',
+      ' loading="lazy" decoding="async">',
       '</div>',
       '<figcaption>' + item.caption + '</figcaption>',
       '</figure>'
     ].join('');
-    return column;
-  }
-
-  function bindAlbumItem(column, item) {
-    var card = column.querySelector('.album-card');
-    if (!card) return;
+    var card = col.querySelector('.album-card');
     card.addEventListener('click', function () {
-      var index = currentItems.indexOf(item);
-      if (index !== -1) openLightbox(index);
+      var idx = currentItems.indexOf(item);
+      if (idx !== -1) openLightbox(idx);
     });
-    card.addEventListener('keydown', function (event) {
-      if (event.key === 'Enter' || event.key === ' ') {
-        event.preventDefault();
-        var index = currentItems.indexOf(item);
-        if (index !== -1) openLightbox(index);
+    card.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        var idx = currentItems.indexOf(item);
+        if (idx !== -1) openLightbox(idx);
       }
     });
+    return col;
   }
 
-  function getYearItems() {
-    return albumData.filter(function (item) {
-      return item.year === activeYear;
-    });
-  }
-
-  function updateArchive() {
-    var yearItems = getYearItems();
-    currentItems = yearItems.slice(0, visibleLimit);
-    albumGrid.innerHTML = '';
-    currentItems.forEach(function (item, index) {
-      var column = createAlbumItem(item, index);
-      albumGrid.appendChild(column);
-      bindAlbumItem(column, item);
-    });
-
+  function renderPhotos() {
+    var yearItems = albumData.filter(function (item) { return item.year === activeYear; });
+    var visible = yearItems.slice(0, visibleLimit);
+    currentItems = visible;
+    var grid = activePanel.querySelector('.album-acc-grid');
+    grid.innerHTML = '';
+    visible.forEach(function (item) { grid.appendChild(createPhotoItem(item)); });
     if (loadMoreBtn) {
-      var hasMore = visibleLimit < yearItems.length;
-      loadMoreBtn.hidden = !hasMore;
-      loadMoreBtn.textContent = hasMore ? 'Load More' : '';
+      loadMoreBtn.hidden = visibleLimit >= yearItems.length;
     }
-
   }
 
-  function setActiveYear(year) {
-    if (activeYear === year) {
-      clearActiveYear();
-      return;
-    }
+  function openYear(year, row) {
     activeYear = year;
     visibleLimit = pageSize;
-    filterBtns.forEach(function (button) {
-      var isActive = button.dataset.year === year;
-      button.classList.toggle('active', isActive);
-      button.setAttribute('aria-pressed', isActive ? 'true' : 'false');
-    });
-    updateArchive();
+    activePanel = row.querySelector('.album-acc-panel');
+    row.classList.add('open');
+    row.querySelector('.album-acc-btn').setAttribute('aria-expanded', 'true');
+    activePanel.hidden = false;
+    renderPhotos();
   }
 
-  function clearActiveYear() {
-    activeYear = '';
-    visibleLimit = pageSize;
-    currentItems = [];
-    albumGrid.innerHTML = '';
-    closeLightbox();
-    filterBtns.forEach(function (button) {
-      button.classList.remove('active');
-      button.setAttribute('aria-pressed', 'false');
-    });
-    if (loadMoreBtn) {
-      loadMoreBtn.hidden = true;
-      loadMoreBtn.textContent = '';
+  function closeYear() {
+    if (!activeYear) return;
+    var row = document.getElementById('acc-' + activeYear);
+    if (row) {
+      row.classList.remove('open');
+      row.querySelector('.album-acc-btn').setAttribute('aria-expanded', 'false');
+      var panel = row.querySelector('.album-acc-panel');
+      if (panel) {
+        panel.hidden = true;
+        var grid = panel.querySelector('.album-acc-grid');
+        if (grid) grid.innerHTML = '';
+      }
     }
+    activeYear = null;
+    activePanel = null;
+    currentItems = [];
+    closeLightbox();
+    if (loadMoreBtn) loadMoreBtn.hidden = true;
+  }
+
+  if (loadMoreBtn) {
+    loadMoreBtn.addEventListener('click', function () {
+      visibleLimit += pageSize;
+      renderPhotos();
+    });
   }
 
   function openLightbox(index) {
@@ -581,7 +609,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (lightboxCount) lightboxCount.textContent = (currentIndex + 1) + ' / ' + currentItems.length;
     lightbox.hidden = false;
     document.body.classList.add('lightbox-open');
-    if (lightbox.focus) lightbox.focus();
+    if (lightbox.setAttribute) lightbox.setAttribute('tabindex', '-1');
   }
 
   function closeLightbox() {
@@ -595,28 +623,14 @@ document.addEventListener("DOMContentLoaded", function () {
     openLightbox(currentIndex + offset);
   }
 
-  filterBtns.forEach(function (btn) {
-    btn.addEventListener('click', function () {
-      setActiveYear(this.dataset.year);
-    });
-  });
-
-  if (loadMoreBtn) {
-    loadMoreBtn.addEventListener('click', function () {
-      visibleLimit += pageSize;
-      updateArchive();
-    });
-  }
+  if (prevBtn) prevBtn.addEventListener('click', function () { showAdjacent(-1); });
+  if (nextBtn) nextBtn.addEventListener('click', function () { showAdjacent(1); });
 
   if (lightbox) {
-    lightbox.setAttribute('tabindex', '-1');
     lightbox.addEventListener('click', function (event) {
       if (event.target.hasAttribute('data-lightbox-close')) closeLightbox();
     });
   }
-
-  if (prevBtn) prevBtn.addEventListener('click', function () { showAdjacent(-1); });
-  if (nextBtn) nextBtn.addEventListener('click', function () { showAdjacent(1); });
 
   document.addEventListener('keydown', function (event) {
     if (!lightbox || lightbox.hidden) return;
@@ -624,8 +638,6 @@ document.addEventListener("DOMContentLoaded", function () {
     if (event.key === 'ArrowLeft') showAdjacent(-1);
     if (event.key === 'ArrowRight') showAdjacent(1);
   });
-
-  updateArchive();
 }());
 
 /* =========================

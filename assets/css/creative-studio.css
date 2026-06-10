@@ -11407,4 +11407,72 @@ body {
   color: rgba(255, 255, 255, 0.90);
 }
 
+/* Album accordion */
+.album-accordion {
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  overflow: hidden;
+  text-align: left;
+  margin-top: 24px;
+}
+
+.album-acc-row {
+  border-bottom: 1px solid #e5e7eb;
+}
+.album-acc-row:last-child {
+  border-bottom: none;
+}
+
+.album-acc-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 20px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background 0.15s ease;
+  -webkit-appearance: none;
+  appearance: none;
+}
+.album-acc-btn:hover {
+  background: #f9fafb;
+}
+.album-acc-row.open > .album-acc-btn {
+  background: #fff8f9;
+}
+.album-acc-btn:focus-visible {
+  outline: 2px solid #ff214f;
+  outline-offset: -2px;
+}
+
+.album-acc-year {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: #111827;
+}
+.album-acc-row.open .album-acc-year {
+  color: #ff214f;
+}
+
+.album-acc-chevron {
+  font-size: 1.1rem;
+  color: #9ca3af;
+  line-height: 1;
+  transition: transform 0.2s ease, color 0.15s ease;
+  display: inline-block;
+}
+.album-acc-row.open .album-acc-chevron {
+  transform: rotate(90deg);
+  color: #ff214f;
+}
+
+.album-acc-panel {
+  padding: 16px 20px 24px;
+  border-top: 1px solid #f3f4f6;
+  background: #fff;
+}
+
 /*# sourceMappingURL=creative-studio.css.map */
