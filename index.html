@@ -60,13 +60,13 @@
 
             <!-- Research dropdown -->
             <li class="nav-item has-dropdown">
-              <a class="nav-link has-caret" href="#service">Research</a>
-              <div class="dropdown-panel">
+              <a class="nav-link has-caret" href="#service" aria-haspopup="true" aria-expanded="false">Research</a>
+              <div class="dropdown-panel" role="menu">
                 <div class="dropdown-panel-title">Research Areas</div>
-                <a href="#service">Trustworthy AI for Medicine</a>
-                <a href="#service">Brain Encoding and Decoding</a>
-                <a href="#service">Human-Machine Interaction</a>
-                <a href="#service">Computational Neuroscience</a>
+                <a href="#service" role="menuitem">Trustworthy AI for Medicine</a>
+                <a href="#service" role="menuitem">Brain Encoding and Decoding</a>
+                <a href="#service" role="menuitem">Human-Machine Interaction</a>
+                <a href="#service" role="menuitem">Computational Neuroscience</a>
               </div>
             </li>
 
@@ -76,15 +76,15 @@
 
             <!-- Team dropdown -->
             <li class="nav-item has-dropdown">
-              <a class="nav-link has-caret" href="#team">Team</a>
-              <div class="dropdown-panel">
+              <a class="nav-link has-caret" href="#team" aria-haspopup="true" aria-expanded="false">Team</a>
+              <div class="dropdown-panel" role="menu">
                 <div class="dropdown-panel-title">Team Members</div>
-                <a href="#team-pi">Principal Investigator</a>
-                <a href="#team-phd">PhD Students</a>
-                <a href="#team-grad">Graduate Students</a>
-                <a href="#team-undergrad">Undergraduate Students</a>
-                <a href="#team-ra">Research Assistants</a>
-                <a href="#team-alumni">Alumni</a>
+                <a href="#team-pi" role="menuitem">Principal Investigator</a>
+                <a href="#team-phd" role="menuitem">PhD Students</a>
+                <a href="#team-grad" role="menuitem">Graduate Students</a>
+                <a href="#team-undergrad" role="menuitem">Undergraduate Students</a>
+                <a href="#team-ra" role="menuitem">Research Assistants</a>
+                <a href="#team-alumni" role="menuitem">Alumni</a>
               </div>
             </li>
 
@@ -101,8 +101,8 @@
         </div>
       </div>
 
-      <!-- Scroll progress bar (populated by Task 6 JS) -->
-      <div id="scroll-progress" style="position:absolute;bottom:0;left:0;height:3px;width:0%;background:#ff214f;transition:width 0.1s linear;z-index:1;"></div>
+      <!-- Scroll progress bar (width driven by creative-studio.js scroll handler) -->
+      <div id="scroll-progress" style="position:absolute;bottom:0;left:0;height:3px;width:0%;background:var(--primary,#ff214f);transition:width 0.1s linear;z-index:1;"></div>
     </nav>
     <!-- End Of Page Navigation -->
 

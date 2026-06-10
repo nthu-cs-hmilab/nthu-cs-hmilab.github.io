@@ -9613,6 +9613,10 @@ pre .code {
 .custom-navbar .dropdown-panel a:hover::before {
   background: #ff214f;
 }
+.custom-navbar .dropdown-panel a:focus-visible {
+  outline: 2px solid #ff214f;
+  outline-offset: -2px;
+}
 
 .custom-navbar .nav-cta {
   background: #ff214f !important;
@@ -9620,16 +9624,11 @@ pre .code {
   border-radius: 999px;
   padding: 6px 18px !important;
   font-weight: 600;
-  transition: background 0.2s ease, transform 0.2s ease;
+  transition: background 0.2s ease;
   margin-left: 6px;
 }
 .custom-navbar .nav-cta:hover {
   background: #e01040 !important;
-}
-
-.custom-navbar.affix .nav-cta {
-  background: #ff214f !important;
-  color: #fff !important;
 }
 
 .custom-navbar .nav-link.has-caret::after {
