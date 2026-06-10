@@ -116,7 +116,7 @@ section {
     }
 }
 
-.box-item {
+.lab-highlights .box-item {
     background: $white;
     border: 1px solid $border-default;
     border-radius: $radius-lg;
@@ -131,7 +131,7 @@ section {
     }
 }
 
-.box-item i {
+.lab-highlights .box-item i {
     display: flex;
     align-items: center;
     justify-content: center;
