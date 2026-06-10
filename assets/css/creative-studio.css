@@ -9786,6 +9786,9 @@ figure.album-card {
 }
 
 .album-filter-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
   padding: 5px 16px;
   border-radius: 6px;
   border: 1px solid var(--border);
@@ -9799,10 +9802,20 @@ figure.album-card {
   appearance: none;
   font-family: inherit;
 }
+.album-filter-btn::after {
+  content: "⌄";
+  font-size: 0.78rem;
+  line-height: 1;
+  color: #9ca3af;
+  transition: color 0.15s ease;
+}
 .album-filter-btn:hover {
   background: var(--primary-50);
   color: #ff214f;
   border-color: rgba(255, 33, 79, 0.2);
+}
+.album-filter-btn:hover::after {
+  color: #ff214f;
 }
 
 .album-filter-btn.active {
@@ -9810,6 +9823,10 @@ figure.album-card {
   color: #fff;
   border-color: #ff214f;
   box-shadow: 0 2px 8px rgba(255, 33, 79, 0.25);
+}
+.album-filter-btn.active::after {
+  content: "⌃";
+  color: currentColor;
 }
 
 .album-filter-btn:focus-visible {
@@ -9825,8 +9842,7 @@ figure.album-card {
   margin-top: 8px;
 }
 
-.album-load-more,
-.album-hide-photos {
+.album-load-more {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -9841,18 +9857,12 @@ figure.album-card {
   cursor: pointer;
   transition: border-color 0.15s ease, color 0.15s ease, background 0.15s ease;
 }
-.album-load-more:hover,
-.album-hide-photos:hover {
+.album-load-more:hover {
   border-color: rgba(255, 33, 79, 0.24);
   color: #ff214f;
   background: var(--primary-50);
 }
-.album-hide-photos {
-  min-width: 116px;
-  color: #6b7280;
-}
-.album-load-more[hidden],
-.album-hide-photos[hidden] {
+.album-load-more[hidden] {
   display: none;
 }
 
@@ -10005,7 +10015,7 @@ body.lightbox-open {
 .collab-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 34px 24px;
+  gap: 32px 24px;
   align-items: start;
 }
 
@@ -10014,14 +10024,14 @@ body.lightbox-open {
 }
 
 .collab-logo-frame {
-  height: 112px;
+  height: 96px;
   display: flex;
   align-items: center;
   justify-content: center;
   background: #fff;
-  border: 1px solid var(--border);
-  border-radius: var(--radius-card);
-  padding: 18px 22px;
+  border: 1px solid var(--border-light);
+  border-radius: 10px;
+  padding: 16px 20px;
   transition: border-color 0.15s ease, background 0.15s ease;
 }
 .collab-logo-frame:hover {
@@ -10030,19 +10040,36 @@ body.lightbox-open {
 }
 
 .collab-logo-frame img {
-  max-height: 72px;
+  max-height: 62px;
   width: auto;
   max-width: 100%;
   object-fit: contain;
 }
 
 .collab-caption {
-  font-size: 0.78rem;
-  color: #6b7280;
   text-align: center;
-  margin: 10px 0 0;
-  line-height: 1.45;
+  margin: 12px auto 0;
+  max-width: 18ch;
+  line-height: 1.4;
   opacity: 1;
+}
+
+.collab-name,
+.collab-meta {
+  display: block;
+}
+
+.collab-name {
+  color: #374151;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.collab-meta {
+  color: #9ca3af;
+  font-size: 0.72rem;
+  font-weight: 400;
+  margin-top: 2px;
 }
 
 @media (max-width: 991.98px) {
@@ -10058,8 +10085,8 @@ body.lightbox-open {
     gap: 24px;
   }
   .collab-logo-frame {
-    height: 104px;
-    padding: 18px 24px;
+    height: 92px;
+    padding: 16px 22px;
   }
 }
 

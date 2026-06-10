@@ -469,7 +469,6 @@ document.addEventListener("DOMContentLoaded", function () {
   var filterBtns = document.querySelectorAll('.album-filter-btn');
   var albumGrid = document.getElementById('albumGrid');
   var loadMoreBtn = document.querySelector('.album-load-more');
-  var hidePhotosBtn = document.querySelector('.album-hide-photos');
   var lightbox = document.querySelector('.album-lightbox');
   var lightboxImage = document.querySelector('.album-lightbox-image');
   var lightboxCaption = document.querySelector('.album-lightbox-caption');
@@ -537,9 +536,6 @@ document.addEventListener("DOMContentLoaded", function () {
       loadMoreBtn.textContent = hasMore ? 'Load More' : '';
     }
 
-    if (hidePhotosBtn) {
-      hidePhotosBtn.hidden = !activeYear || !yearItems.length;
-    }
   }
 
   function setActiveYear(year) {
@@ -571,7 +567,6 @@ document.addEventListener("DOMContentLoaded", function () {
       loadMoreBtn.hidden = true;
       loadMoreBtn.textContent = '';
     }
-    if (hidePhotosBtn) hidePhotosBtn.hidden = true;
   }
 
   function openLightbox(index) {
@@ -609,10 +604,6 @@ document.addEventListener("DOMContentLoaded", function () {
       visibleLimit += pageSize;
       updateArchive();
     });
-  }
-
-  if (hidePhotosBtn) {
-    hidePhotosBtn.addEventListener('click', clearActiveYear);
   }
 
   if (lightbox) {
