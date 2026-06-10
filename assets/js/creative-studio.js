@@ -428,20 +428,183 @@ document.addEventListener("DOMContentLoaded", function () {
 }());
 
 /* =========================
-   Album Year Filter
+   Album Archive
 ========================= */
 (function () {
+  var pageSize = 9;
+  var albumData = [
+    { year: '2026', src: 'assets/imgs/album/photo32.jpg', alt: '2026 AAAI at Singapore', caption: '2026 AAAI @ Singapore' },
+    { year: '2025', src: 'assets/imgs/album/photo31.jpg', alt: '2025 Hiking', caption: '2025 Hiking' },
+    { year: '2025', src: 'assets/imgs/album/photo30.jpg', alt: '2025 Banquet 2', caption: '2025 Banquet 2' },
+    { year: '2025', src: 'assets/imgs/album/photo29.jpg', alt: "2025 Teacher's Day", caption: "2025 Teacher's Day" },
+    { year: '2025', src: 'assets/imgs/album/photo28.jpg', alt: 'First Place at Health AI Datathon 2025 in Atlanta', caption: "First Place at Health AI DATATHON '25 @ Atlanta" },
+    { year: '2025', src: 'assets/imgs/album/photo27.jpg', alt: '2025 Banquet 1', caption: '2025 Banquet 1' },
+    { year: '2025', src: 'assets/imgs/album/photo26.jpg', alt: '2025 Graduation', caption: '2025 Graduation!' },
+    { year: '2025', src: 'assets/imgs/album/photo25.jpg', alt: '2025 Graduation', caption: '2025 Graduation!' },
+    { year: '2025', src: 'assets/imgs/album/photo24.jpg', alt: '2025 Graduation', caption: '2025 Graduation!' },
+    { year: '2024', src: 'assets/imgs/album/photo23.jpg', alt: 'TSECC Datathon First Place', caption: 'TSECC Datathon First Place' },
+    { year: '2024', src: 'assets/imgs/album/photo22.jpg', alt: 'TSECC Datathon Third Place', caption: 'TSECC Datathon Third Place' },
+    { year: '2024', src: 'assets/imgs/album/photo21.jpg', alt: 'TSECC Datathon Best Team Award', caption: 'TSECC Datathon Best Team Award' },
+    { year: '2024', src: 'assets/imgs/album/photo20.jpg', alt: 'TSECC Taiwan Datathon 2024', caption: 'TSECC Taiwan Datathon 2024' },
+    { year: '2024', src: 'assets/imgs/album/photo19.jpg', alt: '2024 Banquet 2', caption: '2024 Banquet 2' },
+    { year: '2024', src: 'assets/imgs/album/photo18.jpg', alt: '2024 EMBS in Orlando Florida', caption: '2024 EMBS @ Orlando, Florida' },
+    { year: '2024', src: 'assets/imgs/album/photo17.JPG', alt: '2024 Graduation', caption: '2024 Graduation!' },
+    { year: '2024', src: 'assets/imgs/album/photo16.jpg', alt: '2024 Graduation', caption: '2024 Graduation!' },
+    { year: '2024', src: 'assets/imgs/album/photo15.jpg', alt: '2024 Graduation', caption: '2024 Graduation!' },
+    { year: '2024', src: 'assets/imgs/album/photo14.jpg', alt: '2024 ICASSP in Korea', caption: '2024 ICASSP @ Korea' },
+    { year: '2024', src: 'assets/imgs/album/photo13.jpg', alt: '2024 ICASSP in Korea', caption: '2024 ICASSP @ Korea' },
+    { year: '2024', src: 'assets/imgs/album/photo11.jpg', alt: '2024 Birthday celebration', caption: '2024 Birthday Celebration!' },
+    { year: '2024', src: 'assets/imgs/album/photo10.jpg', alt: '2024 Banquet 1', caption: '2024 Banquet 1' },
+    { year: '2023', src: 'assets/imgs/album/photo9.jpg', alt: '2023 Banquet 3', caption: '2023 Banquet 3' },
+    { year: '2023', src: 'assets/imgs/album/photo6.JPG', alt: '2023 Banquet 2', caption: '2023 Banquet 2' },
+    { year: '2023', src: 'assets/imgs/album/photo7.JPG', alt: '2023 Graduation', caption: '2023 Graduation!' },
+    { year: '2023', src: 'assets/imgs/album/photo0.jpg', alt: '2023 Banquet 1', caption: '2023 Banquet 1' },
+    { year: '2022', src: 'assets/imgs/album/photo8.jpg', alt: '2022 September Banquet', caption: '2022.09 Banquet' },
+    { year: '2022', src: 'assets/imgs/album/photo1.png', alt: '2022 Summer NTHU HMIers at MIT LCP', caption: '2022 Summer NTHU HMIers at MIT LCP' },
+    { year: '2022', src: 'assets/imgs/album/photo2.jpg', alt: '2022 Graduation', caption: '2022 Graduation!' },
+    { year: '2022', src: 'assets/imgs/album/photo3.jpg', alt: '2022 January Year end banquet', caption: '2022.01 Year End Banquet' },
+    { year: '2021', src: 'assets/imgs/album/photo4.jpg', alt: '2021 January Year end banquet', caption: '2021.01 Year End Banquet' },
+    { year: '2020', src: 'assets/imgs/album/photo5.jpg', alt: "2020 September Teacher's Day", caption: "2020.09 Teacher's Day" }
+  ];
   var filterBtns = document.querySelectorAll('.album-filter-btn');
-  var albumItems = document.querySelectorAll('#albumGrid [data-year]');
+  var albumGrid = document.getElementById('albumGrid');
+  var summary = document.querySelector('.album-summary');
+  var loadMoreBtn = document.querySelector('.album-load-more');
+  var lightbox = document.querySelector('.album-lightbox');
+  var lightboxImage = document.querySelector('.album-lightbox-image');
+  var lightboxCaption = document.querySelector('.album-lightbox-caption');
+  var lightboxCount = document.querySelector('.album-lightbox-count');
+  var prevBtn = document.querySelector('.album-lightbox-prev');
+  var nextBtn = document.querySelector('.album-lightbox-next');
+  var activeYear = document.querySelector('.album-filter-btn.active') ? document.querySelector('.album-filter-btn.active').dataset.year : '2026';
+  var visibleLimit = pageSize;
+  var currentItems = [];
+  var currentIndex = 0;
+
+  if (!filterBtns.length || !albumGrid) return;
+
+  function createAlbumItem(item, index) {
+    var column = document.createElement('div');
+    column.className = 'col-xl-4 col-md-6';
+    column.dataset.year = item.year;
+    column.dataset.index = index;
+    column.innerHTML = [
+      '<figure class="album-card" role="button" tabindex="0" aria-label="Open ' + item.caption.replace(/"/g, '&quot;') + '">',
+      '<div class="album-img-wrap">',
+      '<img src="' + item.src + '" alt="' + item.alt.replace(/"/g, '&quot;') + '" loading="lazy" decoding="async">',
+      '</div>',
+      '<figcaption>' + item.caption + '</figcaption>',
+      '</figure>'
+    ].join('');
+    return column;
+  }
+
+  function bindAlbumItem(column, item) {
+    var card = column.querySelector('.album-card');
+    if (!card) return;
+    card.addEventListener('click', function () {
+      var index = currentItems.indexOf(item);
+      if (index !== -1) openLightbox(index);
+    });
+    card.addEventListener('keydown', function (event) {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        var index = currentItems.indexOf(item);
+        if (index !== -1) openLightbox(index);
+      }
+    });
+  }
+
+  function getYearItems() {
+    return albumData.filter(function (item) {
+      return item.year === activeYear;
+    });
+  }
+
+  function updateArchive() {
+    var yearItems = getYearItems();
+    currentItems = yearItems.slice(0, visibleLimit);
+    albumGrid.innerHTML = '';
+    currentItems.forEach(function (item, index) {
+      var column = createAlbumItem(item, index);
+      albumGrid.appendChild(column);
+      bindAlbumItem(column, item);
+    });
+
+    if (summary) {
+      var visibleCount = Math.min(visibleLimit, yearItems.length);
+      summary.textContent = activeYear + ' archive: showing ' + visibleCount + ' of ' + yearItems.length + ' photos';
+    }
+
+    if (loadMoreBtn) {
+      var hasMore = visibleLimit < yearItems.length;
+      loadMoreBtn.hidden = !hasMore;
+      loadMoreBtn.textContent = hasMore ? 'Load More' : '';
+    }
+  }
+
+  function setActiveYear(year) {
+    activeYear = year;
+    visibleLimit = pageSize;
+    filterBtns.forEach(function (button) {
+      button.classList.toggle('active', button.dataset.year === year);
+    });
+    updateArchive();
+  }
+
+  function openLightbox(index) {
+    if (!lightbox || !lightboxImage || !currentItems.length) return;
+    currentIndex = (index + currentItems.length) % currentItems.length;
+    var data = currentItems[currentIndex];
+    lightboxImage.setAttribute('src', data.src);
+    lightboxImage.setAttribute('alt', data.alt);
+    if (lightboxCaption) lightboxCaption.textContent = data.caption;
+    if (lightboxCount) lightboxCount.textContent = (currentIndex + 1) + ' / ' + currentItems.length;
+    lightbox.hidden = false;
+    document.body.classList.add('lightbox-open');
+    if (lightbox.focus) lightbox.focus();
+  }
+
+  function closeLightbox() {
+    if (!lightbox) return;
+    lightbox.hidden = true;
+    document.body.classList.remove('lightbox-open');
+    if (lightboxImage) lightboxImage.setAttribute('src', '');
+  }
+
+  function showAdjacent(offset) {
+    openLightbox(currentIndex + offset);
+  }
 
   filterBtns.forEach(function (btn) {
     btn.addEventListener('click', function () {
-      var year = this.dataset.year;
-      filterBtns.forEach(function (button) { button.classList.remove('active'); });
-      this.classList.add('active');
-      albumItems.forEach(function (item) {
-        item.style.display = (year === 'all' || item.dataset.year === year) ? '' : 'none';
-      });
+      setActiveYear(this.dataset.year);
     });
   });
+
+  if (loadMoreBtn) {
+    loadMoreBtn.addEventListener('click', function () {
+      visibleLimit += pageSize;
+      updateArchive();
+    });
+  }
+
+  if (lightbox) {
+    lightbox.setAttribute('tabindex', '-1');
+    lightbox.addEventListener('click', function (event) {
+      if (event.target.hasAttribute('data-lightbox-close')) closeLightbox();
+    });
+  }
+
+  if (prevBtn) prevBtn.addEventListener('click', function () { showAdjacent(-1); });
+  if (nextBtn) nextBtn.addEventListener('click', function () { showAdjacent(1); });
+
+  document.addEventListener('keydown', function (event) {
+    if (!lightbox || lightbox.hidden) return;
+    if (event.key === 'Escape') closeLightbox();
+    if (event.key === 'ArrowLeft') showAdjacent(-1);
+    if (event.key === 'ArrowRight') showAdjacent(1);
+  });
+
+  setActiveYear(activeYear);
 }());

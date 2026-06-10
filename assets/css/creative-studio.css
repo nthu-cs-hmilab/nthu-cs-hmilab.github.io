@@ -9735,6 +9735,14 @@ figure.album-card {
   margin: 0 0 24px;
 }
 
+.album-card {
+  cursor: pointer;
+}
+.album-card:focus-visible {
+  outline: 2px solid #ff214f;
+  outline-offset: 4px;
+}
+
 .album-card .album-img-wrap {
   aspect-ratio: 4/3;
   overflow: hidden;
@@ -9767,12 +9775,23 @@ figure.album-card {
   min-height: 36px;
 }
 
+#albumGrid [hidden] {
+  display: none !important;
+}
+
+.album-intro {
+  max-width: 560px;
+  color: #4b5563;
+  line-height: 1.65;
+  margin-bottom: 0;
+}
+
 .album-filter {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
   justify-content: center;
-  margin: 20px 0 32px;
+  margin: 24px 0 14px;
 }
 
 .album-filter-btn {
@@ -9805,6 +9824,185 @@ figure.album-card {
 .album-filter-btn:focus-visible {
   outline: 2px solid #ff214f;
   outline-offset: 2px;
+}
+
+.album-summary {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #9ca3af;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin-bottom: 28px;
+}
+
+.album-load-more {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 132px;
+  border: 1px solid var(--border);
+  background: #fff;
+  color: #4b5563;
+  border-radius: 8px;
+  padding: 8px 18px;
+  font-size: 0.86rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: border-color 0.15s ease, color 0.15s ease, background 0.15s ease;
+}
+.album-load-more:hover {
+  border-color: rgba(255, 33, 79, 0.24);
+  color: #ff214f;
+  background: var(--primary-50);
+}
+.album-load-more[hidden] {
+  display: none;
+}
+
+.album-lightbox[hidden] {
+  display: none;
+}
+.album-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 11000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 28px;
+}
+.album-lightbox-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 15, 26, 0.84);
+}
+.album-lightbox-panel {
+  position: relative;
+  width: min(960px, 100%);
+  max-height: calc(100vh - 56px);
+  background: #fff;
+  border-radius: 10px;
+  padding: 18px;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.32);
+}
+.album-lightbox-figure {
+  margin: 0;
+}
+.album-lightbox-image {
+  width: 100%;
+  max-height: calc(100vh - 180px);
+  object-fit: contain;
+  display: block;
+  background: #f9fafb;
+  border-radius: 8px;
+}
+.album-lightbox-caption {
+  color: #111827;
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-top: 12px;
+  padding-right: 72px;
+  text-align: left;
+}
+.album-lightbox-count {
+  position: absolute;
+  right: 18px;
+  bottom: 18px;
+  color: #9ca3af;
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+.album-lightbox-close,
+.album-lightbox-nav {
+  border: 1px solid var(--border);
+  background: #fff;
+  color: #4b5563;
+  cursor: pointer;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+.album-lightbox-close:hover,
+.album-lightbox-nav:hover {
+  color: #ff214f;
+  border-color: rgba(255, 33, 79, 0.24);
+}
+.album-lightbox-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  z-index: 1;
+  font-size: 1.4rem;
+  line-height: 1;
+}
+.album-lightbox-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 48px;
+  border-radius: 8px;
+  z-index: 1;
+  font-size: 2rem;
+  line-height: 1;
+}
+.album-lightbox-prev {
+  left: -52px;
+}
+.album-lightbox-next {
+  right: -52px;
+}
+body.lightbox-open {
+  overflow: hidden;
+}
+
+@media (max-width: 767.98px) {
+  .album-filter {
+    justify-content: flex-start;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    padding-bottom: 6px;
+    margin-left: -15px;
+    margin-right: -15px;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  .album-filter-btn {
+    flex: 0 0 auto;
+  }
+  .album-lightbox {
+    padding: 12px;
+  }
+  .album-lightbox-panel {
+    padding: 12px;
+    max-height: calc(100vh - 24px);
+  }
+  .album-lightbox-image {
+    max-height: calc(100vh - 150px);
+  }
+  .album-lightbox-caption {
+    padding-right: 0;
+    font-size: 0.88rem;
+  }
+  .album-lightbox-count {
+    position: static;
+    margin-top: 6px;
+    text-align: left;
+  }
+  .album-lightbox-nav {
+    top: auto;
+    bottom: 12px;
+    transform: none;
+    width: 42px;
+    height: 42px;
+  }
+  .album-lightbox-prev {
+    left: 12px;
+  }
+  .album-lightbox-next {
+    right: 12px;
+  }
 }
 
 .collab-col {

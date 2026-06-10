@@ -321,10 +321,12 @@
 
     <div class="section-tag">Album</div>
     <h2 class="section-title">Lab Moments</h2>
+    <p class="album-intro mx-auto">
+      A year-by-year archive of lab milestones, conferences, graduations, and gatherings.
+    </p>
 
     <div class="album-filter" role="group" aria-label="Filter by year">
-      <button class="album-filter-btn active" data-year="all">All</button>
-      <button class="album-filter-btn" data-year="2026">2026</button>
+      <button class="album-filter-btn active" data-year="2026">2026</button>
       <button class="album-filter-btn" data-year="2025">2025</button>
       <button class="album-filter-btn" data-year="2024">2024</button>
       <button class="album-filter-btn" data-year="2023">2023</button>
@@ -333,297 +335,25 @@
       <button class="album-filter-btn" data-year="2020">2020</button>
     </div>
 
-    <div class="row justify-content-center g-4" id="albumGrid">
+    <div class="album-summary" aria-live="polite"></div>
 
-        <div class="col-xl-4 col-md-6" data-year="2026">
-          <figure class="album-card">
-            <div class="album-img-wrap">
-              <img src="assets/imgs/album/photo32.jpg" alt="2026 AAAI at Singapore" loading="lazy" decoding="async">
-            </div>
-            <figcaption>2026 AAAI @ Singapore</figcaption>
+    <div class="row justify-content-center g-4" id="albumGrid"></div><!-- #albumGrid -->
+
+      <button class="album-load-more" type="button" hidden>Load More</button>
+
+      <div class="album-lightbox" role="dialog" aria-modal="true" aria-label="Album image viewer" hidden>
+        <div class="album-lightbox-backdrop" data-lightbox-close></div>
+        <div class="album-lightbox-panel">
+          <button class="album-lightbox-close" type="button" aria-label="Close viewer" data-lightbox-close>&times;</button>
+          <button class="album-lightbox-nav album-lightbox-prev" type="button" aria-label="Previous image">&lsaquo;</button>
+          <figure class="album-lightbox-figure">
+            <img class="album-lightbox-image" src="" alt="">
+            <figcaption class="album-lightbox-caption"></figcaption>
           </figure>
+          <button class="album-lightbox-nav album-lightbox-next" type="button" aria-label="Next image">&rsaquo;</button>
+          <div class="album-lightbox-count"></div>
         </div>
-
-        <div class="col-xl-4 col-md-6" data-year="2025">
-          <figure class="album-card">
-            <div class="album-img-wrap">
-              <img src="assets/imgs/album/photo31.jpg" alt="2025 Hiking" loading="lazy" decoding="async">
-            </div>
-            <figcaption>2025 Hiking</figcaption>
-          </figure>
-        </div>
-
-        <div class="col-xl-4 col-md-6" data-year="2025">
-          <figure class="album-card">
-            <div class="album-img-wrap">
-              <img src="assets/imgs/album/photo30.jpg" alt="2025 Banquet 2" loading="lazy" decoding="async">
-            </div>
-            <figcaption>2025 Banquet 2</figcaption>
-          </figure>
-        </div>
-
-        <div class="col-xl-4 col-md-6" data-year="2025">
-          <figure class="album-card">
-            <div class="album-img-wrap">
-              <img src="assets/imgs/album/photo29.jpg" alt="2025 Teacher's Day" loading="lazy" decoding="async">
-            </div>
-            <figcaption>2025 Teacher's Day</figcaption>
-          </figure>
-        </div>
-
-        <div class="col-xl-4 col-md-6" data-year="2025">
-          <figure class="album-card">
-            <div class="album-img-wrap">
-              <img src="assets/imgs/album/photo28.jpg" alt="First Place at Health AI Datathon 2025 in Atlanta" loading="lazy" decoding="async">
-            </div>
-            <figcaption>First Place at Health AI DATATHON '25 @ Atlanta</figcaption>
-          </figure>
-        </div>
-
-        <div class="col-xl-4 col-md-6" data-year="2025">
-          <figure class="album-card">
-            <div class="album-img-wrap">
-              <img src="assets/imgs/album/photo27.jpg" alt="2025 Banquet 1" loading="lazy" decoding="async">
-            </div>
-            <figcaption>2025 Banquet 1</figcaption>
-          </figure>
-        </div>
-
-        <div class="col-xl-4 col-md-6" data-year="2025">
-          <figure class="album-card">
-            <div class="album-img-wrap">
-              <img src="assets/imgs/album/photo26.jpg" alt="2025 Graduation" loading="lazy" decoding="async">
-            </div>
-            <figcaption>2025 Graduation!</figcaption>
-          </figure>
-        </div>
-
-        <div class="col-xl-4 col-md-6" data-year="2025">
-          <figure class="album-card">
-            <div class="album-img-wrap">
-              <img src="assets/imgs/album/photo25.jpg" alt="2025 Graduation" loading="lazy" decoding="async">
-            </div>
-            <figcaption>2025 Graduation!</figcaption>
-          </figure>
-        </div>
-
-        <div class="col-xl-4 col-md-6" data-year="2025">
-          <figure class="album-card">
-            <div class="album-img-wrap">
-              <img src="assets/imgs/album/photo24.jpg" alt="2025 Graduation" loading="lazy" decoding="async">
-            </div>
-            <figcaption>2025 Graduation!</figcaption>
-          </figure>
-        </div>
-
-        <div class="col-xl-4 col-md-6" data-year="2024">
-          <figure class="album-card">
-            <div class="album-img-wrap">
-              <img src="assets/imgs/album/photo23.jpg" alt="TSECC Datathon First Place" loading="lazy" decoding="async">
-            </div>
-            <figcaption>TSECC Datathon First Place</figcaption>
-          </figure>
-        </div>
-
-        <div class="col-xl-4 col-md-6" data-year="2024">
-          <figure class="album-card">
-            <div class="album-img-wrap">
-              <img src="assets/imgs/album/photo22.jpg" alt="TSECC Datathon Third Place" loading="lazy" decoding="async">
-            </div>
-            <figcaption>TSECC Datathon Third Place</figcaption>
-          </figure>
-        </div>
-
-        <div class="col-xl-4 col-md-6" data-year="2024">
-          <figure class="album-card">
-            <div class="album-img-wrap">
-              <img src="assets/imgs/album/photo21.jpg" alt="TSECC Datathon Best Team Award" loading="lazy" decoding="async">
-            </div>
-            <figcaption>TSECC Datathon Best Team Award</figcaption>
-          </figure>
-        </div>
-
-        <div class="col-xl-4 col-md-6" data-year="2024">
-          <figure class="album-card">
-            <div class="album-img-wrap">
-              <img src="assets/imgs/album/photo20.jpg" alt="TSECC Taiwan Datathon 2024" loading="lazy" decoding="async">
-            </div>
-            <figcaption>TSECC Taiwan Datathon 2024</figcaption>
-          </figure>
-        </div>
-
-        <div class="col-xl-4 col-md-6" data-year="2024">
-          <figure class="album-card">
-            <div class="album-img-wrap">
-              <img src="assets/imgs/album/photo19.jpg" alt="2024 Banquet 2" loading="lazy" decoding="async">
-            </div>
-            <figcaption>2024 Banquet 2</figcaption>
-          </figure>
-        </div>
-
-        <div class="col-xl-4 col-md-6" data-year="2024">
-          <figure class="album-card">
-            <div class="album-img-wrap">
-              <img src="assets/imgs/album/photo18.jpg" alt="2024 EMBS in Orlando Florida" loading="lazy" decoding="async">
-            </div>
-            <figcaption>2024 EMBS @ Orlando, Florida</figcaption>
-          </figure>
-        </div>
-
-        <div class="col-xl-4 col-md-6" data-year="2024">
-          <figure class="album-card">
-            <div class="album-img-wrap">
-              <img src="assets/imgs/album/photo17.JPG" alt="2024 Graduation" loading="lazy" decoding="async">
-            </div>
-            <figcaption>2024 Graduation!</figcaption>
-          </figure>
-        </div>
-
-        <div class="col-xl-4 col-md-6" data-year="2024">
-          <figure class="album-card">
-            <div class="album-img-wrap">
-              <img src="assets/imgs/album/photo16.jpg" alt="2024 Graduation" loading="lazy" decoding="async">
-            </div>
-            <figcaption>2024 Graduation!</figcaption>
-          </figure>
-        </div>
-
-        <div class="col-xl-4 col-md-6" data-year="2024">
-          <figure class="album-card">
-            <div class="album-img-wrap">
-              <img src="assets/imgs/album/photo15.jpg" alt="2024 Graduation" loading="lazy" decoding="async">
-            </div>
-            <figcaption>2024 Graduation!</figcaption>
-          </figure>
-        </div>
-
-        <div class="col-xl-4 col-md-6" data-year="2024">
-          <figure class="album-card">
-            <div class="album-img-wrap">
-              <img src="assets/imgs/album/photo14.jpg" alt="2024 ICASSP in Korea" loading="lazy" decoding="async">
-            </div>
-            <figcaption>2024 ICASSP @ Korea</figcaption>
-          </figure>
-        </div>
-
-        <div class="col-xl-4 col-md-6" data-year="2024">
-          <figure class="album-card">
-            <div class="album-img-wrap">
-              <img src="assets/imgs/album/photo13.jpg" alt="2024 ICASSP in Korea" loading="lazy" decoding="async">
-            </div>
-            <figcaption>2024 ICASSP @ Korea</figcaption>
-          </figure>
-        </div>
-
-        <div class="col-xl-4 col-md-6" data-year="2024">
-          <figure class="album-card">
-            <div class="album-img-wrap">
-              <img src="assets/imgs/album/photo11.jpg" alt="2024 Birthday celebration" loading="lazy" decoding="async">
-            </div>
-            <figcaption>2024 Birthday Celebration!</figcaption>
-          </figure>
-        </div>
-
-        <div class="col-xl-4 col-md-6" data-year="2024">
-          <figure class="album-card">
-            <div class="album-img-wrap">
-              <img src="assets/imgs/album/photo10.jpg" alt="2024 Banquet 1" loading="lazy" decoding="async">
-            </div>
-            <figcaption>2024 Banquet 1</figcaption>
-          </figure>
-        </div>
-
-        <div class="col-xl-4 col-md-6" data-year="2023">
-          <figure class="album-card">
-            <div class="album-img-wrap">
-              <img src="assets/imgs/album/photo9.jpg" alt="2023 Banquet 3" loading="lazy" decoding="async">
-            </div>
-            <figcaption>2023 Banquet 3</figcaption>
-          </figure>
-        </div>
-
-        <div class="col-xl-4 col-md-6" data-year="2023">
-          <figure class="album-card">
-            <div class="album-img-wrap">
-              <img src="assets/imgs/album/photo6.JPG" alt="2023 Banquet 2" loading="lazy" decoding="async">
-            </div>
-            <figcaption>2023 Banquet 2</figcaption>
-          </figure>
-        </div>
-
-        <div class="col-xl-4 col-md-6" data-year="2023">
-          <figure class="album-card">
-            <div class="album-img-wrap">
-              <img src="assets/imgs/album/photo7.JPG" alt="2023 Graduation" loading="lazy" decoding="async">
-            </div>
-            <figcaption>2023 Graduation!</figcaption>
-          </figure>
-        </div>
-
-        <div class="col-xl-4 col-md-6" data-year="2023">
-          <figure class="album-card">
-            <div class="album-img-wrap">
-              <img src="assets/imgs/album/photo0.jpg" alt="2023 Banquet 1" loading="lazy" decoding="async">
-            </div>
-            <figcaption>2023 Banquet 1</figcaption>
-          </figure>
-        </div>
-
-        <div class="col-xl-4 col-md-6" data-year="2022">
-          <figure class="album-card">
-            <div class="album-img-wrap">
-              <img src="assets/imgs/album/photo8.jpg" alt="2022 September Banquet" loading="lazy" decoding="async">
-            </div>
-            <figcaption>2022.09 Banquet</figcaption>
-          </figure>
-        </div>
-
-        <div class="col-xl-4 col-md-6" data-year="2022">
-          <figure class="album-card">
-            <div class="album-img-wrap">
-              <img src="assets/imgs/album/photo1.png" alt="2022 Summer NTHU HMIers at MIT LCP" loading="lazy" decoding="async">
-            </div>
-            <figcaption>2022 Summer NTHU HMIers at MIT LCP</figcaption>
-          </figure>
-        </div>
-
-        <div class="col-xl-4 col-md-6" data-year="2022">
-          <figure class="album-card">
-            <div class="album-img-wrap">
-              <img src="assets/imgs/album/photo2.jpg" alt="2022 Graduation" loading="lazy" decoding="async">
-            </div>
-            <figcaption>2022 Graduation!</figcaption>
-          </figure>
-        </div>
-
-        <div class="col-xl-4 col-md-6" data-year="2022">
-          <figure class="album-card">
-            <div class="album-img-wrap">
-              <img src="assets/imgs/album/photo3.jpg" alt="2022 January Year end banquet" loading="lazy" decoding="async">
-            </div>
-            <figcaption>2022.01 Year End Banquet</figcaption>
-          </figure>
-        </div>
-
-        <div class="col-xl-4 col-md-6" data-year="2021">
-          <figure class="album-card">
-            <div class="album-img-wrap">
-              <img src="assets/imgs/album/photo4.jpg" alt="2021 January Year end banquet" loading="lazy" decoding="async">
-            </div>
-            <figcaption>2021.01 Year End Banquet</figcaption>
-          </figure>
-        </div>
-
-        <div class="col-xl-4 col-md-6" data-year="2020">
-          <figure class="album-card">
-            <div class="album-img-wrap">
-              <img src="assets/imgs/album/photo5.jpg" alt="2020 September Teacher's Day" loading="lazy" decoding="async">
-            </div>
-            <figcaption>2020.09 Teacher's Day</figcaption>
-          </figure>
-        </div>
-
-      </div><!-- #albumGrid -->
+      </div>
   </div>
 </section>
 
