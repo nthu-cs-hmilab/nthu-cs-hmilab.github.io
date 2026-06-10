@@ -10155,9 +10155,6 @@ pre .code {
 .custom-navbar .navbar-toggler span:before {
   transform: translateY(9px);
 }
-.custom-navbar .navbar-brand img {
-  width: 50px;
-}
 .custom-navbar .nav-link {
   margin: 0 5px;
   font-weight: 600;
@@ -10823,6 +10820,8 @@ body {
 
 .custom-navbar .navbar-brand img {
   width: 42px;
+  height: auto;
+  display: block;
 }
 
 .custom-navbar .nav-link {
@@ -11136,6 +11135,15 @@ body {
 /* 4. Collaborator caption width */
 .collab-caption {
   max-width: 15ch;
+}
+
+/* Logo */
+.footer-logo-img {
+  width: 30px;
+  height: auto;
+  display: block;
+  opacity: 0.85;
+  flex-shrink: 0;
 }
 
 /*# sourceMappingURL=creative-studio.css.map */
