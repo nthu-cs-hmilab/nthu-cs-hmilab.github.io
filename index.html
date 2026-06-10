@@ -57,15 +57,37 @@
             <li class="nav-item">
               <a class="nav-link" href="#about">About</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#service">Research</a>
+
+            <!-- Research dropdown -->
+            <li class="nav-item has-dropdown">
+              <a class="nav-link has-caret" href="#service">Research</a>
+              <div class="dropdown-panel">
+                <div class="dropdown-panel-title">Research Areas</div>
+                <a href="#service">Trustworthy AI for Medicine</a>
+                <a href="#service">Brain Encoding and Decoding</a>
+                <a href="#service">Human-Machine Interaction</a>
+                <a href="#service">Computational Neuroscience</a>
+              </div>
             </li>
+
             <li class="nav-item">
               <a class="nav-link" href="#portfolio">Album</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#team">Team</a>
+
+            <!-- Team dropdown -->
+            <li class="nav-item has-dropdown">
+              <a class="nav-link has-caret" href="#team">Team</a>
+              <div class="dropdown-panel">
+                <div class="dropdown-panel-title">Team Members</div>
+                <a href="#team-pi">Principal Investigator</a>
+                <a href="#team-phd">PhD Students</a>
+                <a href="#team-grad">Graduate Students</a>
+                <a href="#team-undergrad">Undergraduate Students</a>
+                <a href="#team-ra">Research Assistants</a>
+                <a href="#team-alumni">Alumni</a>
+              </div>
             </li>
+
             <li class="nav-item">
               <a class="nav-link" href="#testimonial">Collaborators</a>
             </li>
@@ -73,11 +95,14 @@
               <a class="nav-link" href="#blog">News</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#contact">Contact</a>
+              <a class="nav-cta nav-link" href="#contact">Contact</a>
             </li>
           </ul>
         </div>
       </div>
+
+      <!-- Scroll progress bar (populated by Task 6 JS) -->
+      <div id="scroll-progress" style="position:absolute;bottom:0;left:0;height:3px;width:0%;background:#ff214f;transition:width 0.1s linear;z-index:1;"></div>
     </nav>
     <!-- End Of Page Navigation -->
 
@@ -539,14 +564,14 @@
       <h2 class="section-title">Our Team</h2>
     </div>
 
-  <div class="team-group team-group-pi">
+  <div class="team-group team-group-pi" id="team-pi">
     <div class="team-group-head">
       <h5 class="team-role">Principal Investigator</h5>
     </div>
     <div id="pi-list" class="row justify-content-center g-4 team-grid"></div>
   </div>
 
-    <div class="team-group">
+    <div class="team-group" id="team-phd">
       <div class="team-toggle-wrap">
         <button
           class="team-toggle collapsed"
@@ -567,7 +592,7 @@
       </div>
     </div>
 
-    <div class="team-group">
+    <div class="team-group" id="team-grad">
       <div class="team-toggle-wrap">
         <button
           class="team-toggle collapsed"
@@ -588,7 +613,7 @@
       </div>
     </div>
 
-    <div class="team-group">
+    <div class="team-group" id="team-undergrad">
       <div class="team-toggle-wrap">
         <button
           class="team-toggle collapsed"
@@ -609,7 +634,7 @@
       </div>
     </div>
 
-    <div class="team-group">
+    <div class="team-group" id="team-ra">
       <div class="team-toggle-wrap">
         <button
           class="team-toggle collapsed"
@@ -630,7 +655,7 @@
       </div>
     </div>
 
-    <div class="team-group mb-0">
+    <div class="team-group mb-0" id="team-alumni">
       <div class="team-toggle-wrap">
         <button
           class="team-toggle collapsed"
