@@ -11082,4 +11082,60 @@ body {
   }
 }
 
+/* ============================================================
+   Site Refinement 2026-06-10
+============================================================ */
+
+/* 1. Section tag — remove pink pill, plain grey uppercase label */
+.section-tag {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.10em;
+  color: #9ca3af;
+  background: none;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  margin-bottom: 10px;
+}
+
+/* 2. Remove card borders and heavy shadows — whitespace does the work */
+.research-card,
+.blog-card {
+  border: none;
+  box-shadow: none;
+}
+.research-card:hover,
+.blog-card:hover {
+  box-shadow: none;
+  transform: translateY(-2px);
+}
+.lab-highlights .box-item {
+  border: none;
+  box-shadow: none;
+  background: #f9fafb;
+}
+.lab-highlights .box-item:hover {
+  background: #f3f4f6;
+  box-shadow: none;
+  transform: none;
+}
+
+/* 3. Collaborator frame — subtle border only */
+.collab-logo-frame {
+  border-color: #f0f0f4;
+  padding: 14px 18px;
+}
+.collab-logo-frame:hover {
+  border-color: #e5e7eb;
+  background: #fff;
+}
+
+/* 4. Collaborator caption width */
+.collab-caption {
+  max-width: 15ch;
+}
+
 /*# sourceMappingURL=creative-studio.css.map */
