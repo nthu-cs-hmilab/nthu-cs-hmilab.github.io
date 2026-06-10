@@ -11475,4 +11475,95 @@ body {
   background: #fff;
 }
 
+/* ============================================================
+   Album Archive — borderless redesign 2026-06-10
+============================================================ */
+
+.album-archive {
+  margin-top: 32px;
+  text-align: left;
+}
+
+/* Each year row */
+.archive-row {
+  border-top: 1px solid #f3f4f6;
+}
+.archive-row:last-of-type {
+  border-bottom: 1px solid #f3f4f6;
+}
+
+/* Row header button */
+.archive-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 13px 0;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  -webkit-appearance: none;
+  appearance: none;
+}
+.archive-btn:focus-visible {
+  outline: 2px solid #ff214f;
+  outline-offset: 2px;
+}
+
+/* Year label */
+.archive-year {
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: #9ca3af;
+  transition: color 0.15s ease;
+}
+.archive-row.open .archive-year {
+  color: #111827;
+  font-weight: 600;
+}
+.archive-btn:hover .archive-year {
+  color: #374151;
+}
+
+/* Active dot */
+.archive-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: transparent;
+  flex-shrink: 0;
+  transition: background 0.15s ease;
+}
+.archive-row.open .archive-dot {
+  background: #ff214f;
+}
+
+/* Expandable photo panel */
+.archive-panel {
+  padding-bottom: 20px;
+}
+
+/* "View older archives" toggle */
+.archive-older-toggle {
+  display: inline-block;
+  margin-top: 16px;
+  font-size: 0.8rem;
+  color: #9ca3af;
+  cursor: pointer;
+  background: none;
+  border: none;
+  font-family: inherit;
+  padding: 0;
+  -webkit-appearance: none;
+  appearance: none;
+  transition: color 0.15s ease;
+}
+.archive-older-toggle:hover {
+  color: #6b7280;
+}
+.archive-older-toggle[hidden] {
+  display: none;
+}
+
 /*# sourceMappingURL=creative-studio.css.map */

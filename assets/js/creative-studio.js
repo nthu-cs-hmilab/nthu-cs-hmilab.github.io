@@ -469,7 +469,7 @@ document.addEventListener("DOMContentLoaded", function () {
     { year: '2020', src: 'assets/imgs/album/photo5.jpg', alt: "2020 September Teacher's Day", caption: "2020.09 Teacher's Day" }
   ];
 
-  var accordion = document.getElementById('albumAccordion');
+  var archiveEl = document.getElementById('albumArchive');
   var loadMoreBtn = document.querySelector('.album-load-more');
   var lightbox = document.querySelector('.album-lightbox');
   var lightboxImage = document.querySelector('.album-lightbox-image');
@@ -478,7 +478,7 @@ document.addEventListener("DOMContentLoaded", function () {
   var prevBtn = document.querySelector('.album-lightbox-prev');
   var nextBtn = document.querySelector('.album-lightbox-next');
 
-  if (!accordion) return;
+  if (!archiveEl) return;
 
   var activeYear = null;
   var activePanel = null;
@@ -486,32 +486,35 @@ document.addEventListener("DOMContentLoaded", function () {
   var currentItems = [];
   var currentIndex = 0;
 
-  // Derive years in order from albumData
+  // Derive ordered unique years from albumData
   var years = [];
   var seen = {};
   albumData.forEach(function (item) {
     if (!seen[item.year]) { seen[item.year] = true; years.push(item.year); }
   });
 
-  // Build accordion rows
-  years.forEach(function (year) {
+  var recentYears = years.slice(0, 3);
+  var olderYears = years.slice(3);
+
+  // Build and append a single archive row
+  function buildRow(year) {
     var row = document.createElement('div');
-    row.className = 'album-acc-row';
+    row.className = 'archive-row';
     row.dataset.year = year;
-    row.id = 'acc-' + year;
+    row.id = 'arc-' + year;
     row.innerHTML = [
-      '<button class="album-acc-btn" type="button"',
-      ' aria-expanded="false" aria-controls="panel-' + year + '">',
-      '<span class="album-acc-year">' + year + '</span>',
-      '<span class="album-acc-chevron" aria-hidden="true">&#8250;</span>',
+      '<button class="archive-btn" type="button"',
+      ' aria-expanded="false" aria-controls="arcpanel-' + year + '">',
+      '<span class="archive-year">' + year + '</span>',
+      '<span class="archive-dot" aria-hidden="true"></span>',
       '</button>',
-      '<div class="album-acc-panel" id="panel-' + year + '" hidden>',
-      '<div class="row justify-content-center g-3 album-acc-grid"></div>',
+      '<div class="archive-panel" id="arcpanel-' + year + '" hidden>',
+      '<div class="row justify-content-center g-3 archive-grid"></div>',
       '</div>'
     ].join('');
-    accordion.appendChild(row);
+    archiveEl.appendChild(row);
 
-    row.querySelector('.album-acc-btn').addEventListener('click', function () {
+    row.querySelector('.archive-btn').addEventListener('click', function () {
       if (activeYear === year) {
         closeYear();
       } else {
@@ -519,12 +522,32 @@ document.addEventListener("DOMContentLoaded", function () {
         openYear(year, row);
       }
     });
-  });
 
+    return row;
+  }
+
+  // Render recent years
+  recentYears.forEach(buildRow);
+
+  // "View older archives" toggle
+  var olderToggle = null;
+  if (olderYears.length > 0) {
+    olderToggle = document.createElement('button');
+    olderToggle.className = 'archive-older-toggle';
+    olderToggle.type = 'button';
+    olderToggle.textContent = 'View older archives →';
+    archiveEl.appendChild(olderToggle);
+
+    olderToggle.addEventListener('click', function () {
+      olderToggle.hidden = true;
+      olderYears.forEach(buildRow);
+    });
+  }
+
+  // Photo item factory
   function createPhotoItem(item) {
     var col = document.createElement('div');
     col.className = 'col-xl-4 col-md-6';
-    col.dataset.year = item.year;
     col.innerHTML = [
       '<figure class="album-card" role="button" tabindex="0"',
       ' aria-label="Open ' + item.caption.replace(/"/g, '&quot;') + '">',
@@ -554,7 +577,7 @@ document.addEventListener("DOMContentLoaded", function () {
     var yearItems = albumData.filter(function (item) { return item.year === activeYear; });
     var visible = yearItems.slice(0, visibleLimit);
     currentItems = visible;
-    var grid = activePanel.querySelector('.album-acc-grid');
+    var grid = activePanel.querySelector('.archive-grid');
     grid.innerHTML = '';
     visible.forEach(function (item) { grid.appendChild(createPhotoItem(item)); });
     if (loadMoreBtn) {
@@ -565,23 +588,23 @@ document.addEventListener("DOMContentLoaded", function () {
   function openYear(year, row) {
     activeYear = year;
     visibleLimit = pageSize;
-    activePanel = row.querySelector('.album-acc-panel');
+    activePanel = row.querySelector('.archive-panel');
     row.classList.add('open');
-    row.querySelector('.album-acc-btn').setAttribute('aria-expanded', 'true');
+    row.querySelector('.archive-btn').setAttribute('aria-expanded', 'true');
     activePanel.hidden = false;
     renderPhotos();
   }
 
   function closeYear() {
     if (!activeYear) return;
-    var row = document.getElementById('acc-' + activeYear);
+    var row = document.getElementById('arc-' + activeYear);
     if (row) {
       row.classList.remove('open');
-      row.querySelector('.album-acc-btn').setAttribute('aria-expanded', 'false');
-      var panel = row.querySelector('.album-acc-panel');
+      row.querySelector('.archive-btn').setAttribute('aria-expanded', 'false');
+      var panel = row.querySelector('.archive-panel');
       if (panel) {
         panel.hidden = true;
-        var grid = panel.querySelector('.album-acc-grid');
+        var grid = panel.querySelector('.archive-grid');
         if (grid) grid.innerHTML = '';
       }
     }
@@ -609,7 +632,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (lightboxCount) lightboxCount.textContent = (currentIndex + 1) + ' / ' + currentItems.length;
     lightbox.hidden = false;
     document.body.classList.add('lightbox-open');
-    if (lightbox.setAttribute) lightbox.setAttribute('tabindex', '-1');
+    lightbox.setAttribute('tabindex', '-1');
   }
 
   function closeLightbox() {
