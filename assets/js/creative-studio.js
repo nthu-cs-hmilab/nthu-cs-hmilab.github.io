@@ -485,13 +485,12 @@ document.addEventListener("DOMContentLoaded", function () {
   var visibleLimit = pageSize;
   var currentItems = [];
   var currentIndex = 0;
+  var lightboxOpener = null;
 
-  // Derive ordered unique years from albumData
-  var years = [];
+  // Derive ordered unique years, explicitly sorted descending
   var seen = {};
-  albumData.forEach(function (item) {
-    if (!seen[item.year]) { seen[item.year] = true; years.push(item.year); }
-  });
+  albumData.forEach(function (item) { seen[item.year] = true; });
+  var years = Object.keys(seen).sort(function (a, b) { return b - a; });
 
   var recentYears = years.slice(0, 3);
   var olderYears = years.slice(3);
@@ -518,7 +517,7 @@ document.addEventListener("DOMContentLoaded", function () {
       if (activeYear === year) {
         closeYear();
       } else {
-        closeYear();
+        if (activeYear) closeYear();
         openYear(year, row);
       }
     });
@@ -550,14 +549,20 @@ document.addEventListener("DOMContentLoaded", function () {
     col.className = 'col-xl-4 col-md-6';
     col.innerHTML = [
       '<figure class="album-card" role="button" tabindex="0"',
-      ' aria-label="Open ' + item.caption.replace(/"/g, '&quot;') + '">',
+      ' aria-label="">',
       '<div class="album-img-wrap">',
-      '<img src="' + item.src + '" alt="' + item.alt.replace(/"/g, '&quot;') + '"',
-      ' loading="lazy" decoding="async">',
+      '<img src="" alt="" loading="lazy" decoding="async">',
       '</div>',
-      '<figcaption>' + item.caption + '</figcaption>',
+      '<figcaption></figcaption>',
       '</figure>'
     ].join('');
+    var figure = col.querySelector('figure');
+    var img = col.querySelector('img');
+    var caption = col.querySelector('figcaption');
+    figure.setAttribute('aria-label', 'Open ' + item.caption);
+    img.setAttribute('src', item.src);
+    img.setAttribute('alt', item.alt);
+    caption.textContent = item.caption;
     var card = col.querySelector('.album-card');
     card.addEventListener('click', function () {
       var idx = currentItems.indexOf(item);
@@ -574,6 +579,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function renderPhotos() {
+    if (!activePanel) return;
     var yearItems = albumData.filter(function (item) { return item.year === activeYear; });
     var visible = yearItems.slice(0, visibleLimit);
     currentItems = visible;
@@ -624,6 +630,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function openLightbox(index) {
     if (!lightbox || !lightboxImage || !currentItems.length) return;
+    lightboxOpener = document.activeElement;
     currentIndex = (index + currentItems.length) % currentItems.length;
     var data = currentItems[currentIndex];
     lightboxImage.setAttribute('src', data.src);
@@ -632,7 +639,8 @@ document.addEventListener("DOMContentLoaded", function () {
     if (lightboxCount) lightboxCount.textContent = (currentIndex + 1) + ' / ' + currentItems.length;
     lightbox.hidden = false;
     document.body.classList.add('lightbox-open');
-    lightbox.setAttribute('tabindex', '-1');
+    var closeBtn = lightbox.querySelector('.album-lightbox-close');
+    if (closeBtn) closeBtn.focus();
   }
 
   function closeLightbox() {
@@ -640,6 +648,7 @@ document.addEventListener("DOMContentLoaded", function () {
     lightbox.hidden = true;
     document.body.classList.remove('lightbox-open');
     if (lightboxImage) lightboxImage.setAttribute('src', '');
+    if (lightboxOpener && lightboxOpener.focus) { lightboxOpener.focus(); lightboxOpener = null; }
   }
 
   function showAdjacent(offset) {
@@ -651,7 +660,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   if (lightbox) {
     lightbox.addEventListener('click', function (event) {
-      if (event.target.hasAttribute('data-lightbox-close')) closeLightbox();
+      if (event.target.closest('[data-lightbox-close]')) closeLightbox();
     });
   }
 
