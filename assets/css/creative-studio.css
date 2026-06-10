@@ -11286,4 +11286,14 @@ body {
   margin-bottom: 48px;
 }
 
+/* Highlight cards — flex layout for equal internal structure */
+.lab-highlights .box-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.lab-highlights .box-text {
+  flex: 1;
+}
+
 /*# sourceMappingURL=creative-studio.css.map */
