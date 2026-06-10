@@ -11392,4 +11392,19 @@ body {
   display: block;
 }
 
+/* Footer — label hierarchy and link contrast */
+.footer .list-head h6 {
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  color: rgba(255, 255, 255, 0.35);
+  font-weight: 700;
+}
+
+.footer .list-body a {
+  color: rgba(255, 255, 255, 0.60);
+}
+.footer .list-body a:hover {
+  color: rgba(255, 255, 255, 0.90);
+}
+
 /*# sourceMappingURL=creative-studio.css.map */
