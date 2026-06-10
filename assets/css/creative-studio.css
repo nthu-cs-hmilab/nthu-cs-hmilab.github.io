@@ -8989,25 +8989,16 @@ p {
 .section-tag {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
   font-size: 0.72rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   color: #ff214f;
   background: var(--primary-50);
-  padding: 4px 12px 4px 10px;
+  padding: 4px 12px;
   border-radius: 999px;
   margin-bottom: 14px;
   border: 1px solid rgba(255, 33, 79, 0.14);
-}
-.section-tag::before {
-  content: "";
-  width: 6px;
-  height: 6px;
-  background: #ff214f;
-  border-radius: 50%;
-  flex-shrink: 0;
 }
 
 .section-title {
@@ -9826,7 +9817,16 @@ figure.album-card {
   outline-offset: 2px;
 }
 
-.album-load-more {
+.album-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.album-load-more,
+.album-hide-photos {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -9841,12 +9841,18 @@ figure.album-card {
   cursor: pointer;
   transition: border-color 0.15s ease, color 0.15s ease, background 0.15s ease;
 }
-.album-load-more:hover {
+.album-load-more:hover,
+.album-hide-photos:hover {
   border-color: rgba(255, 33, 79, 0.24);
   color: #ff214f;
   background: var(--primary-50);
 }
-.album-load-more[hidden] {
+.album-hide-photos {
+  min-width: 116px;
+  color: #6b7280;
+}
+.album-load-more[hidden],
+.album-hide-photos[hidden] {
   display: none;
 }
 
@@ -9996,39 +10002,65 @@ body.lightbox-open {
   }
 }
 
+.collab-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 34px 24px;
+  align-items: start;
+}
+
 .collab-col {
-  margin-bottom: 32px;
+  min-width: 0;
 }
 
 .collab-logo-frame {
-  height: 72px;
+  height: 112px;
   display: flex;
   align-items: center;
   justify-content: center;
   background: #fff;
   border: 1px solid var(--border);
-  border-radius: 10px;
-  padding: 10px 16px;
-  transition: background 0.2s ease;
+  border-radius: var(--radius-card);
+  padding: 18px 22px;
+  transition: border-color 0.15s ease, background 0.15s ease;
 }
 .collab-logo-frame:hover {
-  background: var(--primary-50);
+  background: #fff;
+  border-color: rgba(255, 33, 79, 0.18);
 }
 
 .collab-logo-frame img {
-  max-height: 44px;
+  max-height: 72px;
   width: auto;
   max-width: 100%;
   object-fit: contain;
 }
 
 .collab-caption {
-  font-size: 0.72rem;
-  color: #9ca3af;
+  font-size: 0.78rem;
+  color: #6b7280;
   text-align: center;
-  margin: 8px 0 0;
-  line-height: 1.4;
+  margin: 10px 0 0;
+  line-height: 1.45;
   opacity: 1;
+}
+
+@media (max-width: 991.98px) {
+  .collab-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 30px 22px;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .collab-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .collab-logo-frame {
+    height: 104px;
+    padding: 18px 24px;
+  }
 }
 
 pre {

@@ -469,6 +469,7 @@ document.addEventListener("DOMContentLoaded", function () {
   var filterBtns = document.querySelectorAll('.album-filter-btn');
   var albumGrid = document.getElementById('albumGrid');
   var loadMoreBtn = document.querySelector('.album-load-more');
+  var hidePhotosBtn = document.querySelector('.album-hide-photos');
   var lightbox = document.querySelector('.album-lightbox');
   var lightboxImage = document.querySelector('.album-lightbox-image');
   var lightboxCaption = document.querySelector('.album-lightbox-caption');
@@ -535,15 +536,42 @@ document.addEventListener("DOMContentLoaded", function () {
       loadMoreBtn.hidden = !hasMore;
       loadMoreBtn.textContent = hasMore ? 'Load More' : '';
     }
+
+    if (hidePhotosBtn) {
+      hidePhotosBtn.hidden = !activeYear || !yearItems.length;
+    }
   }
 
   function setActiveYear(year) {
+    if (activeYear === year) {
+      clearActiveYear();
+      return;
+    }
     activeYear = year;
     visibleLimit = pageSize;
     filterBtns.forEach(function (button) {
-      button.classList.toggle('active', button.dataset.year === year);
+      var isActive = button.dataset.year === year;
+      button.classList.toggle('active', isActive);
+      button.setAttribute('aria-pressed', isActive ? 'true' : 'false');
     });
     updateArchive();
+  }
+
+  function clearActiveYear() {
+    activeYear = '';
+    visibleLimit = pageSize;
+    currentItems = [];
+    albumGrid.innerHTML = '';
+    closeLightbox();
+    filterBtns.forEach(function (button) {
+      button.classList.remove('active');
+      button.setAttribute('aria-pressed', 'false');
+    });
+    if (loadMoreBtn) {
+      loadMoreBtn.hidden = true;
+      loadMoreBtn.textContent = '';
+    }
+    if (hidePhotosBtn) hidePhotosBtn.hidden = true;
   }
 
   function openLightbox(index) {
@@ -581,6 +609,10 @@ document.addEventListener("DOMContentLoaded", function () {
       visibleLimit += pageSize;
       updateArchive();
     });
+  }
+
+  if (hidePhotosBtn) {
+    hidePhotosBtn.addEventListener('click', clearActiveYear);
   }
 
   if (lightbox) {

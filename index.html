@@ -326,18 +326,21 @@
     </p>
 
     <div class="album-filter" role="group" aria-label="Filter by year">
-      <button class="album-filter-btn" data-year="2026">2026</button>
-      <button class="album-filter-btn" data-year="2025">2025</button>
-      <button class="album-filter-btn" data-year="2024">2024</button>
-      <button class="album-filter-btn" data-year="2023">2023</button>
-      <button class="album-filter-btn" data-year="2022">2022</button>
-      <button class="album-filter-btn" data-year="2021">2021</button>
-      <button class="album-filter-btn" data-year="2020">2020</button>
+      <button class="album-filter-btn" type="button" data-year="2026" aria-pressed="false">2026</button>
+      <button class="album-filter-btn" type="button" data-year="2025" aria-pressed="false">2025</button>
+      <button class="album-filter-btn" type="button" data-year="2024" aria-pressed="false">2024</button>
+      <button class="album-filter-btn" type="button" data-year="2023" aria-pressed="false">2023</button>
+      <button class="album-filter-btn" type="button" data-year="2022" aria-pressed="false">2022</button>
+      <button class="album-filter-btn" type="button" data-year="2021" aria-pressed="false">2021</button>
+      <button class="album-filter-btn" type="button" data-year="2020" aria-pressed="false">2020</button>
     </div>
 
     <div class="row justify-content-center g-4" id="albumGrid"></div><!-- #albumGrid -->
 
-      <button class="album-load-more" type="button" hidden>Load More</button>
+      <div class="album-actions">
+        <button class="album-load-more" type="button" hidden>Load More</button>
+        <button class="album-hide-photos" type="button" hidden>Hide photos</button>
+      </div>
 
       <div class="album-lightbox" role="dialog" aria-modal="true" aria-label="Album image viewer" hidden>
         <div class="album-lightbox-backdrop" data-lightbox-close></div>
@@ -485,79 +488,79 @@
       <h2 class="section-title mb-4">Research Partners</h2>
     </div>
 
-    <div class="row text-center justify-content-center">
+    <div class="collab-grid">
 
-      <div class="col-lg-2 col-md-4 col-6 collab-col">
+      <div class="collab-col">
         <div class="collab-logo-frame">
           <img src="assets/imgs/collaborator/tcvgh.png" alt="Taichung Veterans General Hospital logo" loading="lazy">
         </div>
         <p class="collab-caption">Taichung Veterans General Hospital, Taiwan</p>
       </div>
 
-      <div class="col-lg-2 col-md-4 col-6 collab-col">
+      <div class="collab-col">
         <div class="collab-logo-frame">
           <img src="assets/imgs/collaborator/hitilab.png" alt="Healthcare Innovation and Translational Informatics Lab, Emory University logo" loading="lazy">
         </div>
         <p class="collab-caption">Healthcare Innovation and Translational Informatics Lab, Emory University, USA</p>
       </div>
 
-      <div class="col-lg-2 col-md-4 col-6 collab-col">
+      <div class="collab-col">
         <div class="collab-logo-frame">
           <img src="assets/imgs/collaborator/icp.png" alt="Laboratory for Computational Physiology, MIT logo" loading="lazy">
         </div>
         <p class="collab-caption">Laboratory for Computational Physiology, MIT, USA</p>
       </div>
 
-      <div class="col-lg-2 col-md-4 col-6 collab-col">
+      <div class="collab-col">
         <div class="collab-logo-frame">
           <img src="assets/imgs/collaborator/sinica.png" alt="Functional Neuroimaging Lab, Academia Sinica logo" loading="lazy">
         </div>
         <p class="collab-caption">Functional Neuroimaging Lab, Academia Sinica, Taiwan</p>
       </div>
 
-      <div class="col-lg-2 col-md-4 col-6 collab-col">
+      <div class="collab-col">
         <div class="collab-logo-frame">
           <img src="assets/imgs/collaborator/oja.jpg" alt="Research Centre Jülich logo" loading="lazy">
         </div>
         <p class="collab-caption">Research Centre Jülich, Germany</p>
       </div>
 
-      <div class="col-lg-2 col-md-4 col-6 collab-col">
+      <div class="collab-col">
         <div class="collab-logo-frame">
           <img src="assets/imgs/collaborator/bml.png" alt="Brain Mapping Lab, NYMU logo" loading="lazy">
         </div>
         <p class="collab-caption">Brain Mapping Lab, NYMU, Taiwan</p>
       </div>
 
-      <div class="col-lg-2 col-md-4 col-6 collab-col">
+      <div class="collab-col">
         <div class="collab-logo-frame">
           <img src="assets/imgs/collaborator/tmu.jpg" alt="Taipei Medical University logo" loading="lazy">
         </div>
         <p class="collab-caption">Taipei Medical University, Taiwan</p>
       </div>
 
-      <div class="col-lg-2 col-md-4 col-6 collab-col">
+      <div class="collab-col">
         <div class="collab-logo-frame">
           <img src="assets/imgs/collaborator/sta.png" alt="Institute of Statistical Mathematics, Japan logo" loading="lazy">
         </div>
         <p class="collab-caption">Institute of Statistical Mathematics, Japan</p>
       </div>
 
-      <div class="col-lg-2 col-md-4 col-6 collab-col">
+      <div class="collab-col">
         <div class="collab-logo-frame">
           <img src="assets/imgs/collaborator/swartz.jpg" alt="UCSD Swartz Center for Computational Neuroscience logo" loading="lazy">
         </div>
         <p class="collab-caption">UCSD Swartz Center for Computational Neuroscience</p>
       </div>
 
-      <div class="col-lg-2 col-md-4 col-6 collab-col">
+      <div class="collab-col">
         <div class="collab-logo-frame">
           <img src="assets/imgs/collaborator/info.jpg" alt="Institute for Information Industry, Taiwan logo" loading="lazy">
         </div>
         <p class="collab-caption">Institute for Information Industry, Taiwan</p>
       </div>
 
-      <div class="col-lg-2 col-md-4 col-6 collab-col">
+      <div class="collab-col">
         <div class="collab-logo-frame">
           <img src="assets/imgs/collaborator/ntuh.png" alt="NTU Hospital Hsinchu Branch logo" loading="lazy">
         </div>
