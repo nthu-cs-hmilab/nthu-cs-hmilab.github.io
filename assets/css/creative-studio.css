@@ -10223,12 +10223,6 @@ pre .code {
   white-space: nowrap;
 }
 
-.custom-navbar .nav-item.has-dropdown:hover .dropdown-panel,
-.custom-navbar .nav-item.has-dropdown:focus-within .dropdown-panel {
-  display: block;
-  animation: fadeDropdown 0.2s ease;
-}
-
 @keyframes fadeDropdown {
   from {
     opacity: 0;
@@ -11581,6 +11575,61 @@ body {
 }
 .archive-btn:hover {
   background: #fafafa;
+}
+
+/* Nav dropdown — JS-driven click-to-open */
+.custom-navbar .nav-item.has-dropdown.is-open .dropdown-panel {
+  display: block;
+  animation: fadeDropdown 0.2s ease;
+}
+
+/* Remove bullet dots */
+.custom-navbar .dropdown-panel a::before {
+  display: none;
+}
+
+/* Left accent rule replaces dots */
+.custom-navbar .dropdown-panel a {
+  gap: 0;
+  border-left: 2px solid transparent;
+  padding-left: 18px;
+  transition: background 0.12s, border-color 0.12s, color 0.12s;
+}
+.custom-navbar .dropdown-panel a:hover {
+  background: #fafafa !important;
+  border-left-color: #ff214f;
+  color: #111827 !important;
+}
+.custom-navbar .dropdown-panel a:hover::before {
+  display: none;
+}
+
+/* Mobile — inline panel inside collapsed navbar */
+@media (max-width: 991.98px) {
+  .custom-navbar .nav-item.has-dropdown.is-open .dropdown-panel {
+    display: block !important;
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    transform: none !important;
+    box-shadow: none !important;
+    border: none !important;
+    border-radius: 0 !important;
+    padding: 4px 0 8px !important;
+    background: transparent !important;
+    min-width: auto !important;
+    white-space: normal !important;
+  }
+  .custom-navbar .nav-item.has-dropdown.is-open .dropdown-panel a {
+    color: rgba(255, 255, 255, 0.75) !important;
+    padding: 7px 24px;
+    font-size: 0.85rem;
+  }
+  .custom-navbar .nav-item.has-dropdown.is-open .dropdown-panel a:hover {
+    color: #fff !important;
+    background: rgba(255, 255, 255, 0.06) !important;
+    border-left-color: #ff214f;
+  }
 }
 
 /*# sourceMappingURL=creative-studio.css.map */

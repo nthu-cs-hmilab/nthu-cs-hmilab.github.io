@@ -15,7 +15,7 @@
 // smooth scroll
 $(document).ready(function () {
   $(".navbar .nav-link").on("click", function (event) {
-    if (this.hash !== "") {
+    if (this.hash !== "" && !$(this).closest(".has-dropdown").length) {
       event.preventDefault();
 
       var hash = this.hash;
@@ -424,6 +424,49 @@ document.addEventListener("DOMContentLoaded", function () {
       ticking = true;
     }
   }, { passive: true });
+}());
+
+/* =========================
+   Nav Click-to-Open
+========================= */
+(function () {
+  var dropdowns = Array.prototype.slice.call(
+    document.querySelectorAll('.custom-navbar .nav-item.has-dropdown')
+  );
+
+  function closeAll() {
+    dropdowns.forEach(function (item) {
+      item.classList.remove('is-open');
+      var trigger = item.querySelector('.nav-link');
+      if (trigger) trigger.setAttribute('aria-expanded', 'false');
+    });
+  }
+
+  dropdowns.forEach(function (item) {
+    var trigger = item.querySelector('.nav-link');
+    if (!trigger) return;
+
+    trigger.addEventListener('click', function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+      var isOpen = item.classList.contains('is-open');
+      closeAll();
+      if (!isOpen) {
+        item.classList.add('is-open');
+        trigger.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+
+  document.addEventListener('click', function (e) {
+    if (!e.target.closest('.custom-navbar .nav-item.has-dropdown')) {
+      closeAll();
+    }
+  });
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') closeAll();
+  });
 }());
 
 /* =========================
