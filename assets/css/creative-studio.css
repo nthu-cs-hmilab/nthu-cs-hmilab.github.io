@@ -9550,17 +9550,26 @@ p {
 .blog-meta {
   display: inline-flex;
   align-items: center;
-  gap: 5px;
-  font-size: 0.78rem;
-  color: #9ca3af;
-  background: #f3f4f6;
-  padding: 3px 10px;
-  border-radius: 8px;
-  margin-bottom: 12px;
-  width: fit-content;
-}
-.blog-meta i {
+  gap: 8px;
   font-size: 0.72rem;
+  font-weight: 600;
+  color: #ff214f;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  background: none;
+  padding: 0;
+  border-radius: 0;
+  margin-bottom: 10px;
+  width: auto;
+}
+.blog-meta::before {
+  content: "";
+  display: block;
+  width: 18px;
+  height: 2px;
+  background: currentColor;
+  border-radius: 1px;
+  flex-shrink: 0;
 }
 
 .blog-title {
