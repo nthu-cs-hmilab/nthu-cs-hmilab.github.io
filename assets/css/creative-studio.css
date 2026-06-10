@@ -11146,4 +11146,26 @@ body {
   flex-shrink: 0;
 }
 
+/* Navbar — strip CTA border from Contact link */
+.custom-navbar .nav-cta {
+  border: none !important;
+  border-radius: 0 !important;
+  padding: 7px 9px !important;
+  margin-left: 0 !important;
+  box-shadow: none !important;
+}
+.custom-navbar .nav-cta:hover,
+.custom-navbar .nav-cta:focus {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+.custom-navbar.affix .nav-cta {
+  border: none !important;
+}
+.custom-navbar.affix .nav-cta:hover,
+.custom-navbar.affix .nav-cta:focus {
+  background: transparent !important;
+  border: none !important;
+}
+
 /*# sourceMappingURL=creative-studio.css.map */
