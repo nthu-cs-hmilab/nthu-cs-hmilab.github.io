@@ -456,6 +456,24 @@ document.addEventListener("DOMContentLoaded", function () {
         trigger.setAttribute('aria-expanded', 'true');
       }
     });
+
+    var panel = item.querySelector('.dropdown-panel');
+    if (panel) {
+      panel.addEventListener('click', function (e) {
+        var link = e.target.closest('a[href]');
+        if (!link) return;
+        closeAll();
+        var hash = link.getAttribute('href');
+        if (hash && hash.charAt(0) === '#') {
+          e.preventDefault();
+          var target = document.querySelector(hash);
+          if (target) {
+            var top = target.getBoundingClientRect().top + window.pageYOffset;
+            window.scrollTo({ top: top, behavior: 'smooth' });
+          }
+        }
+      });
+    }
   });
 
   document.addEventListener('click', function (e) {
@@ -465,7 +483,14 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape') closeAll();
+    if (e.key === 'Escape') {
+      var openTrigger = null;
+      dropdowns.forEach(function (item) {
+        if (item.classList.contains('is-open')) openTrigger = item.querySelector('.nav-link');
+      });
+      closeAll();
+      if (openTrigger) openTrigger.focus();
+    }
   });
 }());
 
