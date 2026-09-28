@@ -10517,26 +10517,6 @@ section.has-bg-img {
   position: relative;
   color: #fff;
 }
-section.has-bg-img:after {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  background-image: url(../imgs/section.jpg);
-  background-position: center center;
-  background-attachment: fixed;
-  background-repeat: no-repeat;
-  background-size: cover;
-  z-index: -1;
-}
-section.has-bg-img.bg-img-1:after {
-  background-image: url(../imgs/section.jpg);
-}
-section.has-bg-img.bg-img-2:after {
-  background-image: url(../imgs/header.jpg);
-}
 
 .bg-alt {
   background-color: #f9fafb !important;
