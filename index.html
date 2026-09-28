@@ -67,10 +67,14 @@
               <a class="nav-link has-caret" href="#service" aria-haspopup="true" aria-expanded="false">Research</a>
               <div class="dropdown-panel" role="menu">
                 <div class="dropdown-panel-title">Research Areas</div>
-                <a href="#service" role="menuitem">Trustworthy AI for Medicine</a>
+                <a href="#service" role="menuitem">Trustworthy Medical AI</a>
                 <a href="#service" role="menuitem">Brain Encoding and Decoding</a>
                 <a href="#service" role="menuitem">Human-Machine Interaction</a>
                 <a href="#service" role="menuitem">Computational Neuroscience</a>
+                <a href="#service" role="menuitem">Medical Computer Vision</a>
+                <a href="#service" role="menuitem">Multimodal Learning for Health</a>
+                <a href="#service" role="menuitem">Clinical Agents</a>
+                <a href="#service" role="menuitem">Speech &amp; Behavior Analysis</a>
               </div>
             </li>
 
@@ -213,24 +217,25 @@
           </p>
         </div>
 
-        <div class="row g-4 justify-content-center">
+        <div class="row g-4 justify-content-center research-grid">
           <div class="col-md-6 col-lg-6 col-xl-5">
             <div class="research-card">
               <div class="research-image-wrap">
                 <img
-                  class="research-image"
-                  src="assets/imgs/CXRphoto.png"
-                  alt="Trustworthy AI for medicine"
+                  class="research-image research-image--contain"
+                  src="assets/imgs/research/trustworthy-ai.jpg"
+                  alt="Fairness-aware, explainable deep learning for melanoma classification across patient groups"
                   loading="lazy"
                   decoding="async"
                 />
               </div>
               <div class="research-body">
                 <p class="research-area-tag">Medical AI</p>
-                <h5 class="research-title">Trustworthy AI for Medicine</h5>
+                <h5 class="research-title">Trustworthy Medical AI</h5>
                 <p class="research-text">
-                  We develop human-centered AI for clinical decision support using medical images,
-                  physiological signals, and electronic health records.
+                  We develop fair, robust, and explainable medical AI, uncovering hidden shortcuts and
+                  overconfident failures, and closing performance gaps across patient groups with
+                  diffusion-synthesized data and self-supervised learning.
                 </p>
               </div>
             </div>
@@ -241,7 +246,7 @@
               <div class="research-image-wrap">
                 <img
                   class="research-image"
-                  src="assets/imgs/manifold.png"
+                  src="assets/imgs/research/manifold.png"
                   alt="Brain encoding and decoding"
                   loading="lazy"
                   decoding="async"
@@ -251,8 +256,8 @@
                 <p class="research-area-tag">Neuroscience</p>
                 <h5 class="research-title">Brain Encoding and Decoding</h5>
                 <p class="research-text">
-                  We investigate how the brain encodes information and apply machine learning
-                  to decode neural activity from neuroimaging data.
+                  We investigate how the brain encodes information and decode neural activity from
+                  EEG, MEG, and fMRI, including brain-computer interfaces for imagery and speech.
                 </p>
               </div>
             </div>
@@ -263,8 +268,8 @@
               <div class="research-image-wrap">
                 <img
                   class="research-image"
-                  src="assets/imgs/learn.png"
-                  alt="Human-machine interaction"
+                  src="assets/imgs/research/human-machine-interaction.jpg"
+                  alt="A wheelchair user at a computer whose webcam detects subtle facial expressions"
                   loading="lazy"
                   decoding="async"
                 />
@@ -273,8 +278,8 @@
                 <p class="research-area-tag">HCI</p>
                 <h5 class="research-title">Human-Machine Interaction</h5>
                 <p class="research-text">
-                  We design adaptive interfaces that improve user experience, learning efficiency,
-                  and decision-making through neural feedback.
+                  We design adaptive interfaces guided by neural and physiological feedback, from
+                  expression-aware assistive systems and scent experiences to AI co-design tools for architecture and interiors.
                 </p>
               </div>
             </div>
@@ -285,7 +290,7 @@
               <div class="research-image-wrap">
                 <img
                   class="research-image"
-                  src="assets/imgs/trans.png"
+                  src="assets/imgs/research/trans.png"
                   alt="Computational neuroscience"
                   loading="lazy"
                   decoding="async"
@@ -296,7 +301,96 @@
                 <h5 class="research-title">Computational Neuroscience</h5>
                 <p class="research-text">
                   We develop statistical and computational approaches for brain modeling,
-                  representation analysis, and neurobiologically informed machine learning.
+                  representation analysis, and neurobiologically informed machine learning,
+                  including aligning deep networks with brain activity to reveal their biases.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-6 col-xl-5">
+            <div class="research-card">
+              <div class="research-image-wrap">
+                <img
+                  class="research-image research-image--contain"
+                  src="assets/imgs/research/medical-cv.jpg"
+                  alt="Ultrasound images of malignant and benign pleural effusion with model heatmaps"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <div class="research-body">
+                <p class="research-area-tag">Computer Vision</p>
+                <h5 class="research-title">Medical Computer Vision</h5>
+                <p class="research-text">
+                  We apply vision transformers, segmentation networks, and medical foundation models to chest X-ray,
+                  CT, ultrasound, and echocardiography, with multicenter validation and methods for long-tailed and few-shot learning.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-6 col-xl-5">
+            <div class="research-card">
+              <div class="research-image-wrap">
+                <img
+                  class="research-image research-image--contain"
+                  src="assets/imgs/research/multimodal.jpg"
+                  alt="Network combining 3D chest CT with age, sex, and clinical test results"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <div class="research-body">
+                <p class="research-area-tag">Clinical Informatics</p>
+                <h5 class="research-title">Multimodal Learning for Health</h5>
+                <p class="research-text">
+                  We fuse medical images, clinical records, and public health data, from predicting cardiac arrest
+                  in the ICU and distinguishing heart failure subtypes to linking satellite imagery with population health.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-6 col-xl-5">
+            <div class="research-card">
+              <div class="research-image-wrap">
+                <img
+                  class="research-image research-image--contain"
+                  src="assets/imgs/research/clinical-agents.jpg"
+                  alt="Two-stage multi-agent workflow integrating urodynamic, MRI, and neurophysiology data for clinicians"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <div class="research-body">
+                <p class="research-area-tag">Decision Support</p>
+                <h5 class="research-title">Clinical Agents</h5>
+                <p class="research-text">
+                  We design reinforcement-learning doctor agents for ICU ventilator management and multi-agent
+                  workflows that help clinicians make sense of multimodal patient data.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-6 col-xl-5">
+            <div class="research-card">
+              <div class="research-image-wrap">
+                <img
+                  class="research-image research-image--contain"
+                  src="assets/imgs/research/speech-and-behavior-analysis.jpg"
+                  alt="Timed Up and Go walking test and Cookie Theft picture description task"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <div class="research-body">
+                <p class="research-area-tag">Digital Health</p>
+                <h5 class="research-title">Speech &amp; Behavior Analysis</h5>
+                <p class="research-text">
+                  We detect early dementia with transformer-based speech and language models, video behavior
+                  analysis, and eye tracking, across languages including Mandarin.
                 </p>
               </div>
             </div>

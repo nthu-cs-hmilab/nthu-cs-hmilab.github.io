@@ -11632,4 +11632,19 @@ body {
   }
 }
 
+/* Research — uncropped diagrams and equal-height grid */
+.research-image--contain {
+  object-fit: contain;
+  background: #fff;
+}
+
+.research-grid > [class*="col-"] {
+  display: flex;
+  margin-bottom: 32px;
+}
+
+.research-grid .research-card {
+  width: 100%;
+}
+
 /*# sourceMappingURL=creative-studio.css.map */
