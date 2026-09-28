@@ -11647,4 +11647,16 @@ body {
   width: 100%;
 }
 
+/* Team — photo linking to a member's personal page */
+.team-photo-link {
+  display: block;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.team-photo-link:hover,
+.team-photo-link:focus-visible {
+  border-color: #ff214f;
+  box-shadow: 0 0 0 2px rgba(255, 33, 79, 0.18);
+}
+
 /*# sourceMappingURL=creative-studio.css.map */

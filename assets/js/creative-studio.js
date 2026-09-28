@@ -39,7 +39,14 @@ $(document).ready(function () {
 
 document.addEventListener("DOMContentLoaded", function () {
   const teamData = {
-    pi: [{ en: "Po-Chih Kuo", zh: "郭柏志", img: "assets/imgs/team/prof.jpg" }],
+    pi: [
+      {
+        en: "Po-Chih Kuo",
+        zh: "郭柏志",
+        img: "assets/imgs/team/prof.jpg",
+        link: "https://sites.google.com/site/bfantasykuo",
+      },
+    ],
 
     phd: [
       {
@@ -368,10 +375,7 @@ document.addEventListener("DOMContentLoaded", function () {
       ? `<p class="team-name-zh" lang="zh-TW">${member.zh}</p>`
       : "";
 
-    return `
-      <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-6">
-        <div class="team-card">
-          <div class="team-photo-wrapper">
+    const photoHtml = `
             <img
               class="team-photo"
               src="${member.img}"
@@ -379,8 +383,17 @@ document.addEventListener("DOMContentLoaded", function () {
               loading="lazy"
               decoding="async"
               onerror="this.onerror=null;this.src='assets/imgs/team/nophoto.png';"
-            >
-          </div>
+            >`;
+    const photoWrapperHtml = member.link
+      ? `<a class="team-photo-wrapper team-photo-link" href="${member.link}" target="_blank" rel="noopener" aria-label="${member.en} personal website">${photoHtml}
+          </a>`
+      : `<div class="team-photo-wrapper">${photoHtml}
+          </div>`;
+
+    return `
+      <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-6">
+        <div class="team-card">
+          ${photoWrapperHtml}
           <div class="team-card-body">
             <h6 class="team-name-en">${member.en}</h6>
             ${zhHtml}
