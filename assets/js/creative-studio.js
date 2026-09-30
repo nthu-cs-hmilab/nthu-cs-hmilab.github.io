@@ -58,7 +58,6 @@ document.addEventListener("DOMContentLoaded", function () {
     ],
 
     graduate: [
-      { en: "Chao-Hsuan Lin", zh: "林晁璿", img: "assets/imgs/team/ray.jpg" },
       { en: "Sung-Wei Yu", zh: "游松偉", img: "assets/imgs/team/sungwei.jpg" },
       {
         en: "Shu-Yuu Luo",
@@ -432,6 +431,7 @@ document.addEventListener("DOMContentLoaded", function () {
       },
       { en: "Erich Wu", zh: "吳聲宏", img: "assets/imgs/team/Erich_Wu.png" },
       { en: "Hsi-Yu Ho", zh: "何習與", img: "assets/imgs/team/Hsi-Yu Ho.jpg" },
+      { en: "Chao-Hsuan Lin", zh: "林晁璿", img: "assets/imgs/team/ray.jpg" },
     ],
   };
 
