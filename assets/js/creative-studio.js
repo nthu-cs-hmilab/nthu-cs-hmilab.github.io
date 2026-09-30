@@ -145,6 +145,76 @@ document.addEventListener("DOMContentLoaded", function () {
 
     undergraduate: [
       {
+        en: "Yun-Chieh Tsai",
+        zh: "蔡昀潔",
+        img: "assets/imgs/team/yunchiehtsai.jpeg",
+      },
+      {
+        en: "Hank Fang",
+        zh: "馮亦翰",
+        img: "assets/imgs/team/hankfang.jpeg",
+      },
+      {
+        en: "Yan-Lin Chen",
+        zh: "陳彥霖",
+        img: "assets/imgs/team/yanlinchen.png",
+      },
+      {
+        en: "Jen Kuang Chien",
+        zh: "任光謙",
+        img: "assets/imgs/team/jenkuangchen.JPG",
+      },
+      {
+        en: "Hsieh Chia Chin",
+        zh: "謝佳晉",
+        img: "assets/imgs/team/hsiehchiachin.jpeg",
+      },
+      {
+        en: "Yan-Hong Chen",
+        zh: "陳彥宏",
+        img: "assets/imgs/team/yanhongchen.jpg",
+      },
+      {
+        en: "Roger Fan",
+        zh: "范升維",
+        img: "assets/imgs/team/rogerfan.jpg",
+      },
+      {
+        en: "Arthur",
+        zh: "李騏維",
+        img: "assets/imgs/team/arthur.jpeg",
+      },
+      {
+        en: "Yu-Min Wang",
+        zh: "王昱閔",
+        img: "assets/imgs/team/yumin.jpg",
+      },
+      {
+        en: "Yuchen Chiu",
+        zh: "邱宇晨",
+        img: "assets/imgs/team/yuchen.jpg",
+      },
+      {
+        en: "Yu-Hua Liao",
+        zh: "廖宇嬅",
+        img: "assets/imgs/team/yuhua.jpg",
+      },
+      {
+        en: "Yu-Chi Chiang",
+        zh: "姜語綺",
+        img: "assets/imgs/team/yuchi.jpeg",
+      },
+      {
+        en: "Yi-An Chen",
+        zh: "陳奕安",
+        img: "assets/imgs/team/yian.jpg",
+      },
+      {
+        en: "Yen-Ting Chen",
+        zh: "陳彥廷",
+        img: "assets/imgs/team/yentingchen.jpg",
+      },
+      {
         en: "Jheng-Jie Wang",
         zh: "王政傑",
         img: "assets/imgs/team/jheng-jie-wang.jpg",
@@ -350,76 +420,6 @@ document.addEventListener("DOMContentLoaded", function () {
         en: "Richard Kesumah",
         zh: "郭汶翰",
         img: "assets/imgs/team/Richard Kesumah.jpg",
-      },
-      {
-        en: "Yun-Chieh Tsai",
-        zh: "蔡昀潔",
-        img: "assets/imgs/team/yunchiehtsai.jpeg",
-      },
-      {
-        en: "Hank Fang",
-        zh: "馮亦翰",
-        img: "assets/imgs/team/hankfang.jpeg",
-      },
-      {
-        en: "Yan-Lin Chen",
-        zh: "陳彥霖",
-        img: "assets/imgs/team/yanlinchen.png",
-      },
-      {
-        en: "Jen Kuang Chien",
-        zh: "任光謙",
-        img: "assets/imgs/team/jenkuangchen.JPG",
-      },
-      {
-        en: "Hsieh Chia Chin",
-        zh: "謝佳晉",
-        img: "assets/imgs/team/hsiehchiachin.jpeg",
-      },
-      {
-        en: "Yan-Hong Chen",
-        zh: "陳彥宏",
-        img: "assets/imgs/team/yanhongchen.jpg",
-      },
-      {
-        en: "Roger Fan",
-        zh: "范升維",
-        img: "assets/imgs/team/rogerfan.jpg",
-      },
-      {
-        en: "Arthur",
-        zh: "李騏維",
-        img: "assets/imgs/team/arthur.jpeg",
-      },
-      {
-        en: "Yu-Min Wang",
-        zh: "王昱閔",
-        img: "assets/imgs/team/yumin.jpg",
-      },
-      {
-        en: "Yuchen Chiu",
-        zh: "邱宇晨",
-        img: "assets/imgs/team/yuchen.jpg",
-      },
-      {
-        en: "Yu-Hua Liao",
-        zh: "廖宇嬅",
-        img: "assets/imgs/team/yuhua.jpg",
-      },
-      {
-        en: "Yu-Chi Chiang",
-        zh: "姜語綺",
-        img: "assets/imgs/team/yuchi.jpeg",
-      },
-      {
-        en: "Yi-An Chen",
-        zh: "陳奕安",
-        img: "assets/imgs/team/yian.jpg",
-      },
-      {
-        en: "Yen-Ting Chen",
-        zh: "陳彥廷",
-        img: "assets/imgs/team/yentingchen.jpg",
       },
       { en: "Wen-Yen Chung", zh: "鍾汶諺", img: "assets/imgs/team/wen.JPG" },
       { en: "Jui-Yun Su", zh: "蘇芮筠", img: "assets/imgs/team/juiyun.jpg" },
