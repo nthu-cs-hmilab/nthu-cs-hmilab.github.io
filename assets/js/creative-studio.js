@@ -589,6 +589,12 @@ document.addEventListener("DOMContentLoaded", function () {
   var albumData = [
     {
       year: "2026",
+      src: "assets/imgs/album/photo34.jpg",
+      alt: "2026 Banquet 1",
+      caption: "2026 Banquet 1",
+    },
+    {
+      year: "2026",
       src: "assets/imgs/album/photo33.jpg",
       alt: "2026 Graduation",
       caption: "2026 Graduation!",
