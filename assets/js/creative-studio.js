@@ -104,7 +104,7 @@ document.addEventListener("DOMContentLoaded", function () {
       {
         en: "Liao Hsiao-Wei",
         zh: "廖曉威",
-        img: "assets/imgs/team/liaohsiao.png",
+        img: "assets/imgs/team/liaohsiao.jpg",
       },
       {
         en: "Shun-Ting Chang",
@@ -157,7 +157,7 @@ document.addEventListener("DOMContentLoaded", function () {
       {
         en: "Yan-Lin Chen",
         zh: "陳彥霖",
-        img: "assets/imgs/team/yanlinchen.png",
+        img: "assets/imgs/team/yanlinchen.jpg",
       },
       {
         en: "Jen Kuang Chien",
@@ -367,11 +367,11 @@ document.addEventListener("DOMContentLoaded", function () {
         zh: "曾裕興",
         img: "assets/imgs/team/Achita Chitraphan.jpg",
       },
-      { en: "Stephanie", zh: "陳姵妏", img: "assets/imgs/team/Stephanie.png" },
+      { en: "Stephanie", zh: "陳姵妏", img: "assets/imgs/team/Stephanie.jpg" },
       {
         en: "Nattapat Ittikosil",
         zh: "許裕華",
-        img: "assets/imgs/team/Nattapat Ittikosil.png",
+        img: "assets/imgs/team/Nattapat Ittikosil.jpg",
       },
       { en: "Joan Tsai", zh: "蔡杰恩", img: "assets/imgs/team/Joan Tsai.jpg" },
       {
@@ -393,7 +393,7 @@ document.addEventListener("DOMContentLoaded", function () {
       {
         en: "Brandon Louis Chiender",
         zh: "周遠雄",
-        img: "assets/imgs/team/Brandon Louis Chiender.png",
+        img: "assets/imgs/team/Brandon Louis Chiender.jpg",
       },
       {
         en: "Cappi Wong",
