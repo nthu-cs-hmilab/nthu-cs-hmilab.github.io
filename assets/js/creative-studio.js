@@ -54,7 +54,7 @@ document.addEventListener("DOMContentLoaded", function () {
         zh: "劉岳濬",
         img: "assets/imgs/team/yuehchun.jpeg",
       },
-      { en: "Yang-Chen Lin", zh: "林泱辰", img: "assets/imgs/team/yc.jpg" },
+      { en: "Yang Chen Lin", zh: "林泱辰", img: "assets/imgs/team/yc.jpg" },
     ],
 
     graduate: [
@@ -252,7 +252,7 @@ document.addEventListener("DOMContentLoaded", function () {
     ],
 
     ra: [
-      { en: "Han-Jay Hsu", zh: "許瀚杰", img: "assets/imgs/team/hanjay.jpg" },
+      { en: "張沂竣", zh: "", img: "assets/imgs/logo2.png" },
     ],
 
     alumni: [
@@ -432,6 +432,7 @@ document.addEventListener("DOMContentLoaded", function () {
       { en: "Erich Wu", zh: "吳聲宏", img: "assets/imgs/team/Erich_Wu.png" },
       { en: "Hsi-Yu Ho", zh: "何習與", img: "assets/imgs/team/Hsi-Yu Ho.jpg" },
       { en: "Chao-Hsuan Lin", zh: "林晁璿", img: "assets/imgs/team/ray.jpg" },
+      { en: "Han-Jay Hsu", zh: "許瀚杰", img: "assets/imgs/team/hanjay.jpg" },
     ],
   };
 
